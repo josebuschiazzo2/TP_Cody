@@ -1,0 +1,81 @@
+#bg-image {
+}
+.carousel img {
+  margin-top: 68px;
+  height: 600px;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  background-attachment: fixed;
+  background-size: cover;
+}
+/* overlay's style. */
+
+ .overlay {
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 62.5%;
+  background-color: rgba(0, 0, 0, 0.5);
+ color: white;
+}
+.titleOverlay{
+margin-top: 200px;
+text-align: center;
+}
+.textOverlay{
+  margin: 30px;
+  text-align: justify;
+}
+/* contact button  */
+#contact{
+  background-color: #293E4A;
+    border: 0;
+  color: white;
+margin-left: 150px;
+}
+
+/* responsive behaviour  */
+
+ @media (max-width: 1113px)
+  {
+    .titleOverlay{
+      text-align: center;
+      }
+    .textOverlay{
+    display: auto;
+    }
+  }   
+ 
+  @media (max-width: 768px){
+    #contact { 
+      margin-left:75px;
+    }
+  }
+
+  @media (max-width: 640px)
+  {
+    .titleOverlay{
+
+      text-align: center;
+      font-size:20pt;
+      }
+      #contact{
+        margin-left: 50px;
+        }
+    }
+   @media (max-width: 475px)
+  {
+    .titleOverlay{
+      text-align: center;
+      font-size: medium;
+      padding: 0px;
+    }
+    .carousel img {
+      height: 400px;
+    }
+    #contact{
+    margin-left: 10px;
+    }
+  }   

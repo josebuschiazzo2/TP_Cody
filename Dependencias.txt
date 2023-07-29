@@ -1,0 +1,5 @@
+1) npm install react
+2) npm install react-dom
+3) npm install react-router-dom
+4) npm install react-scripts
+5) npm install bootstrap
