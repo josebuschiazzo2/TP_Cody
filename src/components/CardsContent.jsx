@@ -1,11 +1,7 @@
 import '../styles/card.css';
 
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-} from 'react-router-dom';
+
 
 import Belgrano2 from '../images/Belgrano2Small.jpg';
 import Brown from '../images/BrownSmall.jpg';
@@ -19,17 +15,18 @@ import Orcadas from '../images/OrcadasSmall.jpg';
 import Petrel from '../images/PetrelSmall.jpg';
 import Primavera from '../images/PrimaveraSmall.jpg';
 import SanMartin from '../images/SanMartinSmall.jpg';
-import BaseCarlini from './BaseCarlini';
-import BaseEsperanza from './BaseEsperanza';
 import Card from './Card';
+import { Link } from 'react-router-dom';
 
 function CardsContent() {
 
   return (
-    <Router>
+   
     <div>
       <div  id="cards" className='container'>
+<Link rel="stylesheet" to="/carlini" />
          <Card
+        
           cardImg={Carlini}
           cardLink="/Carlini"  // Pasa la URL "/Carlini" como prop cardLink
           cardBadge="Permanente"
@@ -113,13 +110,7 @@ function CardsContent() {
           cardTitle="Base Petrel"
           cardText="UBICACIÓN GEOGRÁFICA Rada Petrel, Isla Dundee 63°28´S - 56°12´O" />
       </div> 
-      <Routes>
-       <Route path="/Carlini" element={BaseCarlini} /> 
-       <Route path="/Esperanza" element={BaseEsperanza} />
-          {/* Configura las rutas para las demás páginas  <Route path="/Carlini" component={BaseCarlini} /> */}
-      </Routes>
     </div>
-    </Router>
   )
 
 }
