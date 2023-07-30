@@ -17,7 +17,7 @@ import Primavera from '../images/PrimaveraSmall.jpg';
 import SanMartin from '../images/SanMartinSmall.jpg';
 import Card from './Card';
 import { Link } from 'react-router-dom';
-
+ 
 function CardsContent() {
 
   return (
