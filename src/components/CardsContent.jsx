@@ -1,8 +1,5 @@
 import '../styles/card.css';
-
 import React from 'react';
-
-
 import Belgrano2 from '../images/Belgrano2Small.jpg';
 import Brown from '../images/BrownSmall.jpg';
 import Camara from '../images/CamaraSmall.jpg';
