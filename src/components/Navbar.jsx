@@ -36,12 +36,7 @@ function Navbar() {
                   <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item mx-1">
-                 
-                  <Link id="climaLink" class="nav-link active" to="/clima_antartico">Clima antártico</Link>
-                  <hr id="lineNavbar" />
-                </li>
-                <li className="nav-item mx-1">
-                  <Link id="graficosLink" class="nav-link active" to="/graficos">Gráficos</Link>
+                  <Link id="graficosLink" class="nav-link active" to="/graficasClimaticas">Gráficas Climáticas</Link>
                   <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item mx-1">
@@ -56,6 +51,11 @@ function Navbar() {
                   <Link id="nosotrosLink" class="nav-link active" to="/sobrenosotros">Sobre Nosotros</Link>
                   <hr id="lineNavbar"  />
                 </li>
+                <li className="nav-item mx-1">
+                 
+                 <Link id="climaLink" class="nav-link active" to="/contacto">Contacto</Link>
+                 <hr id="lineNavbar" />
+               </li>
               </ul>
               {/* Login / Sign up QUEIZAS DEBA SALIR DE AQUI YA QUE SE ABRE EN UNA VENTANA NUEVA ANTES DE RENDERIZAR EL HOME */}
              

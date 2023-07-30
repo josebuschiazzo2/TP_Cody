@@ -11,10 +11,8 @@ function Card(props) {
           <div className="card">
             <img className="card-img-top" src={props.cardImg} alt="" />
             <div className="card-body">
-              <div className="badges">
-                <span className="badge badge-success">{props.cardBadge}</span>
-              </div>
-              <h5 className="card-title" id="card1">{props.cardTitle}</h5>
+                <div><span className={props.tipoDeBase}>{props.cardBadge}</span></div>
+              <h5 className="card-title mt-4" id="card1">{props.cardTitle}</h5>
               <p className="card-text">{props.cardText}</p>
             </div>
           </div>
