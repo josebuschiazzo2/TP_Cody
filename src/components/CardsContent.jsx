@@ -1,5 +1,5 @@
 import '../styles/card.css';
-import React from 'react';
+import { React, useRef } from 'react';
 import Belgrano2 from '../images/Belgrano2Small.jpg';
 import Brown from '../images/BrownSmall.jpg';
 import Camara from '../images/CamaraSmall.jpg';
@@ -13,30 +13,38 @@ import Petrel from '../images/PetrelSmall.jpg';
 import Primavera from '../images/PrimaveraSmall.jpg';
 import SanMartin from '../images/SanMartinSmall.jpg';
 import Card from './Card';
-import { Link } from 'react-router-dom';
- 
-function CardsContent() {
+import { useState } from 'react';
+import BaseCarlini from "./BaseCarlini"
+import BaseEsperanza from './BaseEsperanza';
+const CardsContent = () => {
+  const [contentToShow, setContentToShow] = useState(null);
+  const handleButtonClick = (component) => {
+    setContentToShow(component);
 
+  };
   return (
    
     <div>
+<div id='dinamicDiv' > 
+{contentToShow}
+</div>
+
       <div  id="cards" className='container'>
-<Link rel="stylesheet" to="/carlini" />
-         <Card
-        
+      <a href="#dinamicDiv" onClick={() => handleButtonClick(<BaseCarlini />)}>
+
+         <Card 
           cardImg={Carlini}
-          cardLink="/Carlini"  // Pasa la URL "/Carlini" como prop cardLink
           cardBadge="Permanente"
           cardTitle="Base Carlini"
           cardText="Está ubicada en Caleta Potter, Isla 25 de Mayo, y es la principal base científica permanente argentina. Su origen data del 21 de noviembre de 1953 cuando la Armada Argentina instaló el Refugio Naval Caleta Potter, luego Estación Aeronaval."/>
-
+ </a>
+ <a href="#dinamicDiv" onClick={() => handleButtonClick(<BaseEsperanza />)}>
         <Card
           cardImg={Esperanza}
-          cardLink="/Esperanza"// Pasa la URL "/Esperanza" como prop cardLink
           cardBadge="Permanente"
           cardTitle="Base esperanza"
           cardText="Fue inaugurada en diciembre de 1952 como Base de Ejército Bahía Esperanza por el entonces capitán Jorge Edgar Leal, luego comandante de la Operación 90, la expedición terrestre argentina al Polo Sur, y también director de la Dirección Nacional del Antártico (DNA)" />
-
+</a>
         <Card
           cardImg={Marambio}
           cardLink="/Marambio"

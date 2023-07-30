@@ -1,6 +1,5 @@
 import './styles/App.css';
 import Home from './components/Home';
-import Carlini from './components/BaseCarlini';
 import ClimaAntartico from './components/ClimaAntartico';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min'; 
@@ -15,7 +14,6 @@ const App = () => {
       <Router>
         <Routes> 
         <Route path= "/" element = {<Home />}/>
-        <Route path= "/Carlini" element ={<Carlini/>}/>
         <Route path= "/clima_antartico" element ={<ClimaAntartico/>}/>
         <Route path= "/graficos" element ={<Graficos/>}/>
         <Route path= "/noticias" element ={<Noticias/>}/>
