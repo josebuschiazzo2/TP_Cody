@@ -1,4 +1,5 @@
 import '../styles/navbar.css';
+import { Link } from 'react-router-dom';
 
 import LogoCodyPNG from '../images/LogoCodyPNG.png';
 
@@ -35,25 +36,26 @@ function Navbar() {
                   <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item mx-1">
-                  <a id="climaLink" class="nav-link active" href="">Clima antártico</a>
+                  <Link id="graficosLink" class="nav-link active" to="/graficasClimaticas">Gráficas Climáticas</Link>
                   <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item mx-1">
-                  <a id="graficosLink" class="nav-link active" href="">Gráficos</a>
+                  <Link id="noticiasLink" class="nav-link active" to="/noticias">Noticias</Link>
                   <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item mx-1">
-                  <a id="noticiasLink" class="nav-link active" href="">Noticias</a>
+                  <Link id="comunidadLink" class="nav-link active" to="/comunidad">Comunidad</Link>
                   <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item mx-1">
-                  <a id="comunidadLink" class="nav-link active" href="">Comunidad</a>
-                  <hr id="lineNavbar" />
-                </li>
-                <li className="nav-item mx-1">
-                  <a id="nosotrosLink" class="nav-link active" href="">Sobre Nosotros</a>
+                  <Link id="nosotrosLink" class="nav-link active" to="/sobrenosotros">Sobre Nosotros</Link>
                   <hr id="lineNavbar"  />
                 </li>
+                <li className="nav-item mx-1">
+                 
+                 <Link id="climaLink" class="nav-link active" to="/contacto">Contacto</Link>
+                 <hr id="lineNavbar" />
+               </li>
               </ul>
               {/* Login / Sign up QUEIZAS DEBA SALIR DE AQUI YA QUE SE ABRE EN UNA VENTANA NUEVA ANTES DE RENDERIZAR EL HOME */}
              

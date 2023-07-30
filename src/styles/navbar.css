@@ -3,19 +3,16 @@
   margin-right: 10px;
   border-radius: 100px;
 }
-
 .offcanvas-body {
   margin-left: 20%;
 }
-
 .navbar {
   background: linear-gradient(90deg, #000000, #395566 70%, black);
   height: 70px;
 }
-
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show {
-  color: rgb(254, 254, 254);
+  color: rgb(254, 254, 254)!important;
   font-size: 17px;
 }
 #ingresar-btn, #registrarse-btn{
@@ -25,10 +22,7 @@ color: white;
 #ingresar-btn:hover, #registrarse-btn:hover{
   background-color:#025c6e;
   color: white;
-  
   }
-.nav-item
-{color:whitesmoke} 
 #inicioLink:hover,
 #climaLink:hover,
 #graficosLink:hover,
