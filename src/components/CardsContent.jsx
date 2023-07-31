@@ -1,5 +1,10 @@
 import '../styles/card.css';
-import { React, useRef } from 'react';
+
+import {
+  React,
+  useState,
+} from 'react';
+
 import Belgrano2 from '../images/Belgrano2Small.jpg';
 import Brown from '../images/BrownSmall.jpg';
 import Camara from '../images/CamaraSmall.jpg';
@@ -7,16 +12,15 @@ import Carlini from '../images/CarliniSmall.jpg';
 import Decepcion from '../images/DecepcionSmall.jpg';
 import Esperanza from '../images/EsperanzaSmall.jpg';
 import Marambio from '../images/MarambioSmall.jpg';
+import Matienzo from '../images/MatienzoSmall.jpg';
 import Melchior from '../images/MelchiorSmall.jpg';
 import Orcadas from '../images/OrcadasSmall.jpg';
 import Petrel from '../images/PetrelSmall.jpg';
 import Primavera from '../images/PrimaveraSmall.jpg';
 import SanMartin from '../images/SanMartinSmall.jpg';
-import Card from './Card';
-import { useState } from 'react';
-import BaseCarlini from "./BaseCarlini"
+import BaseCarlini from './BaseCarlini';
 import BaseEsperanza from './BaseEsperanza';
-
+import Card from './Card';
 
 const CardsContent = () => {
   const [contentToShow, setContentToShow] = useState(null);
@@ -115,11 +119,17 @@ const CardsContent = () => {
           cardBadge="Temporal"
           cardTitle="Base Petrel"
           cardText="UBICACIÓN GEOGRÁFICA Rada Petrel, Isla Dundee 63°28´S - 56°12´O" />
+
+        <Card
+          cardImg={Matienzo}
+          tipoDeBase="temporal"
+          cardBadge="Temporal"
+          cardTitle="Base Matienzo"
+          cardText="UBICACIÓN GEOGRÁFICA Nunatak Larsen (Nunatak Foca), barrera de hielos Larsen (mar de Weddell) 64°58´33´S - 60°4´15´O" />  
       </div> 
     </div>
   )
 
 }
-
 export default CardsContent;
 

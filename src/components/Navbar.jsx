@@ -1,4 +1,5 @@
 import '../styles/navbar.css';
+
 import { Link } from 'react-router-dom';
 
 import LogoCodyPNG from '../images/LogoCodyPNG.png';
@@ -32,7 +33,7 @@ function Navbar() {
               <ul className="navbar-nav   fs-5 p-2 flex-grow-1 pe-5">
 
                 <li className=" nav-item mx-1">
-                <a id="inicioLink" class="nav-link active " href="">Inicio</a>
+                <Link id="inicioLink" class="nav-link active " to="/">Inicio</Link>
                   <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item mx-1">
@@ -56,6 +57,15 @@ function Navbar() {
                  <Link id="climaLink" class="nav-link active" to="/contacto">Contacto</Link>
                  <hr id="lineNavbar" />
                </li>
+                <li className="nav-item mx-1">
+                 <Link id="IniciarLink" class="nav-link active" to="/IniciarSecion">Ingresá</Link>
+                 <hr id="lineNavbar" />
+               </li>
+               <li className="nav-item mx-1">
+                 <Link id="RegistrarmeLink" class="nav-link active" to="/Registrarme">Creá tu cuenta</Link>
+                 <hr id="lineNavbar" />
+               </li>
+            
               </ul>
               {/* Login / Sign up QUEIZAS DEBA SALIR DE AQUI YA QUE SE ABRE EN UNA VENTANA NUEVA ANTES DE RENDERIZAR EL HOME */}
              

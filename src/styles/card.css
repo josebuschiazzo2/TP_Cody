@@ -1,3 +1,7 @@
+a {
+ text-decoration: none !important;
+}
+
 .permanente{
   background-color: green;
   border-radius: 4px;
