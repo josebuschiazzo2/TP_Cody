@@ -1,0 +1,19 @@
+.divAbout{
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+   text-align: center;
+   margin-left: 15px;
+}
+
+.divAbout2{
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+    text-align: center;
+    margin-left: 15px;
+}
+
+.cardAbout{
+  margin: auto;
+}
