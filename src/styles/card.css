@@ -1,3 +1,8 @@
+a {
+ text-decoration: none;
+
+}
+
 .permanente{
   background-color: green;
   border-radius: 4px;
@@ -39,6 +44,12 @@ border-radius: 0%;
   flex-wrap: wrap;
   margin: auto;
   justify-content: space-evenly;
+}
+
+.bases{
+  align-items: center;
+  text-align: center;
+  padding: 3%;
 }
 
 @media (max-width: 720px) {

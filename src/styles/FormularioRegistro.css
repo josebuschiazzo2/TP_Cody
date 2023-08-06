@@ -1,0 +1,85 @@
+
+.inicio {
+    background-image: url("antartidafondoPNG2.png");
+    background-size:cover;
+    background-repeat: no-repeat;
+   background-position: center;
+   background-attachment: fixed;
+    height: 1000px;
+    display: flex;
+    gap: 1rem;
+    color: aliceblue;
+}
+
+.form {
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    height: 40%;
+    padding: 1%;
+    padding-left: 8%;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 4px;
+    font-family: 'Calibri';
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+    box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.3), inset 5px -5px 0px 5px rgba(200, 200, 200, 0.15), inset -2px -2px 0px 5px rgba(195, 195, 195, 0.15);
+    background: rgba(180, 180, 180, 0.3);
+    filter: blur(5%);
+    z-index:9;
+    
+  }
+
+.titulo {
+    color: rgb(2, 45, 83);
+ margin-bottom: 2%;
+margin-top: 1%;
+}
+
+.texto {
+
+    color: rgb(2, 45, 83);
+margin-bottom: 3%;
+}  
+
+
+.control {
+    width: 40%;
+    background: #e4eef879;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 4%;
+    margin-right: 2%;
+    border: 1px solid #acc3f5;
+    font-family: 'calibri';
+    font-size: 14px;
+    color: rgb(2, 45, 83);
+}
+
+.form button {
+    width: 82%;
+    background:#03809c;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: auto;
+    font-size: 16PX;
+    cursor: pointer; 
+}
+
+.form button:hover {
+    width: 82%;
+    background: #025c6e;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: auto;
+    font-size: 16PX;
+}
+
+
+.texto_form {
+    color: rgb(6, 55, 99);
+}
