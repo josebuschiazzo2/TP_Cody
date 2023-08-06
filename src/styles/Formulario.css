@@ -1,0 +1,188 @@
+ 
+.formulario {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    height: 50%;
+    width: 400px;
+    overflow: hidden;
+    box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.3), inset 5px -5px 0px 5px rgba(200, 200, 200, 0.15), inset -2px -2px 0px 5px rgba(195, 195, 195, 0.15);
+    background: rgba(180, 180, 180, 0.3);
+    filter: blur(5%);
+    z-index:9;
+}
+
+
+.glass-wrap {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.3), inset 5px -5px 0px 5px rgba(200, 200, 200, 0.15), inset -2px -2px 0px 5px rgba(195, 195, 195, 0.15);
+  }
+  
+  .glass {
+    width: 100%;
+    height: 100%;
+    left: 4px;
+    top: 4px;
+    background: rgba(180, 180, 180, 0.3);
+    filter: blur(2px);
+    z-index:999;
+  }
+
+a {
+    color:rgb(2, 39, 39)
+}
+
+.body {
+    background-image: url("antartidafondoPNG2.png");
+    background-size:cover;
+    background-repeat: no-repeat;
+   background-position: center;
+   background-attachment: fixed;
+    height: 1000px;
+    display: flex;
+    justify-content: left;
+
+}
+
+
+.inicio {
+    height: 850px;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: rgb(3, 24, 43);
+  
+}
+
+.texto_form {
+    color: rgb(2, 45, 83);
+}
+.bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.left {
+    padding-right: 10px;
+}
+.right {
+    padding-left: 10px;
+}
+
+/* COMIENZA EL ESTILO DEL MENSAJE DE INICIO  */
+
+section {
+    width: 100%;
+    margin-top: 1%;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: center;
+    flex-direction: row;
+ 
+ }
+ 
+ .mensaje-inicio {
+ 
+     justify-content: flex-start;
+     align-items:flex-end;
+     align-content: space-around;
+     text-align: right;
+     height: 120px;
+     width: 600px;
+     flex-direction: column;
+     display: flex;
+     margin-top: 3%;
+     margin-bottom: 10%;
+     margin-left: 13%;
+     color: rgb(2, 27, 51);
+     text-shadow: 0.05em 0.07em 0 rgba(247, 192, 226, 0.938);
+ }
+ 
+
+
+/* COMIENZAN LAS MEDIA QUERY  */
+
+@media (max-width: 900px) {
+    
+    section {
+        margin-top: 2%;
+     }
+
+     .mensaje-inicio {
+        text-align: right;
+        height: 120px;
+        width: 600px;
+        flex-direction: column;
+        display: flex;
+        margin-top: 3%;
+        margin-bottom: 10%;
+        margin-left: 13%;
+    }
+
+    .formulario {
+      
+        gap: 1rem;
+        height: 50%;
+        width: 380px;
+    
+    }    
+  
+}
+
+@media (max-width: 690px) {
+    section {
+        margin-top: 2%;
+     } 
+     .mensaje-inicio {
+        text-align: left;
+        height: 120px;
+        width: 500px;
+        flex-direction: column;
+        display: flex;
+        margin-top: 3%;
+        margin-bottom: 10%;
+        margin-left: 5%;
+    }
+
+    .formulario {
+        margin-top: 3%;
+        gap: 1rem;
+        height: 40%;
+        width: 380px;
+    
+    }      
+  
+}
+
+@media (max-width: 460px) {
+    section {
+        margin-top: 4%;
+     }
+     .mensaje-inicio {
+        text-align: left;
+        height: 100px;
+        width: 500px;
+        flex-direction: column;
+        display: flex;
+        margin-top: 3%;
+        margin-bottom: 8%;
+        margin-left: 2%;
+    }
+    .formulario {
+        margin-top: 6%;
+        gap: 1rem;
+        height: 40%;
+        width: 360px;
+    
+    }             
+  
+}
+
+
+

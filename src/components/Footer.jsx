@@ -52,11 +52,11 @@ function Footer() {
       </div>
       <hr id="lineFooter" />
       <div className="linksFooter">
-        <a id="ContactoLink" href="">Contacto</a>
-        <a id="soporteLink" href="">Servicios</a>
-        <a id="terminosYcondicionesLink" href="">Información Útil</a>
-        <a id="privacidadLink" href="">Política de Privacidad</a>
-        <a id="pfLink" href="">Preguntas Frecuentes</a>
+        <a id="ContactoLink" href="/">Contacto</a>
+        <a id="soporteLink" href="/">Servicios</a>
+        <a id="terminosYcondicionesLink" href="/">Información Útil</a>
+        <a id="privacidadLink" href="/">Política de Privacidad</a>
+        <a id="pfLink" href="/">Preguntas Frecuentes</a>
       </div>
       <div  className="footerText">
         <p>© Cody Creative 2023 Copyright. Todos los Derechos Reservados </p>

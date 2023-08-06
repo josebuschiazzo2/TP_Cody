@@ -28,8 +28,10 @@ color: white;
 #graficosLink:hover,
 #noticiasLink:hover,
 #comunidadLink:hover,
-#nosotrosLink:hover {
-  color: #0095c0;
+#nosotrosLink:hover,
+#IniciarLink:hover,
+#RegistrarmeLink:hover {
+  color: #0095c0 !important;
   text-shadow: 0px 0px 7px rgba(255, 255, 255, 0.603);
 }
 

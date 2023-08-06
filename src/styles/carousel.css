@@ -1,9 +1,9 @@
-#bg-image {
-}
+
+
 .carousel img {
-  margin-top: 68px;
   height: 600px;
   width: 100%;
+  margin-top: 68px;
   display: block;
   object-fit: cover;
   background-attachment: fixed;
@@ -15,67 +15,118 @@
   position: absolute;
   top: 0%;
   bottom: 0%;
-  left: 0%;
-  right: 62.5%;
-  background-color: rgba(0, 0, 0, 0.5);
+  left: 2.5%;
+  right: 74%;
+  background-color: rgba(88, 87, 87, 0.404);
  color: white;
+
 }
+
+.overlay p {
+  color: white;
+}
+
 .titleOverlay{
-margin-top: 200px;
-text-align: center;
+  justify-content: center;
+  margin-top: 250px;
+  text-align: center;
+  text-shadow: 0 20px 20px 20px rgba(65, 61, 61, 0.596);
 }
 .textOverlay{
-  margin: 30px;
-  text-align: justify;
+  font-size: 18px;
+  text-align: left;
+
 }
-/* contact button  */
+
+/*  button  */
 #contact{
-  background-color: #293E4A;
-    border: 0;
+  background-color: #09344d;
+  border: 0;
   color: white;
-margin-left: 150px;
+  margin-left: 10%;
 }
 
 /* responsive behaviour  */
 
- @media (max-width: 1113px)
+
+ @media (max-width: 1200px)
   {
+ 
+    .overlay {
+      position: absolute;
+      top: 0%;
+      bottom: 0%;
+      left: 1%;
+      right: 77%;
+   
+    }
     .titleOverlay{
       text-align: center;
+      font-size: 25px;
       }
     .textOverlay{
     display: auto;
+    font-size: 17px;
     }
+
+    #contact{
+      margin-top: 5%;
+      }
+  
   }   
  
   @media (max-width: 768px){
-    #contact { 
-      margin-left:75px;
-    }
+
+
+    .titleOverlay{
+      text-align: left;
+      font-size: 22px;
+      }
+
+      #contact{
+        margin-top: 50%;
+        }
+
+    .carousel img {
+    height: 500px;
+ 
+  }     
+
+   
   }
 
   @media (max-width: 640px)
   {
     .titleOverlay{
-
-      text-align: center;
-      font-size:20pt;
+      text-align: left;
+      font-size:20px;
       }
+
+      .carousel img {
+        height: 400px;
+      }
+      
       #contact{
-        margin-left: 50px;
+      margin-top: 50%;
+      }
+
+      .textOverlay{
+        display: auto;
+        font-size: 13px;
         }
+    
     }
    @media (max-width: 475px)
   {
     .titleOverlay{
-      text-align: center;
-      font-size: medium;
-      padding: 0px;
+    display: none;
+    }
+    .overlay{
+      display: none;
     }
     .carousel img {
-      height: 400px;
+      height: 300px;
     }
-    #contact{
-    margin-left: 10px;
-    }
+
+   
   }   
