@@ -1,0 +1,7 @@
+.card-img-top {
+  /*width: 200px; 
+  height: 200px; */
+  object-fit: cover;
+  background-attachment: fixed;
+  background-size: cover;
+} 

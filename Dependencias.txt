@@ -4,3 +4,4 @@
 4) npm install react-scripts
 5) npm install bootstrap
 npm install axios
+npm install react-chat
