@@ -1,0 +1,170 @@
+
+  .jumbotron {
+    width: 20%;
+    height: fit-content;
+    margin: 40px;
+    background-color: rgba(87, 96, 96, 0.224);
+    color: rgb(10, 10, 10);
+    border-radius: 10px;
+  }
+  
+  .jumbotron h1{
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  .jumbotron p{
+    font-size: 0.9rem;
+    text-align: justify;
+  }
+  #community{
+    padding: 10px;
+  margin: 50px 0px 100px 50px;
+  border:0px solid rgba(209, 204, 204, 0.695);
+  border-radius: 10px;
+  background: radial-gradient(circle, rgba(103,159,193,1) 0%, rgba(12,18,22,1) 100%);
+  min-height: 100vh;
+  min-width: 60%;
+  max-width: 60%;
+  }
+  /* background: radial-gradient(circle, rgba(103,159,193,1) 0%, rgba(12,18,22,1) 100%); */
+  
+  /* FOTO DE PERFIL TEMPORAL  */
+  #profilePic{
+      border-radius: 50%;
+      margin-right: 10px;
+      width: 33px;
+      height: 30px;
+      
+  }
+  
+  /* BOTON PUBLICAR */
+  #publish-btn{
+    margin: 2px;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 5px;
+  height: min-content;
+  background: linear-gradient(80deg, #4B91F7 0%, #367AF6 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  color: white;
+  }
+  
+  
+  /*  NUEVA PUBLICACION */
+  #newPostField{
+    width: 100%;
+    height: 70px;
+    resize: none;
+    border-radius: 5px;
+    border: 1px solid rgba(189, 188, 188, 0.429);
+    outline: none;
+  
+  }
+  
+  /* SECCION DE PUBLICACIONES Y COMENTARIOS  */
+  .comment-container{
+    
+    margin: 10px;
+    border: 1px solid rgb(189, 188, 188);
+    border-radius: 5px;
+    padding: 20px;
+    background-color: white;
+    text-align: justify;
+  }
+  
+  #newReplySection{
+    padding: 10px;
+    }
+  /* TEXTAREA PARA ESCRIBIR COMENTARIO A PUBLICACION PRINCIPAL */
+  
+  #newCommentField{
+    height: 30px;
+    resize: none;
+    border-radius: 5px;  
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid rgb(189, 188, 188);
+    width: 100%;
+    overflow: hidden;
+    outline: none;
+  
+  }
+  .listaDeRespuestas{
+  margin-left: 35px;
+  }
+  /* LIKE BTN: */
+  
+  .like-btn img{
+    filter: invert(26%) sepia(0%) saturate(2872%) hue-rotate(358deg) brightness(84%) contrast(79%);
+  }
+  
+  .like-btn{
+  justify-content: center;    
+  align-items: center;
+  background-color: transparent;
+    border-style: none;
+    width: 50px;
+    height: 32px;
+  }
+  button.active{
+    border-radius: 5px;
+          animation: like-btn-Animation 0.6s both;
+  }
+  button.active img{
+    filter: invert(39%) sepia(93%) saturate(3760%) hue-rotate(219deg) brightness(100%) contrast(93%);
+  }
+  .likesCounter{
+    display: inline-flex;
+    justify-content: center;    
+    align-items: center;
+    background-color: transparent;
+        border-style: none;
+        width: 50px;
+        height: 32px;
+  }
+  
+  
+  #sendComment-btn
+  {
+      font-size: 0.95rem;
+    margin-left: 6px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+    border-radius: 6px;
+    border: none;
+  color: #fff;
+    background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
+  }
+  .like-comment-btn{
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 3px;
+  margin: 4px;
+  }
+  
+  .estiloComentario{
+  padding: 10px;
+  }
+  @keyframes like-btn-Animation {
+    
+    0% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+      }
+      50% {
+        -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+      }
+      100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+      }
+  
+   }
+   @media (max-width: 991px) {
+    #left-part{
+      display: none;
+    }
+   }
+  
+  
+  
