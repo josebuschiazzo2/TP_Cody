@@ -3,7 +3,7 @@ import '../styles/comunidad.css';
 import Navbar from "./Navbar"
 import likeBtn from "../images/like-btn-bnw-100px.png"
 import Footer from './Footer'
-function Comentarios() {
+function Comunidad() {
   const [message, setMessage] = useState('');
   const [listaDePublicaciones, setListaDePublicaciones] = useState([]);
 
@@ -192,4 +192,4 @@ está fijo
   );
 }
 
-export default Comentarios;
+export default Comunidad;
