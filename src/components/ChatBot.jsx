@@ -1,46 +1,67 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
-import Chat from "react-chat";
+import "../styles/chat.css"; // Importamos el archivo CSS con los estilos del chat
 
 const ChatBot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
   useEffect(() => {
-    // Get the chat history from the server
+    // Obtenemos el historial del chat del servidor
     fetch("/api/v1/chat/history")
-      .then(response => response.json())
-      .then(data => setMessages(data.messages));
-  }, []);
+      .then((response) => response.json())
+      .then((data) => setMessages(data.messages));
+
+    // Función para que el bot responda automáticamente al abrir el chat
+    const initialMessage = "Hola"; // Mensaje inicial que envía el usuario al abrir el chat
+    const botResponse = "Hola! soy Cody.. en que puedo ayudarte?"; // Respuesta automática del bot
+    const botMessage = {
+      type: "bot",
+      content: botResponse,
+    };
+
+    setTimeout(() => {
+      setMessages([...messages, botMessage]);
+    }, 1500); // Simulamos una respuesta después de 1 segundo
+  }, []); 
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
   };
 
   const handleSend = (e) => {
-    e.preventDefault();
-
-    // Send the message to the server
-    fetch("/api/v1/chat/send", {
-      method: "POST",
-      body: JSON.stringify({
-        message: input,
-      }),
-    });
-
-    setInput("");
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const userMessage = {
+        type: "user",
+        content: input,
+      };
+      setMessages([...messages, userMessage]);
+      setInput("");
+    }
   };
 
   return (
-    <div>
-      <Chat messages={messages} />
-      <input
-        type="text"
-        placeholder="En que te puedo Ayudar?"
-        value={input}
-        onChange={handleInputChange}
-      />
-      <button onClick={handleSend}>Enviar</button>
+    <div className="chat-wrapper">
+      <div className="chat-container">
+        {/* Renderizamos los mensajes del chat */}
+        {messages.map((message, index) => (
+          <div
+            key={index}
+            className={`message ${message.type === "user" ? "user-message" : "bot-message"}`}
+          >
+            {message.content}
+          </div>
+        ))}
+      </div>
+      <div className="input-container">
+        <input
+          type="text"
+          placeholder="Realice aca su pregunta"
+          value={input}
+          onChange={handleInputChange}
+          onKeyDown={handleSend} // Agrego el evento onKeyDown para detectar la pulsación de Enter
+        />
+      </div>
     </div>
   );
 };

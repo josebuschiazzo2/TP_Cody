@@ -37,7 +37,7 @@ function Noticias() {
           {newsData.map((item, index) => (
             <div key={index} className="col-lg-4 col-md-6 col-sm-12">
               <Card
-                cardImg={item.urlToImage} // Esta es una estructura condicional (operador ternario) que verifica si el artículo tiene una imagen (urlToImage). Si el artículo tiene una imagen, se renderiza el contenido dentro de la Card. Ahora si el artículo no tiene una imagen, se renderiza null, lo que significa que no se tiene ninguna tarjeta para ese artículo sin imagen.
+                cardImg={item.urlToImage} // Esta es una estructura condicional (operador ternario) que verifica si el artículo tiene una imagen (urlToImage). Si el artículo tiene una imagen, se renderiza el contenido dentro de la Card. Ahora si el artículo no tiene una imagen, se renderiza null, lo que significa que no se tiene qu ninguna tarjeta para ese artículo sin imagen.
                 //tipoDeBase={isToday(parseISO(item.publishedAt)) ? 'temporal' : 'permanente'}
                 cardBadge={format(parseISO(item.publishedAt), 'dd/MM/yyyy')}
                 cardTitle={item.title}

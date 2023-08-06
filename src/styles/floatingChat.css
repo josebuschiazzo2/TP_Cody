@@ -5,25 +5,25 @@
     z-index: 999;
     border-radius: 50%;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     background-color: rgba(61, 60, 60, 0.9); /* esto ajusta  la opacidad */
   }
   
   .floating-chat.open {
     width: 300px;
-    height: 500px;
-    border-radius: 10px;
+    height: 400px;
+    border-radius: 20px;
   }
   
   .chat-toggle {
     width: 60px;
     height: 60px;
-    background-color: #007bff;
-    color: #3b588a; 
+    background-color: #070808;
+    color: #fcf5f3; 
     border: none;
     border-radius: 50%;
-    font-size: 18px;
+    font-size: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,7 +48,18 @@
 }
 
 
+.chatbot-name {
+  font-size: 15px;
+  color: #fff;
+  margin-top: 5px;
+  margin-right: 5px
+  
+}
 
+.chat-icon-container {
+  display: flex;
+  align-items: center; /* Alinea verticalmente el texto y la imagen */
+  margin-right: 0px; /* Espacio entre el texto y la imagen */
+  
 
-
-
+}

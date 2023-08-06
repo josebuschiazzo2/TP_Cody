@@ -1,65 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { Line } from 'react-chartjs-2';
+import React from 'react';
 import Footer from './Footer';
 import Navbar from './Navbar';
-import Papa from 'papaparse';
 import '../styles/graficos.css';
 
-function Graficos() {
-  const [chartData, setChartData] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('/src/data/codybdtemp.csv'); // Ruta relativa desde el directorio del proyecto
-        const csvData = await response.text();
-        const parsedData = Papa.parse(csvData, { header: true });
-
-        // Procesar los datos para usarlos en el gráfico
-        const labels = parsedData.data.map((item) => item.Fecha);
-        const datasets = [
-          {
-            label: 'Carlini',
-            data: parsedData.data.map((item) => parseFloat(item.Temperatura)),
-            borderColor: 'rgba(255, 99, 132, 1)',
-            fill: false,
-          },
-          // Agregar más datasets para otras estaciones
-        ];
-
-        const data = { labels, datasets };
-        setChartData(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  const options = {
-    responsive: true,
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
-  };
-
+const Graficos = () => {
   return (
     <div id="Graficos">
       <Navbar />
       <div className="container">
-        <h1 className="p-5 m-5">Graficos</h1>
-        {chartData && (
-          <div className="chart-container">
-            <Line data={chartData} options={options} />
-          </div>
-        )}
+        <h1 className="p-5 m-5">Gráficos</h1>
+        <div className="embed-responsive embed-responsive-16by9">
+        <iframe
+          className="embed-responsive-item"
+          src="https://app.powerbi.com/groups/me/reports/5dcdc34d-7cc6-43e7-9203-90e5c38b85a4?ctid=abad18ee-d8eb-448a-8db7-f0f7e7a01f4b&pbi_source=linkShare"
+          allowFullScreen 
+        ></iframe>
+
+        </div>
       </div>
       <Footer />
     </div>
   );
-}
+};
 
 export default Graficos;
