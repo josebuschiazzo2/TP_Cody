@@ -30,7 +30,7 @@ function Noticias() {
   return (
     <div id="Noticias">
       <Navbar />
-      <div className="container">
+      <div className="containernews">
         <h1 className='p-5 m-5'> NOTICIAS</h1>
 
         <div className="row">

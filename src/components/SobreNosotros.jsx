@@ -63,46 +63,48 @@ const SobreNosotros = () => {
   return (
     <div>
       <Navbar />
-      <h1 className='p-5 m-5'> SOBRE NOSOTROS </h1>
-      <h5 className='p-1 m-5'>Bienvenidos a Cody app!</h5>
-      <h5 className='p-0 m-5' onClick={handleAbrirModal1} style={{ cursor: 'pointer' }}>{texto1}</h5>
-      <h5 className='p-0 m-5' onClick={handleAbrirModal2} style={{ cursor: 'pointer' }}>{texto2}</h5>
-      {modalVisible1 && (
-        <div className="modal">
-          <div className="modal-content">
-            <form onSubmit={handleActualizarTexto1}>
-              <textarea name="texto" defaultValue={texto1} />
-              <button type="submit">Actualizar Texto</button>
-            </form>
+      <div className="containersobrenosotros">
+        <h1 className='p-5 m-5'> SOBRE NOSOTROS </h1>
+        <h5 className='p-1 m-5'>Bienvenidos a Cody app!</h5>
+        <h5 className='p-0 m-5' onClick={handleAbrirModal1} style={{ cursor: 'pointer' }}>{texto1}</h5>
+        <h5 className='p-0 m-5' onClick={handleAbrirModal2} style={{ cursor: 'pointer' }}>{texto2}</h5>
+        {modalVisible1 && (
+          <div className="modal">
+            <div className="modal-content">
+              <form onSubmit={handleActualizarTexto1}>
+                <textarea name="texto" defaultValue={texto1} />
+                <button type="submit">Actualizar Texto</button>
+              </form>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
        {modalVisible2 && (
-        <div className="modal">
-          <div className="modal-content">
-            <form onSubmit={handleActualizarTexto2}>
-              <textarea name="texto" defaultValue={texto2} />
-              <button type="submit">Actualizar Texto</button>
-            </form>
+          <div className="modal">
+            <div className="modal-content">
+              <form onSubmit={handleActualizarTexto2}>
+                <textarea name="texto" defaultValue={texto2} />
+                <button type="submit">Actualizar Texto</button>
+              </form>
+            </div>
+          </div>
+        )}
+
+        <h1 className='p-5 m-5'> Integrandes del Grupo: </h1>
+        <div className="containerabout">
+          <div className="row justify-content-center">
+            {integrantes.map((integrante, index) => (
+              <div key={index} className="col-lg-4 col-md-6 col-sm-12">
+                <Card
+                  cardTitle={integrante.cardTitle}
+                  cardText={integrante.cardText}
+                  cardLink={integrante.cardLink}
+                  cardImg={integrante.cardImg} 
+                  cardBadge={integrante.cardBadge}
+                /></div>
+              ))}
           </div>
         </div>
-      )}
-
-      <h1 className='p-5 m-5'> Integrandes del Grupo: </h1>
-       <div className="containerabout">
-      <div className="row justify-content-center">
-        {integrantes.map((integrante, index) => (
-            <div key={index} className="col-lg-4 col-md-6 col-sm-12">
-             <Card
-            cardTitle={integrante.cardTitle}
-            cardText={integrante.cardText}
-            cardLink={integrante.cardLink}
-            cardImg={integrante.cardImg} 
-            cardBadge={integrante.cardBadge}
-            /></div>
-        ))}
-      </div>
       </div>
       <Contacto/>
       <Footer />
