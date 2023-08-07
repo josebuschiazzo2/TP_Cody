@@ -47,8 +47,7 @@ const ChatBot = () => {
         {messages.map((message, index) => (
           <div
             key={index}
-            className={`message ${message.type === "user" ? "user-message" : "bot-message"}`}
-          >
+            className={`message ${message.type === "user" ? "user-message" : "bot-message"}`}>
             {message.content}
           </div>
         ))}

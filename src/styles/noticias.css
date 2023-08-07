@@ -6,58 +6,79 @@
   }
   
   
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(120px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(120px);
   }
-  
-  
-  .row .col-lg-4,
-  .row .col-md-6,
-  .row .col-sm-12 {
-    animation: fadeIn 1s ease;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
   
   
-  .containernews {
-    width: 80%;
-    max-width: 1200px;
-  }
+.row .col-lg-4,
+.row .col-md-6,
+.row .col-sm-12 {
+  animation: fadeIn 1s ease;
+}
+  
+  
+.containernews {
+  width: 80%;
+  max-width: 1200px;
+}
  
-  .containernews .card {
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-  }
+.containernews .card {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
   
-  .containernews .card-img-top {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    object-fit: cover;
-    height: 180px;
-  }
+.containernews .card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+  height: 180px;
+}
   
-  .containernews .card-body {
-    text-align: center;
-  }
+.containernews .card-body {
+  text-align: center;
+}
   
-  .containernews .card-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-  }
+.containernews .card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
   
-  .containernews .card-text {
-    font-size: 1rem;
-    color: #6c757d;
-  }
-  .containernews h1 {
-    margin: 5rem auto; 
-    font-size: 2.5rem;
-    text-align: center;
-  }
+.containernews .card-text {
+  font-size: 1rem;
+  color: #6c757d;
+}
+.containernews h1 {
+  margin: 5rem auto; 
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.load-more-news {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.load-more-news button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.load-more-news button:hover {
+  background-color: #0056b3;
+}
+

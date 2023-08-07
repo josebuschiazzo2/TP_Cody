@@ -11,7 +11,7 @@ const FloatingChat = () => {
   };
   return (
     <div>
-      {isOpen && <div className="chat-overlay" onClick={toggleChat} />} {/* Capa de fondo semitransparente */}
+      {isOpen && <div className="chat-overlay" onClick={toggleChat} aria-label="Hola Soy Chatboy Cody"/>} {/* Capa de fondo semitransparente */}
       <div className={`floating-chat ${isOpen ? "open" : ""}`}>
         <button className="chat-toggle" onClick={toggleChat}>
           <div className="chat-icon-container">
