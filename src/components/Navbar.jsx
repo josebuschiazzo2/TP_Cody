@@ -49,14 +49,9 @@ function Navbar() {
                   <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item mx-1">
-                  <Link id="nosotrosLink" className="nav-link active" to="/sobrenosotros">Sobre Nosotros</Link>
+                  <Link id="nosotrosLink" className="nav-link active" to="/sobrenosotros">Contactenos</Link>
                   <hr id="lineNavbar"  />
                 </li>
-                <li className="nav-item mx-1">
-                 
-                 <Link id="climaLink" className="nav-link active" to="/contacto">Contacto</Link>
-                 <hr id="lineNavbar" />
-               </li>
                 <li className="nav-item mx-1">
                  <Link id="IniciarLink" className="nav-link active" to="/IniciarSecion">Ingresá</Link>
                  <hr id="lineNavbar" />

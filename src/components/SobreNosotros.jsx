@@ -1,11 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from './Card';
 import Footer from './Footer';
 import Navbar from './Navbar';
 //import linkedinIcon from '../images/linkedinIcon.png';
-//import '../styles/sobreNosotros.css';
+import '../styles/sobreNosotros.css';
+import Contacto from './Contacto';
+
 
 const SobreNosotros = () => {
+  const [texto1, setTexto1] = useState(`
+    Somos un grupo de estudiantes de Full Stack Development
+    que estamos trabajando en este proyecto final para demostrar nuestras habilidades
+    y conocimientos adquiridos durante el curso.
+  `);
+
+    const [texto2, setTexto2] = useState(`
+    Nuestro objetivo es crear aplicaciones
+    web innovadoras y funcionales que puedan mejorar la experiencia de los usuarios.
+    Estamos entusiasmados de presentarles este proyecto y esperamos que disfruten
+    explorando las diferentes secciones de la aplicación.
+  `);
+  
+  const [modalVisible1, setModalVisible1] = useState(false);
+  const [modalVisible2, setModalVisible2] = useState(false);
+  const handleAbrirModal1 = () => {setModalVisible1(true);};
+  const handleActualizarTexto1 = (event) => {
+    event.preventDefault();
+    setTexto1(event.target.texto.value);
+    setModalVisible1(false);
+  };
+   const handleAbrirModal2 = () => {setModalVisible2(true);};
+  const handleActualizarTexto2 = (event) => {
+    event.preventDefault();
+    setTexto2(event.target.texto.value);
+    setModalVisible2(false);
+  };
+  
   const integrantes = [
     {
       cardTitle: "Evelin Vidal",
@@ -35,15 +65,33 @@ const SobreNosotros = () => {
       <Navbar />
       <h1 className='p-5 m-5'> SOBRE NOSOTROS </h1>
       <h5 className='p-1 m-5'>Bienvenidos a Cody app!</h5>
-      <h5 className='p-1 m-5'> Somos un grupo de estudiantes de Full Stack Development
-              que estamos trabajando en este proyecto final para demostrar nuestras habilidades
-              y conocimientos adquiridos durante el curso. </h5>
-      <h5 className='p-0 m-5'>Nuestro objetivo es crear aplicaciones
-              web innovadoras y funcionales que puedan mejorar la experiencia de los usuarios.
-              Estamos entusiasmados de presentarles este proyecto y esperamos que disfruten
-              explorando las diferentes secciones de la aplicación.</h5>
+      <h5 className='p-0 m-5' onClick={handleAbrirModal1} style={{ cursor: 'pointer' }}>{texto1}</h5>
+      <h5 className='p-0 m-5' onClick={handleAbrirModal2} style={{ cursor: 'pointer' }}>{texto2}</h5>
+      {modalVisible1 && (
+        <div className="modal">
+          <div className="modal-content">
+            <form onSubmit={handleActualizarTexto1}>
+              <textarea name="texto" defaultValue={texto1} />
+              <button type="submit">Actualizar Texto</button>
+            </form>
+          </div>
+        </div>
+      )}
+
+       {modalVisible2 && (
+        <div className="modal">
+          <div className="modal-content">
+            <form onSubmit={handleActualizarTexto2}>
+              <textarea name="texto" defaultValue={texto2} />
+              <button type="submit">Actualizar Texto</button>
+            </form>
+          </div>
+        </div>
+      )}
+
       <h1 className='p-5 m-5'> Integrandes del Grupo: </h1>
-      <div className="row">
+       <div className="containerabout">
+      <div className="row justify-content-center">
         {integrantes.map((integrante, index) => (
             <div key={index} className="col-lg-4 col-md-6 col-sm-12">
              <Card
@@ -55,6 +103,8 @@ const SobreNosotros = () => {
             /></div>
         ))}
       </div>
+      </div>
+      <Contacto/>
       <Footer />
     </div>
   );
