@@ -25,45 +25,38 @@
   }
   
   
-  .container {
-    width: 90%;
+  .containernews {
+    width: 80%;
     max-width: 1200px;
   }
-  
-
-  h1 {
-    margin: 5rem 0;
-    font-size: 2.5rem;
-  }
-  
-
-  .card {
-    border-radius: 10px;
+ 
+  .containernews .card {
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 1rem;
   }
   
-  .card-img-top {
+  .containernews .card-img-top {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     object-fit: cover;
-    height: 200px;
+    height: 180px;
   }
   
-  .card-body {
+  .containernews .card-body {
     text-align: center;
   }
   
-  .card-title {
+  .containernews .card-title {
     font-size: 1.25rem;
     font-weight: bold;
   }
   
-  .card-text {
+  .containernews .card-text {
     font-size: 1rem;
     color: #6c757d;
   }
-  h1 {
+  .containernews h1 {
     margin: 5rem auto; 
     font-size: 2.5rem;
     text-align: center;
