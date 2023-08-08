@@ -4,12 +4,12 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 import ChatBot from './FloatingChat';
 import axios from 'axios';
-import { isToday, parseISO, format } from 'date-fns'; //probe de varias formas y preguntando a la IA y eso me funco
+import {parseISO, format } from 'date-fns'; //probe de varias formas y preguntando a la IA y eso me funco
 import '../styles/noticias.css';
 
 function Noticias() {
   const [newsData, setNewsData] = useState([]);
-  const [newsToShow, setNewsToShow] = useState(21); // Estado para el número de noticias a mostrar
+  const [newsToShow, setNewsToShow] = useState(9); // Estado para el número de noticias a mostrar
 
   const fetchNews = async () => {
     const apiKey = '8613c9fce4674e0994c38ffa6850524c'; //lo pongo aparte para que no se me pierda y no se donde lo deje en el mail ja
@@ -27,12 +27,10 @@ function Noticias() {
       }
   };
 
-  useEffect(() => {
-    fetchNews();
-  }, [newsToShow]); // Ejecuta fetchNews() cada vez que newsToShow cambia
+  useEffect(() => {fetchNews();}, [newsToShow]); // Ejecuta fetchNews() cada vez que newsToShow cambia
 
   const handleShowMoreNews = () => {
-    setNewsToShow((prevNewsToShow) => prevNewsToShow + 21); // Incrementa el número de noticias a mostrar en 21
+    setNewsToShow((prevNewsToShow) => prevNewsToShow + 9); // Incrementa el número de noticias a mostrar en 21
   };
 
   return (
@@ -53,7 +51,7 @@ function Noticias() {
           ))}
         </div>
         <div className="load-more-news">
-          <button onClick={handleShowMoreNews}>+</button>
+          <button onClick={handleShowMoreNews}>Más Noticias</button>
         </div>
       </div>
       <Footer />
