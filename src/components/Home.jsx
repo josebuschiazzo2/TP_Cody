@@ -1,5 +1,3 @@
-import '../styles/homeUser.css';
-
 import CardsContent from './CardsContent';
 import Carousel from './Carousel';
 import Footer from './Footer';
