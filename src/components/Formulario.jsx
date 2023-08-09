@@ -65,7 +65,7 @@ function Formulario({ setUser }){
              
              <button id="registrarse-btn"
              className="text-decoration-none px-2 py-1 rounded-4">Ingresar</button>
-             <a href="/*"/*</form>onClick={() => handleButtonClick()}*/>has click para crear una cuenta con nosotros</a>
+             <a href="/Registrarme"/*</form>onClick={() => handleButtonClick()}*/>has click para crear una cuenta con nosotros</a>
              
             </form>
         {error && <h4>Todos los campos son obligatorios</h4> }  
