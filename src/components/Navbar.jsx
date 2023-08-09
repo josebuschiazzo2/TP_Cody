@@ -32,34 +32,31 @@ function Navbar() {
               {/*En <ul> se puede modificar la posicion del menu con la clase justify-content-center o justify-content-end  */}
               <ul className="navbar-nav   fs-5 p-2 flex-grow-1 pe-5">
 
-                <li className=" nav-item mx-1">
+                <li className=" nav-item mx-3">
                 <Link id="inicioLink" className="nav-link active " to="/">Inicio</Link>
                   <hr id="lineNavbar" />
                 </li>
-                <li className="nav-item mx-1">
+                <li className="nav-item mx-3">
                   <Link id="graficosLink" className="nav-link active" to="/graficasClimaticas">Gráficas Climáticas</Link>
                   <hr id="lineNavbar" />
                 </li>
-                <li className="nav-item mx-1">
+                <li className="nav-item mx-3">
                   <Link id="noticiasLink" className="nav-link active" to="/noticias">Noticias</Link>
                   <hr id="lineNavbar" />
                 </li>
-                <li className="nav-item mx-1">
+                <li className="nav-item mx-3">
                   <Link id="comunidadLink" className="nav-link active" to="/comunidad">Comunidad</Link>
                   <hr id="lineNavbar" />
                 </li>
-                <li className="nav-item mx-1">
+                <li className="nav-item mx-3">
                   <Link id="nosotrosLink" className="nav-link active" to="/sobrenosotros">Contactenos</Link>
                   <hr id="lineNavbar"  />
                 </li>
-                <li className="nav-item mx-1">
+                <li className="nav-item mx-3">
                  <Link id="IniciarLink" className="nav-link active" to="/IniciarSecion">Ingresá</Link>
                  <hr id="lineNavbar" />
                </li>
-               <li className="nav-item mx-1">
-                 <Link id="RegistrarmeLink" className="nav-link active" to="/Registrarme">Creá tu cuenta</Link>
-                 <hr id="lineNavbar" />
-               </li>
+              
             
               </ul>
               {/* Login / Sign up QUEIZAS DEBA SALIR DE AQUI YA QUE SE ABRE EN UNA VENTANA NUEVA ANTES DE RENDERIZAR EL HOME */}
