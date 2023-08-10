@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import LogoCodyPNG from '../images/LogoCodyPNG.png';
 
-function Navbar() {
+function Navbar(props) {
   return (
       <header> 
       {/* navbar */}
@@ -33,7 +33,7 @@ function Navbar() {
               <ul className="navbar-nav   fs-5 p-2 flex-grow-1 pe-5">
 
                 <li className=" nav-item mx-3">
-                <Link id="inicioLink" className="nav-link active " to="/">Inicio</Link>
+                <Link id="inicioLink" className={`nav-link active ${props.claseHome}`} to="/">Inicio</Link>
                   <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item mx-3">

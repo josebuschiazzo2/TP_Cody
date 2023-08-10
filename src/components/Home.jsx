@@ -4,13 +4,9 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 
 function Home() {
-
- 
-
-
   return (
     <div id='Home'>
-        <Navbar/> 
+        <Navbar claseHome="hidden"/> 
         <Carousel/>
         
         <CardsContent/>
