@@ -2,7 +2,9 @@ a {
  text-decoration: none;
 
 }
-
+.tipoBase{
+  text-align: end;
+}
 .permanente{
   background-color: green;
   border-radius: 4px;

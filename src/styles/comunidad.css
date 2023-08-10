@@ -3,7 +3,7 @@
     width: 20%;
     height: fit-content;
     margin: 40px;
-    background-color: rgba(87, 96, 96, 0.224);
+    background-color: #59a1af;
     color: rgb(10, 10, 10);
     border-radius: 10px;
   }
@@ -90,6 +90,8 @@
   }
   .listaDeRespuestas{
   margin-left: 35px;
+  word-wrap: break-word; 
+
   }
   /* LIKE BTN: */
   
@@ -132,6 +134,7 @@
     border: none;
   color: #fff;
     background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
+    height: min-content;
   }
   .like-comment-btn{
   display: flex;
@@ -143,6 +146,13 @@
   
   .estiloComentario{
   padding: 10px;
+  word-wrap: break-word; 
+  }
+  .comentarioPublicado{
+    border: 1px solid rgb(189, 188, 188);
+    border-radius: 10px;
+    margin: 5px;
+    padding: 2px;
   }
   @keyframes like-btn-Animation {
     

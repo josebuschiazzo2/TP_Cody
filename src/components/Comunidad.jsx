@@ -1,8 +1,10 @@
 import React, { useState, useRef } from 'react';
 import '../styles/comunidad.css';
-import Navbar from "./Navbar"
-import likeBtn from "../images/like-btn-bnw-100px.png"
-import Footer from './Footer'
+import Navbar from "./Navbar";
+import likeBtn from "../images/like-btn-bnw-100px.png";
+import TextareaAutosize from 'react-textarea-autosize';
+import Footer from './Footer';
+
 function Comunidad() {
   const [message, setMessage] = useState('');
   const [listaDePublicaciones, setListaDePublicaciones] = useState([]);
@@ -54,7 +56,7 @@ const enviarComentario=(event)=>{
   // Función like and toggle like, (A MODIFICAR). 
   const likeToggle = () => {
     setBtnState(!btnState);
-    if (btnState==false){
+    if (btnState===false){
     setLike(like + 1);
     }
     else{
@@ -94,13 +96,13 @@ const enviarComentario=(event)=>{
           src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
           alt='imagen de perfil'
         />
-        <textarea
-          name='newPost'
-          id='newPostField'
-          value={message}
-          onChange={contenidoPublicacion}
-          placeholder='Añade una nueva publicación...'
-        />
+      <TextareaAutosize
+     name='newPost'
+     id='newPostField'
+     value={message}
+     onChange={contenidoPublicacion}
+     placeholder='Añade una nueva publicación...'
+    />
         <button id='publish-btn' onClick={publish}>
           publicar
         </button>
@@ -154,7 +156,7 @@ está fijo
 
 <div className='listaDeRespuestas'>
                   {listaDeRespuestas.map((respuesta1, index) =>(
-  <div key={index}>
+  <div key={index} className='comentarioPublicado'>
     <p>{respuesta1}</p>
   </div>
 ))}
@@ -165,16 +167,15 @@ está fijo
      */}
                   <div id='newReplySection' className="py-3 border-1 d-flex flex-row" >
                     
-                    <textarea
-          name='respuesta'                        
-          maxLength={550}
-          value={respuesta}
-          id='newCommentField'
-          inputRef={comentarioRef}
-          onChange={enviarComentario}
-          placeholder="Escribe tu comentario..."
-          
-          />                        
+                  <TextareaAutosize
+ name='respuesta'                        
+ maxLength={550}
+ value={respuesta}
+ id='newCommentField'
+ inputRef={comentarioRef}
+ onChange={enviarComentario}
+ placeholder="Escribe tu comentario..."
+    />       
           <button onClick={postComment} id='sendComment-btn'>Enviar</button>
 
                       <div className='d-flex justify-content-end'>
