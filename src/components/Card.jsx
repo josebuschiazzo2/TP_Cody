@@ -11,7 +11,7 @@ function Card(props) {
           <div className="card">
             <img className="card-img-top" src={props.cardImg} alt="" />
             <div className="card-body">
-                <div><span className={props.tipoDeBase}>{props.cardBadge}</span></div>
+                <div className='tipoBase'><span className={props.tipoDeBase}>{props.cardBadge}</span></div>
               <h5 className="card-title mt-4" id="card1">{props.cardTitle}</h5>
               <p className="card-text">{props.cardText}</p>
             </div>

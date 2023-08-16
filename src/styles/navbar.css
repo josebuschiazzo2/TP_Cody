@@ -3,6 +3,9 @@
   margin-right: 10px;
   border-radius: 100px;
 }
+.hidden{
+  display: none;
+}
 .offcanvas-body {
   margin-left: 20%;
 }
