@@ -122,7 +122,7 @@ index es su índice
             <div className='d-flex flex-row'>
             <img
           id='profilePic'
-          src='https://st3.depositphotos.com/8696740/17700/v/600/depositphotos_177002208-stock-illustration-christmas-penguin-vector-character-cartoon.jpg'
+          src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
           alt='imagen de perfil'
         />
 {/* aca deberán estar los datos extraidos de la tabla MySql distribuidos en 
