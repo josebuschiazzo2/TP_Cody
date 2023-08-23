@@ -40,7 +40,7 @@ const CardsContent = () => {
   };
   return (
     <div>
-<div id='dinamicDiv' > 
+<div id='BaseAntartica' > 
 {contentToShow}
 </div>
 
@@ -50,7 +50,7 @@ const CardsContent = () => {
           <h6>La Argentina administra trece (13) bases en la Antártida, de las cuales seis (6) son permanentes (operativas todo el año) y el resto, temporarias (operativas sólo en verano). De ellas, dos son administradas directamente por la Cancillería: Carlini (permanente, ex base Jubany) y Brown (temporaria). Las demás bases son administradas por el Comando Conjunto Antártico (Ministerio de Defensa). Ellas son Base Orcadas,  Base Marambio, Base Esperanza, Base San Martín y Base Belgrano II (permanentes); y las bases temporarias Melchior, Decepción, Cámara, Primavera, Petrel y Matienzo.</h6>
         </div>
         
-      <a href="#dinamicDiv" onClick={() => handleButtonClick(<BaseCarlini />)}>
+      <a href="#BaseAntartica" onClick={() => handleButtonClick(<BaseCarlini />)}>
          <Card 
           cardImg={Carlini}
           tipoDeBase="permanente"
@@ -58,7 +58,7 @@ const CardsContent = () => {
           cardTitle="Base Carlini"
           cardText="Latitud 62º 14’ S y longitud 58º 40’ W. Ubicada en la Caleta Potter, isla 25 de Mayo, Shetland del Sur. "/>
  </a>
- <a href="#dinamicDiv" onClick={() => handleButtonClick(<BaseEsperanza />)}>
+ <a href="#BaseAntartica" onClick={() => handleButtonClick(<BaseEsperanza />)}>
         <Card
           cardImg={Esperanza}
           tipoDeBase="permanente"
@@ -66,7 +66,7 @@ const CardsContent = () => {
           cardTitle="Base esperanza"
           cardText="Latitud 63º 24’ S y longitud 57º 00’ W. Ubicada en el extremo norte de la Península Trinidad, Bahía Esperanza, Estrecho Antarctic." />
 </a>
-<a href="#dinamicDiv" onClick={() => handleButtonClick(<BaseMarambio />)}>
+<a href="#BaseAntartica" onClick={() => handleButtonClick(<BaseMarambio />)}>
         <Card
           cardImg={Marambio}
           tipoDeBase="permanente"
@@ -74,7 +74,7 @@ const CardsContent = () => {
           cardTitle="Base Marambio"
           cardText="Latitud 64º 14’ S y longitud 56º 37’ W. Ubicada en la Isla Marambio (ex Seymur) sobre el Mar de Weddell" />
 </a>
-<a href="#dinamicDiv" onClick={() => handleButtonClick(<BaseOrcadas />)}>
+<a href="#BaseAntartica" onClick={() => handleButtonClick(<BaseOrcadas />)}>
         <Card
           cardImg={Orcadas}
           cardBadge="Permanente"
@@ -82,7 +82,7 @@ const CardsContent = () => {
           cardTitle="Base Orcadas"
           cardText="Istmo de la isla Laurie, islas Orcadas del Sur. 60°44′25.6″S 44°44′24.3″O" />
 </a>
-<a href="#dinamicDiv" onClick={() => handleButtonClick(<BaseSanMartin />)}>
+<a href="#BaseAntartica" onClick={() => handleButtonClick(<BaseSanMartin />)}>
         <Card
           cardImg={SanMartin}
           tipoDeBase="permanente"
@@ -90,7 +90,7 @@ const CardsContent = () => {
           cardTitle="Base San Martín"
           cardText="En el islote Barry/San Martín. En la costa Fallières de la península Antártica. 68°07′47″S 67°06′10″O" />
 </a>
-<a href="#dinamicDiv" onClick={() => handleButtonClick(<BaseBelgrano2 />)}>
+<a href="#BaseAntartica" onClick={() => handleButtonClick(<BaseBelgrano2 />)}>
         <Card
           cardImg={Belgrano2}
           tipoDeBase="permanente"
@@ -98,7 +98,7 @@ const CardsContent = () => {
           cardTitle="Base Belgrano II"
           cardText="Está ubicada sobre el Nunatak Bertrab, en los 77º51’S y 34º33’W, en bahía de Vahsel sobre la costa Confín en la Tierra de Cotas." />
 </a>
-<a href="#dinamicDiv" onClick={() => handleButtonClick(<BaseCamara />)}>
+<a href="#BaseAntartica" onClick={() => handleButtonClick(<BaseCamara />)}>
         <Card
           cardImg={Camara}
           tipoDeBase="temporal"
@@ -106,7 +106,7 @@ const CardsContent = () => {
           cardTitle="Base Cámara"
           cardText="UBICACIÓN GEOGRÁFICA Caleta Menguante, isla Media Luna 62°36´S - 59°54´O" />
 </a>
-<a href="#dinamicDiv" onClick={() => handleButtonClick(<BaseDecepcion />)}>
+<a href="#BaseAntartica" onClick={() => handleButtonClick(<BaseDecepcion />)}>
         <Card
           cardImg={Decepcion}
           tipoDeBase="temporal"
@@ -114,7 +114,7 @@ const CardsContent = () => {
           cardTitle="Base Decepción"
           cardText="UBICACIÓN GEOGRÁFICA Bahía 1˚ de Mayo, isla Decepción 62°59´S - 60°43´O" />
 </a>
-<a href="#dinamicDiv" onClick={() => handleButtonClick(<BasePrimavera />)}>
+<a href="#BaseAntartica" onClick={() => handleButtonClick(<BasePrimavera />)}>
         <Card
           cardImg={Primavera}
           tipoDeBase="temporal"
@@ -122,7 +122,7 @@ const CardsContent = () => {
           cardTitle="Base Primavera"
           cardText="UBICACIÓN GEOGRÁFICA  Cabo Primavera, Costa Danco 64°09´S - 60°58´O" />
 </a>
-<a href="#dinamicDiv" onClick={() => handleButtonClick(<BaseMelchior />)}>
+<a href="#BaseAntartica" onClick={() => handleButtonClick(<BaseMelchior />)}>
         <Card
           cardImg={Melchior}
           tipoDeBase="temporal"
@@ -130,7 +130,7 @@ const CardsContent = () => {
           cardTitle="Base Melchior"
           cardText="UBICACIÓN GEOGRÁFICA Isla Observatorio, Archipiélago Melchior 64°20´S - 62°59´O" />
 </a>
-<a href="#dinamicDiv" onClick={() => handleButtonClick(<BaseBrown />)}>
+<a href="#BaseAntartica" onClick={() => handleButtonClick(<BaseBrown />)}>
         <Card
           cardImg={Brown}
           tipoDeBase="temporal"
@@ -138,7 +138,7 @@ const CardsContent = () => {
           cardTitle="Base Brown"
           cardText="UBICACIÓN GEOGRÁFICA Punta Proa, Bahía Puerto Paraíso 64°52´S - 62°54´O64°52´S - 62°54´O" />
 </a>
-<a href="#dinamicDiv" onClick={() => handleButtonClick(<BasePetrel />)}>
+<a href="#BaseAntartica" onClick={() => handleButtonClick(<BasePetrel />)}>
         <Card
           cardImg={Petrel}
           tipoDeBase="temporal"
@@ -146,7 +146,7 @@ const CardsContent = () => {
           cardTitle="Base Petrel"
           cardText="UBICACIÓN GEOGRÁFICA Rada Petrel, Isla Dundee 63°28´S - 56°12´O" />
 </a>
-<a href="#dinamicDiv" onClick={() => handleButtonClick(<BaseMatienzo />)}>
+<a href="#BaseAntartica" onClick={() => handleButtonClick(<BaseMatienzo />)}>
         <Card
           cardImg={Matienzo}
           tipoDeBase="temporal"
