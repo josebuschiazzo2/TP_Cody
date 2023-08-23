@@ -5,6 +5,8 @@
 5) npm install bootstrap
 npm install axios
 npm install react-chat
-npm i react-textarea-autosize 
-
+npm i react-textarea-autosize
+// nestjs // 
+npm install @nestjs/common
+npm install @nestjs/core
 

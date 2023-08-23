@@ -1,5 +1,5 @@
 
-.inicio {
+.registro_inicio {
     background-image: url("antartidafondoPNG2.png");
     background-size:cover;
     background-repeat: no-repeat;
@@ -83,3 +83,118 @@ margin-bottom: 3%;
 .texto_form {
     color: rgb(6, 55, 99);
 }
+
+
+/* En pantallas con un ancho máximo de 900px */
+
+@media (max-width: 1200px) {
+    .registro_inicio {
+ 
+        flex-direction: column;
+    }
+    
+    .form {
+        width: 60%;
+        height: auto;
+        margin-top: 12%;
+        padding: 5%;
+        padding-left: 2%;
+       
+    }
+    .titulo,
+    .texto {
+        margin-bottom: 2%;
+    }
+
+    .control {
+        width: 100%;
+        margin-right: 0;
+    }
+    
+    .form button {
+        width: 100%;
+    }
+    
+    .texto_form {
+        color: rgb(6, 55, 99);
+    }
+
+}
+
+@media (max-width: 900px) {
+    .registro_inicio {
+ 
+        flex-direction: column;
+    }
+    
+    .form {
+        width: 60%;
+        height: auto;
+        margin-top: 12%;
+        padding: 5%;
+        padding-left: 5%;
+       
+    }
+    
+    .titulo,
+    .texto {
+        margin-bottom: 2%;
+    }
+    
+    .control {
+        width: 100%;
+        margin-right: 0;
+    }
+    
+    .form button {
+        width: 100%;
+    }
+    
+    .texto_form {
+        color: rgb(6, 55, 99);
+    }
+}
+
+/* En pantallas con un ancho máximo de 690px */
+@media (max-width: 690px) {
+    .form {
+        width: 60%;
+        height: auto;
+        margin-top: 12%;
+        padding: 3%;
+        padding-left: 3%;
+    }
+    
+    .titulo,
+    .texto {
+        margin-bottom: 1%;
+    }
+    
+    .control {
+        margin-bottom: 3%;
+    }
+}
+
+/* En pantallas con un ancho máximo de 460px */
+@media (max-width: 460px) {
+    .form {
+        padding-top:10px;
+        height:40%;
+        padding: 2%;
+        padding-left: 2%;
+    }
+    
+    .titulo,
+    .texto {
+        font-size: 14px;
+    }
+    
+    .control {
+        font-size: 12px;
+    }
+    
+    .form button {
+        font-size: 14px;
+    }
+}
+
