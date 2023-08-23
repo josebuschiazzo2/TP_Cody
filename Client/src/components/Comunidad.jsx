@@ -71,7 +71,7 @@ const enviarComentario=(event)=>{
 // ADENTRO DE PUBLISH se inserta el POST con la URL (DEL BACKEND) y le paso la data(lo escrito por el usuario) al body.
 
   return ( <>
-    <Navbar/>
+      <Navbar  claseComunidad="underline" />
 
 <div className='d-flex flex-row'> 
 

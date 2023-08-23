@@ -27,33 +27,33 @@ function Navbar(props) {
             </div>
 
             {/* sidebar body */}
-            <div className=" offcanvas-body">
+            <div>
 
               {/*En <ul> se puede modificar la posicion del menu con la clase justify-content-center o justify-content-end  */}
-              <ul className="navbar-nav   fs-5 p-2 flex-grow-1 pe-5">
+              <ul className="navbar-nav justify-content-center  fs-5 p-2  pe-5">
 
                 <li className=" nav-item mx-3">
                 <Link id="inicioLink" className={`nav-link active ${props.claseHome}`} to="/">Inicio</Link>
                   <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item mx-3">
-                  <Link id="graficosLink" className="nav-link active" to="/graficasClimaticas">Gráficas Climáticas</Link>
+                  <Link id="graficosLink" className={`nav-link active ${props.claseGraficas}`} to="/graficasClimaticas">Gráficas</Link>
                   <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item mx-3">
-                  <Link id="noticiasLink" className="nav-link active" to="/noticias">Noticias</Link>
+                  <Link id="noticiasLink" className={`nav-link active ${props.claseNoticias}`} to="/noticias">Noticias</Link>
                   <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item mx-3">
-                  <Link id="comunidadLink" className="nav-link active" to="/comunidad">Comunidad</Link>
+                  <Link id="comunidadLink" className={`nav-link active ${props.claseComunidad}`}  to="/comunidad">Comunidad</Link>
                   <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item mx-3">
-                  <Link id="nosotrosLink" className="nav-link active" to="/sobrenosotros">Contactenos</Link>
+                  <Link id="nosotrosLink" className={`nav-link active ${props.claseSobreNosotros}`} to="/sobrenosotros">Contactenos</Link>
                   <hr id="lineNavbar"  />
                 </li>
-                <li className="nav-item mx-3">
-                 <Link id="IniciarLink" className="nav-link active" to="/IniciarSecion">Ingresá</Link>
+                <li className="nav-item ">
+                 <Link id="IniciarLink"className= "nav-link active" to="/IniciarSecion">Ingresar</Link>
                  <hr id="lineNavbar" />
                </li>
               

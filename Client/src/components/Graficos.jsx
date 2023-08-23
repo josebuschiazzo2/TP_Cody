@@ -26,7 +26,7 @@ function handleMarkSelection() {
 const Graficos = () => {
   return (
     <div id="Graficos">
-      <Navbar />
+      <Navbar  claseGraficas="underline" />
       <div className="container">
         <h1 className="p-5 m-5">Gráficos</h1>
         <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
