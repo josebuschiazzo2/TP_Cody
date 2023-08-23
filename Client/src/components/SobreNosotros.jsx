@@ -62,7 +62,7 @@ const SobreNosotros = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar claseSobreNosotros="underline" />
       <div className="containersobrenosotros">
         <h1 className='p-5 m-5'> SOBRE NOSOTROS </h1>
         <h5 className='p-1 m-5'>Bienvenidos a Cody app!</h5>
