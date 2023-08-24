@@ -28,8 +28,12 @@ const Graficos = () => {
     <div id="Graficos">
       <Navbar  claseGraficas="underline" />
       <div className="container">
-        <h1 className="p-5 m-5">Gráficos</h1>
-        <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+        <div className='textoGraficas'>
+        <h3 className='titulo_graficas text-center mt-5'>¡Bienvenidos a la página de gráficos climáticos de la Antártida!</h3>
+<p className='mb-3'> Aquí encontrarás información detallada y visualmente atractiva sobre las condiciones climáticas en esta región única y fascinante. Nuestros gráficos presentan datos meticulosamente recopilados que muestran el promedio del clima mensual en la Antártida, así como información específica sobre el clima en diferentes bases antárticas</p>
+     <p className='mb-5'>Nuestros gráficos presentan datos meticulosamente recopilados que muestran el promedio del clima mensual en la Antártida, así como información específica sobre el clima en diferentes bases antárticas. Sumérgete en la belleza y la complejidad de los patrones climáticos antárticos a través de nuestros gráficos informativos.</p>
+     </div>   
+     <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
         
         <tableau-viz id="tableauViz"       
           src='https://public.tableau.com/views/Cody2/Dashboard1?:language=es-ES&:display_count=n&:origin=viz_share_link'      

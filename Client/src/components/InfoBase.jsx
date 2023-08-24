@@ -1,5 +1,4 @@
 import '../styles/informacionBases.css';
-
 import React from 'react';
 
 function InfoBase(props) {
@@ -9,24 +8,21 @@ function InfoBase(props) {
    
     <div className={props.claseInfoBase}> 
        
-      <div >
-       <h1 className='titulo'>{props.tituloInfoBase}</h1>
+      <div className='basesHome' >
+       <h1 className='tituloBase'>{props.tituloInfoBase}</h1>
         <div className='cardBaseIzq'>
+          
+            <img className='img_base' src={props.imagenInfoBase} alt={props.altInfoBase}  />
+         
           <div>
-            <img src={props.imagenInfoBase} alt={props.altInfoBase}  />
-          </div>
-          <div>
-            <p>{props.textoInfoBase} </p>
+            <p className='texto_bases'>{props.textoInfoBase} </p>
           </div>
         </div>
         <div className='cardBaseDer'>
           <div>
-            <p>{props.textoInfoBase2} </p>
+            <p className='texto_bases'>{props.textoInfoBase2} </p>
           </div>
-            <div>
-              <img src={props.imagenInfoBase2} alt={props.altInfoBase2} />
-          </div>
-          
+              <img className='img_base' src={props.imagenInfoBase2} alt={props.altInfoBase2} />          
         </div>
        
         {/*<a href="/">{props.tituloInfoBase} </a>*/} 

@@ -46,8 +46,8 @@ const CardsContent = () => {
 
       <div  id="cards" className='container'>
         <div className='bases'>
-          <h2> Bases Antárticas Argentinas</h2>
-          <h6>La Argentina administra trece (13) bases en la Antártida, de las cuales seis (6) son permanentes (operativas todo el año) y el resto, temporarias (operativas sólo en verano). De ellas, dos son administradas directamente por la Cancillería: Carlini (permanente, ex base Jubany) y Brown (temporaria). Las demás bases son administradas por el Comando Conjunto Antártico (Ministerio de Defensa). Ellas son Base Orcadas,  Base Marambio, Base Esperanza, Base San Martín y Base Belgrano II (permanentes); y las bases temporarias Melchior, Decepción, Cámara, Primavera, Petrel y Matienzo.</h6>
+          <h3> Bases Antárticas Argentinas</h3>
+          <h6>La Argentina administra 13 bases en la Antártida, de las cuales 6 son permanentes (operativas todo el año) y el resto, temporarias (operativas sólo en verano). De ellas, 2 son administradas directamente por la Cancillería: Carlini (permanente, ex base Jubany) y Brown (temporaria). Las demás bases son administradas por el Comando Conjunto Antártico (Ministerio de Defensa). Ellas son base Orcadas,  base Marambio, base Esperanza, base San Martín y base Belgrano II (permanentes); y las bases temporarias Melchior, Decepción, Cámara, Primavera, Petrel y Matienzo.</h6>
         </div>
         
       <a href="#BaseAntartica" onClick={() => handleButtonClick(<BaseCarlini />)}>
@@ -64,7 +64,8 @@ const CardsContent = () => {
           tipoDeBase="permanente"
           cardBadge="Permanente"
           cardTitle="Base esperanza"
-          cardText="Latitud 63º 24’ S y longitud 57º 00’ W. Ubicada en el extremo norte de la Península Trinidad, Bahía Esperanza, Estrecho Antarctic." />
+          cardText="Ubicación: Latitud 63º 24’ S y longitud 57º 00’ W, extremo norte de la Península Trinidad, Bahía Esperanza, Estrecho Antarctic." 
+          />
 </a>
 <a href="#BaseAntartica" onClick={() => handleButtonClick(<BaseMarambio />)}>
         <Card

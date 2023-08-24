@@ -14,12 +14,17 @@ function Contacto() {
   }
 
   return (
-    <div className="contact-form">
+    <div>
+      <div className='texto_contacto text-center'>
+      <h4>¡Contáctanos!</h4>
+      <h5> Nos emociona recibir tus comentarios, preguntas y sugerencias. 
+Utiliza el formulario a continuación para enviarnos tus mensajes.Tu retroalimentación nos ayuda a mejorar y a ofrecerte un mejor contenido en nuestra página.</h5>
+  <h5> ¡Gracias por ser parte de nuestra comunidad informativa!</h5> </div>
+    <div className="contact-form ">
       {enviado ? (
-        <h4>Gracias por contactarnos. Tu consulta ha sido enviada con exito!.</h4>
+        <h4 className='text-center'>Gracias por contactarnos. Tu consulta ha sido enviada con exito!.</h4>
       ) : (
         <form onSubmit={handleSubmit}>
-          <h2>Contactanos</h2>
           <input
             type="text"
             placeholder="Nombre"
@@ -43,7 +48,7 @@ function Contacto() {
           <button type="submit">Enviar</button>
         </form>
       )}
-    </div>
+    </div></div>
   );
 }
 
