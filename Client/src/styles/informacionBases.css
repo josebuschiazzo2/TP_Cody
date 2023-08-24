@@ -61,7 +61,6 @@
     .cardBaseIzq {
         display: flex;
         flex-direction:column;
-        text-align: right;
         align-items: center;
         margin-top: 1%;
         margin-bottom: 1%;
@@ -70,7 +69,6 @@
     .cardBaseDer {
         display: flex;
         flex-direction: column;
-        text-align: left;
         align-items: center;
         margin-top: 1%;
         margin-bottom: 1%;
@@ -88,7 +86,7 @@
     .cardBaseIzq {
         display: flex;
         flex-direction:column;
-        text-align: right;
+
         align-items: center;
         margin-top: 1%;
         margin-bottom: 1%;
@@ -97,7 +95,6 @@
     .cardBaseDer {
         display: flex;
         flex-direction: column;
-        text-align: left;
         align-items: center;
         margin-top: 1%;
         margin-bottom: 1%;
