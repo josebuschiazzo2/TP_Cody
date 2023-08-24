@@ -41,14 +41,14 @@ function Formulario({ setUser }){
             <form className='formulario' onSubmit={handleSubmit}>
             <header>Login</header>
               <input className='texto_form px-4'
-              placeholder='Nombre de usuario'
+              placeholder='Usuario'
               type="text"
               value={nombre}
               onChange={e => setNombre(e.target.value)}
               required
               />
               <input className='texto_form px-4' 
-               placeholder='Password / Contraseña'
+               placeholder='Contraseña'
                type="password" 
                value={password}
                onChange={e => setPassword(e.target.value)}
@@ -65,8 +65,7 @@ function Formulario({ setUser }){
              
              <button id="registrarse-btn"
              className="text-decoration-none px-2 py-1 rounded-4">Ingresar</button>
-             <a href="/Registrarme"/*</form>onClick={() => handleButtonClick()}*/>has click para crear una cuenta con nosotros</a>
-             
+             <a href="/Registrarme"/*</form>onClick={() => handleButtonClick()}*/>¿Nuevo en Cody App? Crear una cuenta</a>
             </form>
         {error && <h4>Todos los campos son obligatorios</h4> }  
         </section>
