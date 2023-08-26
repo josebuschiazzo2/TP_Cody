@@ -46,7 +46,7 @@ const SobreNosotros = () => {
     },
     {
       cardTitle: "Dario Lopez",
-      cardText: "Superisor en Mirgor. Full Stack Developer",
+      cardText: "Supervisor en Mirgor. Full Stack Developer",
       cardLink: "https://www.linkedin.com/in/dar%C3%ADo-c%C3%A9sar-l%C3%B3pez",
       cardImg: "https://media.licdn.com/dms/image/D4D03AQHcChku6mJzFw/profile-displayphoto-shrink_800_800/0/1679715033735?e=1696464000&v=beta&t=0STgaMLYtjtgsRKHVM7deSg-NLmAvVKWauJPV_VztKw"
       //cardBadge: 
@@ -62,12 +62,14 @@ const SobreNosotros = () => {
 
   return (
     <div>
+      <div className='container'>
       <Navbar claseSobreNosotros="underline" />
-      <div className="containersobrenosotros">
-        <h1 className='p-5 m-5'> SOBRE NOSOTROS </h1>
-        <h5 className='p-1 m-5'>Bienvenidos a Cody app!</h5>
-        <h5 className='p-0 m-5' onClick={handleAbrirModal1} style={{ cursor: 'pointer' }}>{texto1}</h5>
-        <h5 className='p-0 m-5' onClick={handleAbrirModal2} style={{ cursor: 'pointer' }}>{texto2}</h5>
+      <div className="containersobrenosotros ">
+        <h3 className='titulo_sobreNosotros'>Bienvenidos a Cody app!</h3>
+        <div className='texto_sobreNosotros'>
+        <p onClick={handleAbrirModal1} style={{ cursor: 'pointer' }}>{texto1}</p>
+        <p onClick={handleAbrirModal2} style={{ cursor: 'pointer' }}>{texto2}</p>
+        </div>
         {modalVisible1 && (
           <div className="modal">
             <div className="modal-content">
@@ -90,7 +92,7 @@ const SobreNosotros = () => {
           </div>
         )}
 
-        <h1 className='p-5 m-5'> Integrandes del Grupo: </h1>
+        <h3 className='integrantes_titulo text-center'> Integrantes del Grupo: </h3>
         <div className="containerabout">
           <div className="row justify-content-center">
             {integrantes.map((integrante, index) => (
@@ -107,6 +109,7 @@ const SobreNosotros = () => {
         </div>
       </div>
       <Contacto/>
+      </div>
       <Footer />
     </div>
   );

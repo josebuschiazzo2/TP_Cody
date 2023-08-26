@@ -37,7 +37,12 @@ function Noticias() {
     <div id="Noticias">
       <Navbar claseNoticias="underline" />
       <div className="containernews">
-        <h1 className='p-5 m-5'> NOTICIAS</h1>
+        <div className='textoNoticias mb-5'> 
+<h3 className='text-center titulo_noticias'>¡Bienvenidos a la página de noticias de la Antártida!</h3>
+<p>Aquí encontrarás información relevante e interesante sobre los últimos acontecimientos relacionados a la Antártida. 
+En está página podrás estár actualizado con las últimas noticias recopiladas a nivel internacional sobre esta región única y fascinante del planeta.</p>
+<p>Nuestra misión es brindarte una ventana al mundo helado de la Antártida, donde la ciencia, la exploración y la conservación convergen en un entorno de desafíos extremos y descubrimientos asombrosos.</p>
+</div>
         <div className="row">
           {newsData.map((item, index) => (
             <div key={index} className="col-lg-4 col-md-6 col-sm-12">

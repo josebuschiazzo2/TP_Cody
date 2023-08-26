@@ -3,7 +3,7 @@ display: none;
 }
 .tituloJumbotron{
   color: #000000;
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: arial;
   text-align: center;
   margin-top:35px;
   background:  rgb(241, 239, 239);
@@ -14,8 +14,9 @@ display: none;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   }
   .textoJumbotron{
-    font-family: 'Poppins', sans-serif;
-     text-align: justify;
+    font-family: arial, sans-serif;    
+    text-align: justify;
+    font-size: 1rem;
      color: black;
      background:  rgb(241, 239, 239);
      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -55,9 +56,7 @@ display: none;
     min-height: 100vh;
     min-width: 60%;
     max-width: 60%;
-  }
-  /* background: radial-gradient(circle, rgba(103,159,193,1) 0%, rgba(12,18,22,1) 100%); */
-  
+  }  
   /* FOTO DE PERFIL TEMPORAL  */
   #profilePic{
       border-radius: 50%;
@@ -76,9 +75,7 @@ display: none;
   background: linear-gradient(80deg, #4B91F7 0%, #367AF6 100%);
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
   color: white;
-  }
-  
-  
+  }  
   /*  NUEVA PUBLICACION */
   #newPostField{
     width: 100%;
