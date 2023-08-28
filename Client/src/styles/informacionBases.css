@@ -48,10 +48,16 @@
     padding: 1%;
 }
 
+.titulobase {
+    margin-top: 50px;
+}
+
 {/* MEDIA QUERY   */}
 
 @media (max-width: 1100px) {
+
     .tituloBase{
+
         margin-top: 80px;
     }
     .baseCard img {
