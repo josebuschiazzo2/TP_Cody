@@ -11,28 +11,30 @@ function Carousel() {
   return (
     <div id="bg-image">
       <div id="carouselExampleInterval" className="carousel slide mb-4" data-bs-ride="carousel">
-        <div className="carousel-inner">
-          <div className="carousel-item active" data-bs-interval="5000">
+        <div className="carousel-inner" >
+          <div className="carousel-item active" data-bs-interval="3000" >
             <img src={Carousel1} className="d-block w-100" alt="..." />
           </div>
-          <div className="carousel-item" data-bs-interval="5000">
+          <div className="carousel-item" data-bs-interval="3000">
             <img src={Carousel2} className="d-block w-100" alt="..." />
           </div>
-          <div className="carousel-item" data-bs-interval="5000">
+          <div className="carousel-item" data-bs-interval="3000">
             <img src={Carousel3} className="d-block w-100" alt="..." />
           </div>
-          <div className="carousel-item" data-bs-interval="5000">
+          <div className="carousel-item" data-bs-interval="3000">
             <img src={Carousel4} className="d-block w-100" alt="..." />
           </div>
-          <div className="carousel-item" data-bs-interval="5000">
+          <div className="carousel-item" data-bs-interval="3000">
             <img src={Carousel5} className="d-block w-100" alt="..." />
           </div>
-          <div className="carousel-item" data-bs-interval="5000">
+          <div className="carousel-item" data-bs-interval="3000">
             <img src={Carousel6} className="d-block w-100" alt="..." />
           </div>
         </div>
 
-        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <button className="carousel-control-next" 
+        type="button" data-bs-target="#carouselExampleInterval" 
+        data-bs-slide="next">
           <span className="carousel-control-next-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Next</span>
         </button>

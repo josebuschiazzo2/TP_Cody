@@ -70,3 +70,9 @@ text-align: center;
   padding: 8px 16px;
   cursor: pointer;
 }
+
+@media (min-width: 1000px) {
+  .containersobrenosotros{
+    margin-top: 100px;
+    }
+}
