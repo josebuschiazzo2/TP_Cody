@@ -22,7 +22,7 @@
     padding: 15px;
 }
 .img_base {
-    min-width: 49%; 
+    width: 750px; 
     height: 300px;
     border-radius:  1px;
     box-shadow: 1px 1px 8px 3px rgba(0, 0, 0, 0.35);
@@ -33,6 +33,7 @@
     flex-direction: row;
     text-align: justify;
     align-items: center;
+    margin: auto;
     margin-top: 2%;
     margin-bottom: 1%;
     padding: 1%;
@@ -43,6 +44,7 @@
     flex-direction: row;
     text-align: justify;
     align-items: center;
+    margin: auto;
     margin-top: 2%;
     margin-bottom: 1%;
     padding: 1%;
@@ -52,7 +54,7 @@
     margin-top: 50px;
 }
 
-{/* MEDIA QUERY   */}
+
 
 @media (max-width: 1100px) {
 
@@ -60,8 +62,8 @@
 
         margin-top: 80px;
     }
-    .baseCard img {
-        width: 500px; 
+    .img_base {
+        max-width: 460px; 
         height: auto;         
     }
     .cardBaseIzq {
@@ -85,10 +87,7 @@
 
 @media (max-width: 990px) {
    
-    .baseCard img {
-        width: 380px; 
-        height: auto;         
-    }
+    
     .cardBaseIzq {
         display: flex;
         flex-direction:column;

@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import Card from './Card';
-import Footer from './Footer';
-import Navbar from './Navbar';
 //import linkedinIcon from '../images/linkedinIcon.png';
 import '../styles/sobreNosotros.css';
-import Contacto from './Contacto';
 
+import React, { useState } from 'react';
+
+import Card from './Card';
+import Contacto from './Contacto';
+import Footer from './Footer';
+import Navbar from './Navbar';
 
 const SobreNosotros = () => {
   const [texto1, setTexto1] = useState(`
@@ -41,14 +42,14 @@ const SobreNosotros = () => {
       cardTitle: "Evelin Vidal",
       cardText: "Full Stack Developer",
       cardLink: "https://www.linkedin.com/in/evelin-vidal/",
-      //cardImg: no tengo la foto
+      cardImg: "https://media.licdn.com/dms/image/D4E03AQFB9S9IVxUMOQ/profile-displayphoto-shrink_400_400/0/1693265312313?e=1698883200&v=beta&t=ode1uqaIiWmwHHNxnua9-WMKZFTyDIAv4dwttyHxIKg"
       //cardBadge:
     },
     {
       cardTitle: "Dario Lopez",
       cardText: "Supervisor en Mirgor. Full Stack Developer",
       cardLink: "https://www.linkedin.com/in/dar%C3%ADo-c%C3%A9sar-l%C3%B3pez",
-      cardImg: "https://media.licdn.com/dms/image/D4D03AQHcChku6mJzFw/profile-displayphoto-shrink_800_800/0/1679715033735?e=1696464000&v=beta&t=0STgaMLYtjtgsRKHVM7deSg-NLmAvVKWauJPV_VztKw"
+      cardImg: "https://media.licdn.com/dms/image/D4D03AQHJugzYOcRDtg/profile-displayphoto-shrink_400_400/0/1692838575833?e=1698883200&v=beta&t=BfTpZu61DXh8k2pVIEgSKrD2SmkjW27Emwsyqi6lMYI"
       //cardBadge: 
     },
     {
