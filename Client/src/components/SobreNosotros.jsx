@@ -41,8 +41,8 @@ const SobreNosotros = () => {
     {
       cardTitle: "Evelin Vidal",
       cardText: "Full Stack Developer",
-      cardLink: "https://www.linkedin.com/in/evelin-vidal/",
-      cardImg: "https://media.licdn.com/dms/image/D4E03AQFB9S9IVxUMOQ/profile-displayphoto-shrink_400_400/0/1693265312313?e=1698883200&v=beta&t=ode1uqaIiWmwHHNxnua9-WMKZFTyDIAv4dwttyHxIKg"
+      cardLink: "https://www.linkedin.com/in/evelin-vidal-740a29289/",
+      cardImg: "https://media.licdn.com/dms/image/D4E03AQEPlH03nTgddA/profile-displayphoto-shrink_800_800/0/1693348315290?e=1698883200&v=beta&t=w4DdPiyJL6EjsnWBbdIpKWzktky7gAoqgUINIvqcCEI"
       //cardBadge:
     },
     {

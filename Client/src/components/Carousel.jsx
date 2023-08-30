@@ -1,5 +1,5 @@
 import '../styles/carousel.css';
-
+import React, { useEffect } from 'react';
 import Carousel1 from '../images/Carousel1.jpg';
 import Carousel2 from '../images/Carousel2.jpg';
 import Carousel3 from '../images/Carousel3.jpg';
@@ -8,6 +8,16 @@ import Carousel5 from '../images/Carousel5.jpg';
 import Carousel6 from '../images/Carousel6.jpg';
 
 function Carousel() {
+
+  useEffect(() => {
+    setTimeout(() => {
+      const nextButton = document.querySelector('[data-bs-target="#carouselExampleInterval"][data-bs-slide="next"]');
+      if (nextButton) {
+        nextButton.click();
+      }
+    }, 2000); // Agregar un retraso
+  }, []);
+
   return (
     <div id="bg-image">
       <div id="carouselExampleInterval" className="carousel slide mb-4" data-bs-ride="carousel">

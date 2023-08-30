@@ -39,7 +39,7 @@ function Formulario({ setUser }){
                 </section>
             
             <form className='formulario' onSubmit={handleSubmit}>
-            <header>Login</header>
+            <h3>Iniciar Sesión</h3>
               <input className='texto_form px-4'
               placeholder='Usuario'
               type="text"
