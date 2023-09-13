@@ -1,223 +1,300 @@
-.mobile{
-display: none;
+.mobile {
+  display: none;
 }
-.tituloJumbotron{
+.cargar_imagen{
+background-color: white;
+color: rgb(5, 5, 5);
+width: 100%;
+padding: 4px;
+margin: 3px;
+border-radius: 10px;
+}
+#nombre_usuario{
+  width: 50%;
+ margin: 8px;
+ border-radius: 6px;
+
+}
+.form_clase{
+  width: 100%;
+}
+
+                               /* PROPIEDADES DEL BOTON DESPLEGAR */
+#radio {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+/* **clases color1 y color2 son para probar algo**  */
+.color1{
+  background-color: red;  
+}
+.color2{
+background-color: blueviolet;
+}
+/* // si menu es true se aplica la clase active-btn */
+.active-btn {
+    display: none;
+}
+.inactive-btn {
+  background-color: rgba(0, 238, 255, 0.219); 
+  border-radius: 5px;
+  display: flex;
+  align-items: start;
+  width: fit-content ;
+  height: fit-content;
+  justify-content: center;
+  position: absolute;
+  margin-top: 30px;
+  box-shadow: rgba(0, 0, 0, 0.22) 0px 2px 5px;
+  cursor: pointer;
+}
+.opcionesDesplegables {
+  border-radius: 5px;
+  padding: 2px;
+  width: min-content;
+background-color: transparent;  
+cursor: pointer;
+}
+
+                                  /* BOTON ELIMINAR PUBLICACION */
+#eliminar-btn {
+  width: fit-content;
+  margin: 3px;
+  font-size: 0.95rem;
+  border: none;
+  height: min-content;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+#eliminar-btn:hover{
+  background-color: rgb(213, 218, 216);
+}
+
+                                  /* PARTE IZQUIERDA DE LA PÁGINA, TEXTO */
+
+.tituloJumbotron {
   color: #000000;
   font-family: arial;
   text-align: center;
-  margin-top:35px;
-  background:  rgb(241, 239, 239);
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 11px );
-  -webkit-backdrop-filter: blur( 11px );
+  margin-top: 35px;
+  background: rgb(241, 239, 239);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(11px);
+  -webkit-backdrop-filter: blur(11px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-  }
-  .textoJumbotron{
-    font-family: arial, sans-serif;    
-    text-align: justify;
-    font-size: 1rem;
-     color: black;
-     background:  rgb(241, 239, 239);
-     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-     backdrop-filter: blur( 11px );
-     -webkit-backdrop-filter: blur( 11px );
-     border-radius: 10px;
-     border: 1px solid rgba( 255, 255, 255, 0.18 );
-  }
-  #left-part{
-   width: 400px;
-    background: radial-gradient(circle, rgba(103,159,193,1) 0%, rgba(12,18,22,1) 100%);
-    padding: 10px;
-    margin-top: 70px;
-    color: #000000;
-  }
-  .jumbotron {
-    width: fit-content;
-    padding: 10px;
-    height: fit-content;
-    margin: 20px;
-  }
-  
-  .jumbotron h1{
-    font-size: 1.4rem;
-    text-align: center;
-  }
-  .jumbotron p{
-    font-size: 0.9rem;
-    text-align: justify;
-  }
-  #community{
-    padding: 10px;
-    margin: 65px 0px 100px 60px;
-    border:0px solid rgba(209, 204, 204, 0.695);
-    border-radius: 10px;
-    background: radial-gradient(circle, rgba(103,159,193,1) 0%, rgba(12,18,22,1) 100%);
-    min-height: 100vh;
-    min-width: 60%;
-    max-width: 60%;
-  }  
-  /* FOTO DE PERFIL TEMPORAL  */
-  #profilePic{
-      border-radius: 50%;
-      margin-right: 10px;
-      width: 33px;
-      height: 30px;
-  }
-  
-  /* BOTON PUBLICAR */
-  #publish-btn{
-    margin: 2px;
-    font-size: 0.95rem;
-    border: none;
-    border-radius: 5px;
-  height: min-content;
-  background: linear-gradient(80deg, #4B91F7 0%, #367AF6 100%);
-  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-  color: white;
-  }  
-  /*  NUEVA PUBLICACION */
-  #newPostField{
-    width: 100%;
-    height: 70px;
-    resize: none;
-    border-radius: 5px;
-    border: 1px solid rgba(189, 188, 188, 0.429);
-    outline: none;
-  
-  }
-  
-  /* SECCION DE PUBLICACIONES Y COMENTARIOS  */
-  .comment-container{
-    margin: 10px;
-    border: 1px solid rgb(189, 188, 188);
-    border-radius: 5px;
-    padding: 20px;
-    background-color: white;
-    text-align: justify;
-  }
-  
-  #newReplySection{
-    padding: 10px;
-    }
-  /* TEXTAREA PARA ESCRIBIR COMENTARIO A PUBLICACION PRINCIPAL */
-  
-  #newCommentField{
-    height: 30px;
-    resize: none;
-    border-radius: 5px;  
-    font-family: Arial, Helvetica, sans-serif;
-    border: 1px solid rgb(189, 188, 188);
-    width: 100%;
-    overflow: hidden;
-    outline: none;
-  
-  }
-  .listaDeRespuestas{
-  margin-left: 35px;
-  word-wrap: break-word; 
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.textoJumbotron {
+  font-family: arial, sans-serif;
+  text-align: justify;
+  font-size: 1rem;
+  color: black;
+  background: rgb(241, 239, 239);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(11px);
+  -webkit-backdrop-filter: blur(11px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
 
-  }
-  /* LIKE BTN: */
-  
-  .like-btn img{
-    filter: invert(26%) sepia(0%) saturate(2872%) hue-rotate(358deg) brightness(84%) contrast(79%);
-  }
-  
-  .like-btn{
-  justify-content: center;    
+                                   /* PARTE IZQUIERDA DE LA PÁGINA, ESTILO */
+
+
+#left-part {
+  width: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(103, 159, 193, 1) 0%,
+    rgba(12, 18, 22, 1) 100%
+  );
+  padding: 10px;
+  margin-top: 70px;
+  color: #000000;
+}
+.jumbotron {
+  width: fit-content;
+  padding: 10px;
+  height: fit-content;
+  margin: 20px;
+}
+
+.jumbotron h1 {
+  font-size: 1.4rem;
+  text-align: center;
+}
+.jumbotron p {
+  font-size: 0.9rem;
+  text-align: justify;
+}
+#community {
+  padding: 10px;
+  margin: 65px 0px 100px 60px;
+  border: 0px solid rgba(209, 204, 204, 0.695);
+  border-radius: 10px;
+  background: radial-gradient(
+    circle,
+    rgba(103, 159, 193, 1) 0%,
+    rgba(12, 18, 22, 1) 100%
+  );
+  min-height: 100vh;
+  min-width: 60%;
+  max-width: 60%;
+}
+                                             /* FOTO DE PERFIL TEMPORAL  */
+#profilePic {
+  border-radius: 50%;
+  margin-right: 10px;
+  width: 33px;
+  height: 30px;
+}
+
+/* BOTON PUBLICAR */
+#publish-btn {
+  margin: 2px;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 5px;
+  height: min-content;
+  background: linear-gradient(80deg, #4b91f7 0%, #367af6 100%);
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+  color: white;
+}
+/*  NUEVA PUBLICACION */
+#newPostField {
+  width: 100%;
+  height: 70px;
+  resize: none;
+  border-radius: 5px;
+  border: 1px solid rgba(189, 188, 188, 0.429);
+  outline: none;
+}
+
+/* SECCION DE PUBLICACIONES Y COMENTARIOS  */
+.comment-container {
+  margin: 10px;
+  border: 1px solid rgb(189, 188, 188);
+  border-radius: 5px;
+  padding: 20px;
+  background-color: white;
+  text-align: justify;
+}
+
+#newReplySection {
+  padding: 10px;
+}
+/* TEXTAREA PARA ESCRIBIR COMENTARIO A PUBLICACION PRINCIPAL */
+
+#newCommentField {
+  height: 30px;
+  resize: none;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid rgb(189, 188, 188);
+  width: 100%;
+  overflow: hidden;
+  outline: none;
+}
+.listaDeRespuestas {
+  margin-left: 35px;
+  word-wrap: break-word;
+}
+/* LIKE BTN: */
+
+.like-btn img {
+  filter: invert(26%) sepia(0%) saturate(2872%) hue-rotate(358deg)
+    brightness(84%) contrast(79%);
+}
+
+.like-btn {
+  justify-content: center;
   align-items: center;
   background-color: transparent;
-    border-style: none;
-    width: 50px;
-    height: 32px;
-  }
-  button.active{
-    border-radius: 5px;
-          animation: like-btn-Animation 0.6s both;
-  }
-  button.active img{
-    filter: invert(39%) sepia(93%) saturate(3760%) hue-rotate(219deg) brightness(100%) contrast(93%);
-  }
-  .likesCounter{
-    display: inline-flex;
-    justify-content: center;    
-    align-items: center;
-    background-color: transparent;
-        border-style: none;
-        width: 50px;
-        height: 32px;
-  }
-  
-  
-  #sendComment-btn
-  {
-      font-size: 0.95rem;
-    margin-left: 6px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-    border-radius: 6px;
-    border: none;
+  border-style: none;
+  width: 50px;
+  height: 32px;
+}
+button.active {
+  border-radius: 5px;
+  animation: like-btn-Animation 0.6s both;
+}
+button.active img {
+  filter: invert(39%) sepia(93%) saturate(3760%) hue-rotate(219deg)
+    brightness(100%) contrast(93%);
+}
+.likesCounter {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border-style: none;
+  width: 50px;
+  height: 32px;
+}
+
+#sendComment-btn {
+  font-size: 0.95rem;
+  margin-left: 6px;
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+  border-radius: 6px;
+  border: none;
   color: #fff;
-    background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
-    height: min-content;
-  }
-  .like-btn-section{
+  background: linear-gradient(180deg, #4b91f7 0%, #367af6 100%);
+  height: min-content;
+}
+.like-btn-section {
   justify-content: end;
   align-items: center;
   padding: 3px;
   margin: 4px;
-  }
-  .estiloComentario{
+}
+.estiloComentario {
   padding: 10px;
-  word-wrap: break-word; 
+  word-wrap: break-word;
+}
+.comentarioPublicado {
+  border: 1px solid rgb(189, 188, 188);
+  border-radius: 10px;
+  margin: 5px;
+  padding: 2px;
+}
+@keyframes like-btn-Animation {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
-  .comentarioPublicado{
-    border: 1px solid rgb(189, 188, 188);
-    border-radius: 10px;
-    margin: 5px;
-    padding: 2px;
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
   }
-  @keyframes like-btn-Animation {
-    
-    0% {
-        -webkit-transform: scale(1);
-                transform: scale(1);
-      }
-      50% {
-        -webkit-transform: scale(1.1);
-                transform: scale(1.1);
-      }
-      100% {
-        -webkit-transform: scale(1);
-                transform: scale(1);
-      }
-  
-   }
-   @media (max-width: 991px) {
-    #left-part{
-      display: none;
-    }
-    .mobile{
-      display:initial;
-      }
-      #community{
-        margin: 60px 0px 0px 0px;
-        min-width: 60%;
-        max-width: 100%;
-      }
-      .tituloJumbotron{
-      padding: 10px;
-      font-size: 1.5rem;
-      }
-      .textoJumbotron{
-        padding: 25px;
-        font-size: 1.1rem;
-        text-align: justify;
-      }
-      .jumbotron {
-        margin: 0;;
-      }
-   }
-  
-  
-  
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@media (max-width: 991px) {
+  #left-part {
+    display: none;
+  }
+  .mobile {
+    display: initial;
+  }
+  #community {
+    margin: 60px 0px 0px 0px;
+    min-width: 60%;
+    max-width: 100%;
+  }
+  .tituloJumbotron {
+    padding: 10px;
+    font-size: 1.5rem;
+  }
+  .textoJumbotron {
+    padding: 25px;
+    font-size: 1.1rem;
+    text-align: justify;
+  }
+  .jumbotron {
+    margin: 0;
+  }
+}
