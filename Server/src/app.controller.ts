@@ -11,6 +11,6 @@ export class AppController {
 
   @Get('back')
   getHello(): string {
-    return 'ESTO ES EL BACKEND';
+    return this.appService.getHello();
   }
 }
