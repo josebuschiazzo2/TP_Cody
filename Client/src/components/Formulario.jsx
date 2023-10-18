@@ -41,8 +41,8 @@ function Formulario({ setUser }){
             <form className='formulario' onSubmit={handleSubmit}>
             <h3>Iniciar Sesión</h3>
               <input className='texto_form px-4'
-              placeholder='Usuario'
-              type="text"
+              placeholder='email'
+              type="email"
               value={nombre}
               onChange={e => setNombre(e.target.value)}
               required

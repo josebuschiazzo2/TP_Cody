@@ -31,10 +31,11 @@ export class AuthController {
   @Get('home')
   @UseGuards(AuthGuard)
   getHome(@Req() request){
-    if (request.user.role !== Role.ADMIN)
+    if (request.user.role !== Role.USER)
       return 'No tienes permiso para acceder a mas info';
-    if (request.user.role === Role.ADMIN) return request.user;
-    return 'no deberias ver esto!!!!';
+    else {
+      return 'Bienvenido al Home';
+    }
   }
 
 }
