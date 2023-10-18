@@ -1,10 +1,8 @@
 import { IsEmail } from 'class-validator';
 import { Role } from 'src/common/enum/role.enum';
-import {
-  Column,
-  Entity,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Post } from 'src/post/entities/post.entity';
+import { Comment } from 'src/comment/entities/comment.entity';
+import { Column, Entity,OneToMany,PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity()
 export class User {
@@ -35,6 +33,15 @@ export class User {
 
   @Column({ type: 'enum', default: Role.USER, enum: Role })
   role: Role;
+  
+  //***** uno a muchos con Post ******
+  @OneToMany(() => Post, (post) => post.user)
+  public post: Post[];
+
+  // ****** uno a muchos con Comment ******
+  @OneToMany(() => Comment, comment => comment.user)
+  public comment: Comment[];
+
 
   constructor(
     username: string,
