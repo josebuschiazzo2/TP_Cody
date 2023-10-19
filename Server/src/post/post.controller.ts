@@ -12,20 +12,13 @@ export class PostController {
   create(@Body() PostDto: PostDto) {
     return this.postService.create(PostDto);
   }
+  
 //**********   get posts   **********/
 
   @Get('get-posts')
   findAll() {
     return this.postService.findAll();
   }
-
- 
-//**********   get Post by ID **********/
-  @Get(':id')
-  findOne(@Param('id') id: number) {
-    return this.postService.findById(id);
-  }
-
 
   //********** Delete Post **********/
   @Delete('delete-post/:id')

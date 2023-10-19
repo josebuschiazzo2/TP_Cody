@@ -10,9 +10,7 @@ id:number;
 @Column()
 newComment:string;
 
-// created at ---> pending *******
-
-
+// created at ---> pending ******* Date now
 
 // FK ----> user id 
 @ManyToOne(() => User, (user) => user.comment)
