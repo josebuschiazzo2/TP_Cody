@@ -9,11 +9,13 @@ export class PostService {
   constructor(
     @InjectRepository(Post)
     public postRepository: Repository<Post>,
+    
   ) {}
 
 
 //*****     CREATE NEW POST     ***** */
   async create(postDto: PostDto) {
+
     if (postDto.post !== "") { // validación ?
       const publicacion: Post = await this.postRepository.save(new Post(postDto.post));
       if (!publicacion) {
@@ -28,25 +30,6 @@ export class PostService {
 //*****     READ POST     ***** */
   async findAll() {
     return await this.postRepository.find()
-  }
-
-
- //*****     READ POST BY ID     ***** */
-  async findById(id: number): Promise<Post> {
-    try {
-      const criterio: FindOneOptions = { where: { id: id } };
-      let post: Post = await this.postRepository.findOne(criterio);
-      if (post) return post;
-      else throw new Error('No se encuentra la publicacion');
-    } catch (error) {
-      throw new HttpException(
-        {
-          status: HttpStatus.CONFLICT,
-          error: '**** ' + error,
-        },
-        HttpStatus.NOT_FOUND,
-      ); 
-    }
   }
 
 
