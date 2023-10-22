@@ -53,6 +53,7 @@ export class AuthService {
       email: user.email,
       role: user.role,
       username: user.username,
+      id:user.id // necesito el id para vincular las tablas post y user ----> asi se vincula el id del usuario con el post
     };
 
     const token = await this.jwtService.signAsync(payload);

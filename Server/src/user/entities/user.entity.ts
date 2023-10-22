@@ -35,7 +35,7 @@ export class User {
   role: Role;
   
   //***** uno a muchos con Post ******
-  @OneToMany(() => Post, (post) => post.user)
+  @OneToMany(() => Post, (post) => post.userID)
   public post: Post[];
 
   // ****** uno a muchos con Comment ******
