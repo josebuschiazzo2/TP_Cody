@@ -14,7 +14,7 @@ import { CommentModule } from './comment/comment.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'Misql8',
+      password: '',
       database: 'cody',
       entities: [__dirname + '/**/**/**.entity{.ts,.js}'],
       synchronize: true,
