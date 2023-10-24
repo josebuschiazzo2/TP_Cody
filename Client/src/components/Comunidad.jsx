@@ -4,16 +4,19 @@ import '../styles/comunidad.css';
 import Navbar from "./Navbar";
 import TextareaAutosize from 'react-textarea-autosize';
 import Footer from './Footer';
-import  expandBTN from '../images/expandirbtn.png'
+import expandBTN from '../images/expandirbtn.png'
+// import useFetch from './UseFetch';
+
 
 function Comunidad() {
   const [publicacion, setPublicacion] = useState('');
   const [listaPublicaciones, setListaPublicaciones] = useState([]);
+  // const { data, loading, error, fetchUrl } = useFetch();
 
-  const [respuesta, setRespuesta] = useState('');
-  
+  //   const [respuesta, setRespuesta] = useState('');
 
-const [toggleClass, setToggleClass] = useState('hola')
+
+  // const [toggleClass, setToggleClass] = useState('hola')
 
 
 
@@ -24,24 +27,35 @@ const [toggleClass, setToggleClass] = useState('hola')
 
   // useEffect: cada vez que actualizamos el estado de un elemento en la web, se renderiza de nuevo, 
   // como minimo se ejecuta 1 vez-> al iniciar la página, si
-  useEffect(() => {
+  // useEffect(() => {
+  //   const mostrarLista = async () => {
+  //     try {
+  //       const response = await axios.get('http://localhost:3003/post/get-posts');
+  //       setListaPublicaciones(response.data);
+  //     } catch (error) {
+  //       console.error('Error al cargar la lista de publicaciones', error);
+  //     }
+  //   };
+
+  //   mostrarLista(); // Llamar a la función al montar el componente
+  // }, []);
+
+  useEffect(() => { // -> 
     const mostrarLista = async () => {
-      try {
-        const response = await axios.get('http://localhost:3003/comunidad/publicaciones');
-        setListaPublicaciones(response.data);
-      } catch (error) {
-        console.error('Error al cargar la lista de publicaciones', error);
-      }
-    };
-  
-    mostrarLista(); // Llamar a la función al montar el componente
-  }, []);
-  
+      fetch('http://localhost:3003/post/get-posts')
+        .then(resp => resp.json())
+        .then(data => setListaPublicaciones(data))
+        .catch(error => {
+          console.log("no se pudo obtener las personas", error)
+        })
+    }
+    mostrarLista();
+  }, [])
   // <----------FUNCION PUBLICAR------------->
   const publicar = async () => {
     try {
-      const response = await axios.post('http://localhost:3003/comunidad/publicar', {
-        "publicacion": publicacion
+      const response = await axios.post('http://localhost:3003/post/new', {
+        "post": publicacion
       });
       console.log(response)
     } catch (error) {
@@ -49,31 +63,49 @@ const [toggleClass, setToggleClass] = useState('hola')
     }
   }
 
-   // <----------FUNCION ELIMINAR---------->
+  // <----------ELIMINAR PUBLICACIÓN------------->
 
- const eliminarPublicacion = (id) => {
-   axios.delete(`http://localhost:3003/comunidad/eliminar/${id}`);
-  console.log("hice click en eliminar")
-  alert("está seguro que desea eliminar la publicación?")
-}
-  //<---------- MENU DESPLEGABLE-------------->  
-
-  const toggleMenuDesplegable = async (id) => {
-   const resp = await axios.put(`http://localhost:3003/comunidad/menu/${id}`);
-//    let nuevo = []
-//  nuevo = resp.data
-//     console.log( nuevo)
+  const eliminarPublicacion = (id) => {
+    fetch(`http://localhost:3003/post/delete-post/${id}`, {
+      method: "DELETE",
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        setListaPublicaciones(listaPublicaciones.filter((post) => post.id !== id));
+        console.log("Publicación eliminada:", data);
+      })
+      .catch((error) => {
+        console.error("Error al eliminar la publicación:", error);
+      });
   };
 
-  useEffect(() => {
-    if (publicacion.menu === true) {
-      setToggleClass(' color1');
-    } else {
-      setToggleClass(' color2');
-    }
-  }, [publicacion.menu]);
-  // -------------------------------------------
-// ---------------------------------------
+
+  // const eliminarPublicacion = (id) => {
+  //     fetch(`http://localhost:3003/post/delete-post/${id}`, 
+  //     { method: "DELETE" })
+  //       .then(resp => resp.json())
+  //       .catch(error => {
+  //         console.log("error", error);
+  //       })
+  //     }
+  //<---------- MENU DESPLEGABLE-------------->  
+
+  //   const toggleMenuDesplegable = async (id) => {
+  //    const resp = await axios.put(`http://localhost:3003/comunidad/menu/${id}`);
+  // //    let nuevo = []
+  // //  nuevo = resp.data
+  // //     console.log( nuevo)
+  //   };
+
+  // useEffect(() => {
+  //   if (publicacion.menu === true) {
+  //     setToggleClass(' color1');
+  //   } else {
+  //     setToggleClass(' color2');
+  //   }
+  // }, [publicacion.menu]);
+  // // -------------------------------------------
+  // ---------------------------------------
   return (<>
     <Navbar />
     <div className='d-flex flex-row'>
@@ -90,7 +122,7 @@ const [toggleClass, setToggleClass] = useState('hola')
         </div>
         <div className=''>
           <form onSubmit={publicar} className='form_clase  d-flex flex-row'>   {/*  // FORM TAG  */}
-   
+
             <TextareaAutosize
               name='newPost'
               id='newPostField'
@@ -98,8 +130,8 @@ const [toggleClass, setToggleClass] = useState('hola')
               onChange={(e) => setPublicacion(e.target.value)}  //  ONCHANGE
               placeholder='Añade una nueva publicación...'
             />
-                        <button id='publish-btn'> publicar</button>
-                        </form>
+            <button id='publish-btn'> publicar</button>
+          </form>
         </div>
         <div>
           {listaPublicaciones.map((publicacion) => ( // listaDePublicaciones cambiado a listaPublicaciones, key a index
@@ -112,20 +144,21 @@ const [toggleClass, setToggleClass] = useState('hola')
                 />
                 <div id='radio' >
 
-                {/* <div id='radio' className={`${toggleClass}`}  onClick={() => toggleMenuDesplegable(publicacion.id)}> */}
-                <button  className={`opcionesDesplegables` } onClick={() => toggleMenuDesplegable(publicacion.id)}>
-{/* ---- imagen del menu desplegable:    */}
-                  <img src={expandBTN}alt="imagen botton" />
+                  {/* <div id='radio' className={`${toggleClass}`}  onClick={() => toggleMenuDesplegable(publicacion.id)}> */}
+                  <button className={`opcionesDesplegables`}>
+                    {/* onClick={() => toggleMenuDesplegable(post.id)}> */}
+                    {/* ---- imagen del menu desplegable:    */}
+                    <img src={expandBTN} alt="imagen botton" />
                   </button>
                   {/* {publicacion.menu ? ' color1' :' color2' } */}
-                  <div className={`delete-btn ${toggleClass}`} >
+                  <div>{/* <div className={`delete-btn ${toggleClass}`} > */}
                     <button id="eliminar-btn" className={`delete-btn`} onClick={() => eliminarPublicacion(publicacion.id)}>Eliminar</button>
                   </div>
                 </div>
               </div>
               <div className='d-flex flex-column estiloComentario'>
-                <p>{publicacion.textoPublicacion}</p>                
-                <h6>{publicacion.createdAt}</h6>
+                <h5>{publicacion.username}</h5>
+                <p>{publicacion.post}</p>
 
               </div>
 
@@ -141,7 +174,7 @@ const [toggleClass, setToggleClass] = useState('hola')
                 <TextareaAutosize
                   name='respuesta'
                   maxLength={550}
-                  value={respuesta}
+                  // value={}
                   id='newCommentField'
                   onChange={enviarComentario}
                   placeholder="Escribe tu comentario..."

@@ -31,7 +31,7 @@ const App = () => {
         <Route path= "/IniciarSecion" element ={<Formulario/>}/>
         <Route path= "/Registrarme" element ={<FormularioRegistro/>}/>
 
-        {/* <Route path= "*" element = {<NotFound />}/> */}
+        {/* <Route path= "*" element = {<PageNotFound />}/> //-----> crear página  */ } 
 
        </Routes>
       </Router> 

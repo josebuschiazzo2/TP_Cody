@@ -15,7 +15,7 @@ export class PostService {
 //*****     CREATE NEW POST     ***** */
 async create(postDto: PostDto, userID: User, username: string) { 
   if (postDto.post !== "") {
-    const publicacion: Post = await this.postRepository.save(new Post(postDto.post, userID));
+    const publicacion: Post = await this.postRepository.save(new Post(postDto.post, userID, username));
     if (!publicacion) {
       return "Error al cargar la publicación";
     }
