@@ -111,15 +111,10 @@ return (<>
                 <p>{publicacion.post}</p>
 
               </div>
-              {//**mapeo y representación de comentarios  */}
-              {/* <div className='listaDeRespuestas'>
-                  {listaDeRespuestas.map((respuesta1, index) =>(
-  <div key={index} className='comentarioPublicado'>
-   <h6 className="fw-bold text-primary mb-1">Nombre usuario </h6>
-    <p>{respuesta1}</p>
-  </div>
-))}
-</div> */}}
+
+{/* mapeo y representación de comentarios */}
+
+
               <div id='newReplySection' className="py-3 border-1 d-flex flex-row" >
                 <TextareaAutosize
                   name='respuesta'
