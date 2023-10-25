@@ -1,6 +1,7 @@
 .mobile {
   display: none;
 }
+
 .cargar_imagen{
 background-color: white;
 color: rgb(5, 5, 5);
@@ -27,27 +28,24 @@ border-radius: 10px;
   align-items: end;
 }
 
-.opcionesDesplegables {
-  border-radius: 5px;
-  padding: 2px;
-  width: min-content;
-background-color: red;  
+.trashCan {
+border:none; 
+ width: min-content;
+ height: min-content;
 cursor: pointer;
+background-color: transparent;
 }
 
                                   /* BOTON ELIMINAR PUBLICACION */
-#eliminar-btn {
-  width: fit-content;
-  margin: 3px;
-  font-size: 0.95rem;
-  border: none;
-  height: min-content;
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
+ /* trash can style: */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
 }
-#eliminar-btn:hover{
-  background-color: rgb(213, 218, 216);
-}
+
 
                                   /* PARTE IZQUIERDA DE LA PÁGINA, TEXTO */
 
