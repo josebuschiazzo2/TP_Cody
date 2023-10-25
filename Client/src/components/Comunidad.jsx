@@ -98,11 +98,10 @@ return (<>
                   alt='imagen de perfil'
                 />
                 <div id='radio' >
-                  <button className={`opcionesDesplegables`}>
-                    {/* ---- imagen del menu desplegable:    */}
+                  <button className={"trashCan"} onClick={() => eliminarPublicacion(publicacion.id)}>
+                      <span class="material-symbols-outlined">delete</span>
                   </button>
                   <div>
-                    <button id="eliminar-btn" className={`delete-btn`} onClick={() => eliminarPublicacion(publicacion.id)}>Eliminar</button>
                   </div>
                 </div>
               </div>
