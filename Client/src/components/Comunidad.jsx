@@ -30,14 +30,26 @@ function Comunidad() {
   // <----------FUNCION PUBLICAR------------->
   const publicar = async () => {
     try {
-      const response = await axios.post('http://localhost:3003/post/new', {
-        "post": publicacion
+      const response = await fetch('http://localhost:3003/post/new', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ post: publicacion }),
       });
-      console.log(response)
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+      } else {
+        const errorData = await response.json();
+        console.log(errorData);
+      }
     } catch (error) {
-      console.log(error.response.data);
+      console.error('Error:', error);
     }
-  }
+  };
+  
 
   // <----------ELIMINAR PUBLICACIÓN------------->
   const eliminarPublicacion = (id) => {
