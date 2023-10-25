@@ -18,17 +18,24 @@ export class Post {
   })
   post: string;
 
+@Column()
+username:string;
+
   @ManyToOne(() => User, (user) => user.post, {onDelete:"CASCADE"}) // si se elimina el usuario, se eliminan las publicaciones.
   @JoinColumn({ name: 'userID' })
   userID: User;
 
-  // uno a muchos con Comment 
-  @OneToMany(() => Comment, (comment) => comment.user)
-  public comment: Comment[];
 
-  constructor(post: string, userID:User) {
+  // uno a muchos con Comment 
+  
+  @OneToMany(() => Comment, (comment) => comment.user)
+  public comment: Comment[]; // null if no children ?  
+
+
+  constructor(post: string, userID:User, username:string) {
     this.post = post;
     this.userID = userID;
+    this.username = username;
   }
   public getPosts() {
     return this.post;
