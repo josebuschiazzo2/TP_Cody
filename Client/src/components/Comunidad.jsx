@@ -4,42 +4,14 @@ import '../styles/comunidad.css';
 import Navbar from "./Navbar";
 import TextareaAutosize from 'react-textarea-autosize';
 import Footer from './Footer';
-import expandBTN from '../images/expandirbtn.png'
-// import useFetch from './UseFetch';
-
 
 function Comunidad() {
   const [publicacion, setPublicacion] = useState('');
   const [listaPublicaciones, setListaPublicaciones] = useState([]);
-  // const { data, loading, error, fetchUrl } = useFetch();
-
   //   const [respuesta, setRespuesta] = useState('');
 
 
-  // const [toggleClass, setToggleClass] = useState('hola')
-
-
-
-  const enviarComentario = () => {
-    console.log("hice click en enviar comentario!")
-  }
   //<-------MOSTRAR PUBLICACIONES AL EJECUTAR LA PÁGINA--------> 
-
-  // useEffect: cada vez que actualizamos el estado de un elemento en la web, se renderiza de nuevo, 
-  // como minimo se ejecuta 1 vez-> al iniciar la página, si
-  // useEffect(() => {
-  //   const mostrarLista = async () => {
-  //     try {
-  //       const response = await axios.get('http://localhost:3003/post/get-posts');
-  //       setListaPublicaciones(response.data);
-  //     } catch (error) {
-  //       console.error('Error al cargar la lista de publicaciones', error);
-  //     }
-  //   };
-
-  //   mostrarLista(); // Llamar a la función al montar el componente
-  // }, []);
-
   useEffect(() => { // -> 
     const mostrarLista = async () => {
       fetch('http://localhost:3003/post/get-posts')
@@ -51,6 +23,10 @@ function Comunidad() {
     }
     mostrarLista();
   }, [])
+  /**  useEffect permite que mostrarLista al menos se ejecute una vez,
+ * es decir, se ejecuta al iniciar la página. 
+ */
+
   // <----------FUNCION PUBLICAR------------->
   const publicar = async () => {
     try {
@@ -64,7 +40,6 @@ function Comunidad() {
   }
 
   // <----------ELIMINAR PUBLICACIÓN------------->
-
   const eliminarPublicacion = (id) => {
     fetch(`http://localhost:3003/post/delete-post/${id}`, {
       method: "DELETE",
@@ -79,34 +54,14 @@ function Comunidad() {
       });
   };
 
+    // <----------ENVIAR COMENTARIO------------->
+  const enviarComentario = () => {
+    console.log("hice click en enviar comentario!")
+  }
+    // <----------ELIMINAR COMENTARIO------------->
+                  /****pendiente****/
 
-  // const eliminarPublicacion = (id) => {
-  //     fetch(`http://localhost:3003/post/delete-post/${id}`, 
-  //     { method: "DELETE" })
-  //       .then(resp => resp.json())
-  //       .catch(error => {
-  //         console.log("error", error);
-  //       })
-  //     }
-  //<---------- MENU DESPLEGABLE-------------->  
-
-  //   const toggleMenuDesplegable = async (id) => {
-  //    const resp = await axios.put(`http://localhost:3003/comunidad/menu/${id}`);
-  // //    let nuevo = []
-  // //  nuevo = resp.data
-  // //     console.log( nuevo)
-  //   };
-
-  // useEffect(() => {
-  //   if (publicacion.menu === true) {
-  //     setToggleClass(' color1');
-  //   } else {
-  //     setToggleClass(' color2');
-  //   }
-  // }, [publicacion.menu]);
-  // // -------------------------------------------
-  // ---------------------------------------
-  return (<>
+return (<>
     <Navbar />
     <div className='d-flex flex-row'>
       <div id='left-part' className=" p-3">
@@ -143,15 +98,10 @@ function Comunidad() {
                   alt='imagen de perfil'
                 />
                 <div id='radio' >
-
-                  {/* <div id='radio' className={`${toggleClass}`}  onClick={() => toggleMenuDesplegable(publicacion.id)}> */}
                   <button className={`opcionesDesplegables`}>
-                    {/* onClick={() => toggleMenuDesplegable(post.id)}> */}
                     {/* ---- imagen del menu desplegable:    */}
-                    <img src={expandBTN} alt="imagen botton" />
                   </button>
-                  {/* {publicacion.menu ? ' color1' :' color2' } */}
-                  <div>{/* <div className={`delete-btn ${toggleClass}`} > */}
+                  <div>
                     <button id="eliminar-btn" className={`delete-btn`} onClick={() => eliminarPublicacion(publicacion.id)}>Eliminar</button>
                   </div>
                 </div>
@@ -161,7 +111,7 @@ function Comunidad() {
                 <p>{publicacion.post}</p>
 
               </div>
-
+              {//**mapeo y representación de comentarios  */}
               {/* <div className='listaDeRespuestas'>
                   {listaDeRespuestas.map((respuesta1, index) =>(
   <div key={index} className='comentarioPublicado'>
@@ -169,7 +119,7 @@ function Comunidad() {
     <p>{respuesta1}</p>
   </div>
 ))}
-</div> */}
+</div> */}}
               <div id='newReplySection' className="py-3 border-1 d-flex flex-row" >
                 <TextareaAutosize
                   name='respuesta'

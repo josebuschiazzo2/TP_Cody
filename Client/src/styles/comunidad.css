@@ -26,35 +26,12 @@ border-radius: 10px;
   flex-direction: column;
   align-items: end;
 }
-/* **clases color1 y color2 son para probar algo**  */
-.color1{
-  background-color: red;  
-}
-.color2{
-background-color: blueviolet;
-}
-/* // si menu es true se aplica la clase active-btn */
-.active-btn {
-    display: none;
-}
-.inactive-btn {
-  background-color: rgba(0, 238, 255, 0.219); 
-  border-radius: 5px;
-  display: flex;
-  align-items: start;
-  width: fit-content ;
-  height: fit-content;
-  justify-content: center;
-  position: absolute;
-  margin-top: 30px;
-  box-shadow: rgba(0, 0, 0, 0.22) 0px 2px 5px;
-  cursor: pointer;
-}
+
 .opcionesDesplegables {
   border-radius: 5px;
   padding: 2px;
   width: min-content;
-background-color: transparent;  
+background-color: red;  
 cursor: pointer;
 }
 
