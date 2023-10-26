@@ -36,7 +36,7 @@ const FormularioRegistro = () => {
             }),
           });
           if (response.ok) {
-            alert('Registro exitoso')
+            alert('Registro exitoso') // acá se puede cambiar y redirigir a Home o a otra parte..
             setUsername('');
             setNombre('');
             setApellido('');
