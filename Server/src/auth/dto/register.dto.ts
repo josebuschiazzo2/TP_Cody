@@ -29,7 +29,6 @@ export class RegisterDto {
   email: string;
 
   @IsString()
-  @MinLength(6)
   password: string;
 
   readonly role: Role;
