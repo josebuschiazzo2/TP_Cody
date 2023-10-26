@@ -1,9 +1,18 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/user/entities/user.entity';
-import { Post } from './entities/post.entity';
+import {
+  FindOneOptions,
+  Repository,
+} from 'typeorm';
+
+import {
+  HttpException,
+  HttpStatus,
+  Injectable,
+} from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+
 import { PostDto } from './dto/post.dto';
-import { FindOneOptions, Repository } from 'typeorm';
+import { Post } from './entities/post.entity';
 
 @Injectable()
 export class PostService {
@@ -35,7 +44,7 @@ export class PostService {
   async remove(id: number): Promise<any> {
     try {
       const aux: FindOneOptions = { where: { id: id } };
-      let post: Post = await this.postRepository.findOne(aux);
+      const post: Post = await this.postRepository.findOne(aux);
       if (!post) throw new Error('no se encontró publicacion');
       else {
         await this.postRepository.remove(post);
