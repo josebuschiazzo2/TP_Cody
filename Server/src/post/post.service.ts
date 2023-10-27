@@ -29,9 +29,9 @@ export class PostService {
       if (!publicacion) {
         return 'Error al cargar la publicación';
       }
-      return `La publicación se creó correctamente, usuario: ${username}`;
+      return console.log(`La publicación se creó correctamente, usuario: ${username}`);
     } else {
-      return 'Publicación vacía';
+      return console.log('Publicación vacía');
     }
   }
 

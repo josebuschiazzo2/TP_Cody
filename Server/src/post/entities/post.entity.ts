@@ -1,4 +1,3 @@
-import { MaxLength, MinLength } from 'class-validator';
 import { User } from 'src/user/entities/user.entity';
 import {
   Column,
@@ -16,12 +15,6 @@ export class Post {
   id: number;
 
   @Column()
-  @MinLength(10, {
-    message: 'Title is too short', // ---- > probar en el front
-  })
-  @MaxLength(50, {
-    message: 'Title is too long',
-  })
   post: string;
 
   @Column()
