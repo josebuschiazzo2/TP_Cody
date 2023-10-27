@@ -5,22 +5,35 @@ import { useState } from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
-function Formulario({ setUser }){
-    const [nombre, setNombre]= useState("");
+function Formulario(){
+    const [email, setEmail]= useState("");
     const [password, setPassword]= useState("");
-    const [error, setError] = useState(false)
-    
+    const [error, setError] = useState();
    
-    const handleSubmit = (e) =>{
-       e.preventDefault()
-       if(nombre === "" || password === "") { 
-        setError(true)
-        return
-       }
-       setError(false)
-
-       setUser([nombre])
-    }
+    const handleSubmit = async (e) => {
+        e.preventDefault() // prevé el envio del formulario antes de que se procese la solicitud
+            try {
+              const response = await fetch("http://localhost:3003/auth/login", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json", // el encabezado de la solicitud indica que la info que se manda es formato JSON
+                },
+                body: JSON.stringify({ email: email, password: password }), // identifica los objetos del body de la solicitud para enviar al backend. Convierte los datos a JSON y los envia.
+              });
+              if (!response.ok) {
+                const errorData = await response.json(); //lee el msje de error en la respuesta de la solicitud
+                alert(errorData.error);
+              } else {
+                const token = await response.text(); // se transforma la respuesta a texto--> el token de JWT se envia desde el backend en formato texto, por eso, para extraerlo correctamente
+                // se extrae del cuerpo de la respuesta como cadena de texto. 
+                alert("I LOGIN")
+                localStorage.setItem("token", token);
+                console.log(response.data)
+              }
+            } catch (error) {
+              console.error("Error en la solicitud:", error);
+            }
+          };
 
     return(
         <section className='preBody'>
@@ -43,8 +56,8 @@ function Formulario({ setUser }){
               <input className='texto_form px-4'
               placeholder='email'
               type="email"
-              value={nombre}
-              onChange={e => setNombre(e.target.value)}
+              value={email}
+              onChange={e => setEmail(e.target.value)}
               required
               />
               <input className='texto_form px-4' 

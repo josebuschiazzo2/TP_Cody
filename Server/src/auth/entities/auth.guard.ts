@@ -25,15 +25,18 @@ export class AuthGuard implements CanActivate {
       });
       // 💡 We're assigning the payload to the request object here
       // so that we can access it in our route handlers
-      request['user'] = payload;
+      request['user'] = payload; //  Si la verificación es exitosa, el payload del token se asigna al objeto request bajo la propiedad 'user'.
+    // el payload contiene los datos del usuario, entonces para acceder ingresamos user.username por ej. 
     } catch {
       throw new UnauthorizedException();
     }
-    return true;
+    return true;// Si todo el proceso se ejecuta sin lanzar una excepción, se permite el acceso al recurso protegido y se retorna true.
   }
 
   private extractTokenFromHeader(request: Request): string | undefined {
     const [type, token] = request.headers.authorization?.split(' ') ?? [];
     return type === 'Bearer' ? token : undefined;
   }
+  //**Este método privado toma un objeto Request y extrae el token JWT de la cabecera de autorización,
+  //  que debe tener el formato "Bearer <token>". Retorna el token o undefined si no se encuentra un token válido */
 }
