@@ -28,7 +28,7 @@ const App = () => {
         <Route path= "/comunidad" element ={<Comunidad/>}/>
         <Route path= "/sobrenosotros" element ={<SobreNosotros/>}/>
         <Route path= "/contacto" element ={<Contacto/>}/>
-        <Route path= "/IniciarSecion" element ={<Formulario/>}/>
+        <Route path= "/login" element ={<Formulario/>}/>
         <Route path= "/Registrarme" element ={<FormularioRegistro/>}/>
 
         {/* <Route path= "*" element = {<PageNotFound />}/> //-----> crear página  */ } 

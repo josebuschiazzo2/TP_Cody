@@ -12,11 +12,11 @@ export class PostController {
 
   @Post('new')
   @UseGuards(AuthGuard)
-  create(@Body() PostDto: PostDto, @Req() request) {
+  async create(@Body() PostDto: PostDto, @Req() request) {
     if (request.user.role === Role.USER) {
       const username = request.user.username;
       const userID = request.user.id;
-      return this.postService.create(PostDto, userID, username);
+      return await this.postService.create(PostDto, userID, username);
     } else {
       return '***access unauthorized***';
     }
@@ -24,8 +24,8 @@ export class PostController {
 
   //**********   get posts   **********/
   @Get('get-posts')
-  findAll() {
-    return this.postService.findAll();
+ async findAll() {
+    return await this.postService.findAll();
   }
 
   //********** Delete Post **********/

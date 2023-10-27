@@ -53,7 +53,7 @@ function Navbar(props) {
                   <hr id="lineNavbar"  />
                 </li>
                 <li className="nav-item ">
-                 <Link id="IniciarLink"className= "nav-link active" to="/IniciarSecion">Ingresar</Link>
+                 <Link id="IniciarLink"className= "nav-link active" to="/login">Ingresar</Link>
                  <hr id="lineNavbar" />
                </li>
               
