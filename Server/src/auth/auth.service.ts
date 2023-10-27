@@ -39,7 +39,7 @@ export class AuthService {
       ),
     )}
   // generar login // generar un toke
-  async login({ email, password }: LoginDto) {
+  async login({ email, password }: LoginDto):Promise<string> {
     const user = await this.userService.findOneByEmail(email);
     if (!user) throw new UnauthorizedException('usuario (o contraseña) incorrecto');
 
@@ -50,14 +50,15 @@ export class AuthService {
     // creacion de JWT
     // creamos el payload para poder conocer la info del token ej: que nivel de usuario es.
     const payload = {
+      username: user.username,
       email: user.email,
       role: user.role,
-      username: user.username,
       id:user.id // necesito el id para vincular las tablas post y user ----> asi se vincula el id del usuario con el post
     };
 
     const token = await this.jwtService.signAsync(payload);
-
-    return token;
+    return token; 
   }
+  // en el front tenemos que guardar el token en local storage
+  //vamos a usar el token como parte de la solicitud
 }
