@@ -69,10 +69,10 @@ function Formulario(){
               />
               <div className='bottom'>
                 <div className='left'>
-                    <input type="checkbox" id="check" /> <label htmlFor="check">Recordarme</label>
+                    {/*<input type="checkbox" id="check" /> <label htmlFor="check">Recordarme</label>*/}
                 </div>
                 <div className='right'>
-                    <label><a href="olvido"> Olvido su contraseña?</a></label>
+                   {/* <label><a href="olvido"> Olvido su contraseña?</a></label>*/}
                 </div>
              </div>  
              
