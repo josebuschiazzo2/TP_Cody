@@ -65,14 +65,14 @@ const FormularioRegistro = () => {
             <h4>Para crear tu cuenta te pediremos algunos datos</h4>
                 </div>
             <form  onSubmit={handelSubmit}  autoComplete='off'>
-                <input className='control' type="text" placeholder='Username' value={username} onChange={(e)=>(setUsername(e.target.value))} ></input>
+                <input className='control' type="text" placeholder='Nombre de Usuario' value={username} onChange={(e)=>(setUsername(e.target.value))} ></input>
                 <input className='control' type="text" placeholder='Nombre' value={nombre} onChange={(e)=>(setNombre(e.target.value))} ></input>
                 <input className='control' type="text" placeholder='Apellido' value={apellido} onChange={(e)=>(setApellido(e.target.value))}></input>
                 <input className='control' type="text" placeholder='Nacionalidad' value={nacionalidad} onChange={(e)=>(setNacionalidad(e.target.value))}></input>
-                <input className='control' type="text" placeholder='correo electrónico' value={email} onChange={(e)=>(setEmail(e.target.value))}></input>
-                <input className='control' type="date" placeholder='fecha de nacimiento' value={fecha_nac} onChange={(e)=>(setFechaNac(e.target.value))}></input>
-                <input className='control' type="text" placeholder='Password' value={password} onChange={(e)=>(setPassword(e.target.value))} ></input>
-                <button type='submit'>Quiero Registrarme</button>
+                <input className='control' type="text" placeholder='Correo Electrónico' value={email} onChange={(e)=>(setEmail(e.target.value))}></input>
+                <input className='control' type="date" placeholder='Fecha de Nacimiento' value={fecha_nac} onChange={(e)=>(setFechaNac(e.target.value))}></input>
+                <input className='control' type="text" placeholder='Contraseña' value={password} onChange={(e)=>(setPassword(e.target.value))} ></input>
+                <button id='register_btn' type='submit'>Quiero Registrarme</button>
             </form>
             </section>
             </section>
