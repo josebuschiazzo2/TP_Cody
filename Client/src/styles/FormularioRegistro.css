@@ -56,8 +56,8 @@ margin-bottom: 3%;
     color: rgb(2, 45, 83);
 }
 
-.form button {
-    width: 82%;
+#register_btn {
+    width: 200px;
     background:#03809c;
     border: none;
     padding: 12px;
@@ -65,16 +65,12 @@ margin-bottom: 3%;
     margin: auto;
     font-size: 16PX;
     cursor: pointer; 
+    border-radius:6px;
+
 }
 
-.form button:hover {
-    width: 82%;
-    background: #025c6e;
-    border: none;
-    padding: 12px;
-    color: white;
-    margin: auto;
-    font-size: 16PX;
+#register_btn:hover {
+    background: rgb(39, 161, 185);
 }
 
 
@@ -92,9 +88,8 @@ margin-bottom: 3%;
     }
     
     .form {
-        width: 60%;
-        height: auto;
-        margin-top: 12%;
+        width: 50%;
+        margin-top: 15%;
         padding: 5%;
         padding-left: 2%;
        
@@ -108,15 +103,7 @@ margin-bottom: 3%;
         width: 100%;
         margin-right: 0;
     }
-    
-    .form button {
-        width: 100%;
-    }
 
-    .form button:hover {
-        width: 100%;
-    }
-    
     .texto_form {
         color: rgb(6, 55, 99);
     }
@@ -148,9 +135,6 @@ margin-bottom: 3%;
         margin-right: 0;
     }
     
-    .form button {
-        width: 100%;
-    }
     
     .texto_form {
         color: rgb(6, 55, 99);
@@ -194,8 +178,7 @@ margin-bottom: 3%;
     .control {
         font-size: 12px;
     }
-    
-    .form button {
+    #register_btn {
         font-size: 14px;
     }
 }
