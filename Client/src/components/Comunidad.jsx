@@ -23,7 +23,7 @@ function Comunidad() {
         })
     }
     mostrarLista();
-  }, [])
+  }, [listaPublicaciones])
   /**  useEffect permite que mostrarLista al menos se ejecute una vez,
  * es decir, se ejecuta al iniciar la página.
  */
