@@ -17,12 +17,16 @@ import Home from './components/Home';
 import Noticias from './components/Noticias';
 import SobreNosotros from './components/SobreNosotros';
 import AuthContext from './helpers/AuthContext';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 const App = () => {
 const [authState, setAuthState] = useState(false) // desp va a contener la info del user--> pendiente
-
+useEffect(()=>{// sin este hook, el usuario al recargar la página ve nuevamente el botón ingresar de la navbar
+  if (localStorage.getItem('token')){ 
+    setAuthState(true)
+  }
+},[])
   return (
     <div> 
      < AuthContext.Provider value={{authState,setAuthState }}>
