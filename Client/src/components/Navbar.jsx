@@ -2,11 +2,11 @@ import '../styles/navbar.css';
 import { Link } from 'react-router-dom';
 import LogoCodyPNG from '../images/LogoCodyPNG.png';
 import { useContext} from 'react';
-import AuthContext from '../helpers/AuthContext';
+import AuthContext from '../helpers/AuthContext'; //1. authContext importado
 
 
 function Navbar(props) {
-  const {authState} = useContext(AuthContext) 
+  const {authState} = useContext(AuthContext)  //2. declaramos el valor de Authcontext a usar. --> de App.js, por que se encuentra en el nivel más alto de la página. 
 
   return (
       <header> 
@@ -56,11 +56,11 @@ function Navbar(props) {
                   <hr id="lineNavbar"  />
                 </li>
                 <li className="nav-item ">
-                 {!authState && (
+                 {!authState && ( // si authState es true no se muestra en pantalla el botón Ingresar de la navbar. Al hacer Login se cambia el estado de false --> a true
                   <>
                  <Link id="IniciarLink"className= "nav-link active" to="/login">Ingresar</Link>
-              </>)}
-                
+              </>
+              )}
                  <hr id="lineNavbar" />
                </li>
               
