@@ -9,6 +9,7 @@ function Comunidad() {
   const [publicacion, setPublicacion] = useState('');
   const [listaPublicaciones, setListaPublicaciones] = useState([]);
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
 
   //   const [respuesta, setRespuesta] = useState('');
 
@@ -31,7 +32,6 @@ function Comunidad() {
 
  // <----------- FUNCIÓN PUBLICAR ------------>
   const publicar = async () => {
-    const token = localStorage.getItem("token");
     if (!token) {
       alert("¡Bienvendido! Por favor, inicia sesión para publicar.");
       navigate('/login');
@@ -65,6 +65,10 @@ function Comunidad() {
   const eliminarPublicacion = (id) => {
     fetch(`http://localhost:3003/post/delete-post/${id}`, {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      },
     })
       .then((resp) => resp.json())
       .then((data) => {

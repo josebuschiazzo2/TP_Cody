@@ -21,16 +21,26 @@ export class PostController {
       return '***access unauthorized***';
     }
   }
-
   //**********   get posts   **********/
   @Get('get-posts')
  async findAll() {
     return await this.postService.findAll();
   }
-
   //********** Delete Post **********/
   @Delete('delete-post/:id')
-  remove(@Param('id') id: number) {
+  @UseGuards(AuthGuard)
+  remove(@Param('id') id: number, @Req() request) { 
+     if (request.user.role === Role.USER) {
     return this.postService.remove(id);
+  } else {
+    return '***access unauthorized***';
   }
+  }
+
+// sin AuthGuard
+  // @Delete('delete-post/:id')
+  
+  // remove(@Param('id') id: number) {
+  //   return this.postService.remove(id);
+  // }
 }

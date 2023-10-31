@@ -1,15 +1,15 @@
 import '../styles/Formulario.css';
-
-import { useState } from 'react';
-
+import { useState, useContext} from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import AuthContext from '../helpers/AuthContext';
+
 
 function Formulario(){
     const [email, setEmail]= useState("");
     const [password, setPassword]= useState("");
     const [error, setError] = useState();
-   
+   const {setAuthState} = useContext(AuthContext) // context desde donde agarramos el valor setAuthState
     const handleSubmit = async (e) => {
         e.preventDefault() // prevé el envio del formulario antes de que se procese la solicitud
             try {
@@ -28,6 +28,7 @@ function Formulario(){
                 // se extrae del cuerpo de la respuesta como cadena de texto. 
                 alert("I LOGIN")
                 localStorage.setItem("token", token);
+                setAuthState(true);
                 console.log(response.data)
               }
             } catch (error) {

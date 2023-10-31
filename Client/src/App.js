@@ -16,10 +16,16 @@ import Graficos from './components/Graficos';
 import Home from './components/Home';
 import Noticias from './components/Noticias';
 import SobreNosotros from './components/SobreNosotros';
+import AuthContext from './helpers/AuthContext';
+import { useState } from 'react';
+
 
 const App = () => {
+const [authState, setAuthState] = useState(false) // desp va a contener la info del user--> pendiente
+
   return (
-    <div>     
+    <div> 
+     < AuthContext.Provider value={{authState,setAuthState }}>
       <Router>
         <Routes> 
         <Route path= "/" element = {<Home />}/>
@@ -35,6 +41,7 @@ const App = () => {
 
        </Routes>
       </Router> 
+      </AuthContext.Provider>
     </div>
   );
 }
