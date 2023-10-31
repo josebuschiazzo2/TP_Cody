@@ -1,10 +1,13 @@
 import '../styles/navbar.css';
-
 import { Link } from 'react-router-dom';
-
 import LogoCodyPNG from '../images/LogoCodyPNG.png';
+import { useContext} from 'react';
+import AuthContext from '../helpers/AuthContext';
+
 
 function Navbar(props) {
+  const {authState} = useContext(AuthContext) 
+
   return (
       <header> 
       {/* navbar */}
@@ -53,7 +56,11 @@ function Navbar(props) {
                   <hr id="lineNavbar"  />
                 </li>
                 <li className="nav-item ">
+                 {!authState && (
+                  <>
                  <Link id="IniciarLink"className= "nav-link active" to="/login">Ingresar</Link>
+              </>)}
+                
                  <hr id="lineNavbar" />
                </li>
               
