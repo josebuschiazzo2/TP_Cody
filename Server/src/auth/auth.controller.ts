@@ -42,6 +42,6 @@ export class AuthController {
 @UseGuards(AuthGuard)
 autenticacion(@Req ()request){ // parámetros para representar la solicitud, permite acceder a los datos del usuario. 
 const user = request.user 
-return user   //devuelve la info del user loggeado
+return user   //devuelve la info del user loggeado, nos permite acceder a eso desde el front para identificar roles y acceder a los demás datos del payload
 }
 }

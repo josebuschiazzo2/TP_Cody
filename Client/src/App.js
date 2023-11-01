@@ -21,11 +21,12 @@ import { useState, useEffect } from 'react';
 
 
 const App = () => {
-const [authState, setAuthState] = useState(false) // desp va a contener la info del user--> pendiente
+const [authState, setAuthState] = useState({username:"", id:0, status:false}) // desp va a contener la info del user--> pendiente
+// authState es un objeto porque tomamos la info del user que nos manda el backend, asi accedemos a la información del usuario desde el front, como el id, el username, y si está loggeado o no. 
 
 useEffect(() => { // sin este hook, el usuario al recargar la página ve nuevamente el botón ingresar de la navbar
  // con useEffect se ejecuta la verificacion del token con el usuario y si esta ok el authState es true == no se muestra "ingresar" de la navbar
-  fetch("http://localhost:3003/auth/auth", { 
+  fetch("http://localhost:3003/auth/auth", { // auth/auth verifica la autenticidad del usuario y a la vez devuelve los datos de su payload. 
     // auth/auth  verifica que el token corresponda con el token activo del user para evitar que cualquier persona pegue un token falso en localStorage desde la consola.
     method: "GET",
     headers: {
@@ -40,13 +41,13 @@ useEffect(() => { // sin este hook, el usuario al recargar la página ve nuevame
     })
     .then(data => {
       if (data.error) {
-        setAuthState(false);
+        setAuthState({...authState, status:false}); // solo cambiamos el estado de status para no tocar los demás atributos. 
       } else {
-        setAuthState(true);
+        setAuthState({username: data.username ,id:data.id, status:true });  // si está loggeado el usuario tiene token ---> se valida el token en el backend y se asigna en authState su username, id y estado para manipularlos en el front. 
       }
     })
     .catch(error => {
-      setAuthState(false); // Cambiar el estado a 'false' en caso de error
+      setAuthState({...authState, status:false}); // Cambiar el estado a 'false' en caso de error
       console.error("Error en la solicitud:", error);
     });
 }, []);
