@@ -40,8 +40,8 @@ export class AuthController {
   }
 @Get('auth') // devuelve si el usuario es valido o no 
 @UseGuards(AuthGuard)
-autenticacion(@Req ()request){ // parámetros para representar la solicitud y la respuesta del servidor
-const user = request.user //devuelve el user loggeado
-return user
+autenticacion(@Req ()request){ // parámetros para representar la solicitud, permite acceder a los datos del usuario. 
+const user = request.user 
+return user   //devuelve la info del user loggeado
 }
 }
