@@ -135,6 +135,12 @@ function Comunidad() {
               <div className='d-flex flex-column estiloComentario'>
                 <h5>{publicacion.username}</h5>
                 <p>{publicacion.post}</p>
+                {authState.role == "admin" && ( 
+                    <>
+                    <h3>soy admin</h3>
+                    </>
+                    )}
+
               </div>
 
               {/* mapeo y representación de comentarios */}

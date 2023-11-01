@@ -43,7 +43,7 @@ useEffect(() => { // sin este hook, el usuario al recargar la página ve nuevame
       if (data.error) {
         setAuthState({...authState, status:false}); // solo cambiamos el estado de status para no tocar los demás atributos. 
       } else {
-        setAuthState({username: data.username ,id:data.id, role:data.role ,status:true });  // si está loggeado el usuario tiene token ---> se valida el token en el backend y se asigna en authState su username, id y estado para manipularlos en el front. 
+        setAuthState({username: data.username ,id:data.id, role:data.role, status:true });  // si está loggeado el usuario tiene token ---> se valida el token en el backend y se asigna en authState su username, id y estado para manipularlos en el front. 
       }
     })
     .catch(error => {
