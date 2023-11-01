@@ -4,12 +4,15 @@ import Navbar from "./Navbar";
 import TextareaAutosize from 'react-textarea-autosize';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from '../helpers/AuthContext'; //1. authContext importado
+import { useContext} from 'react';
 
 function Comunidad() {
   const [publicacion, setPublicacion] = useState('');
   const [listaPublicaciones, setListaPublicaciones] = useState([]);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  const {authState} = useContext(AuthContext)  //2. declaramos el valor de Authcontext a usar. --> de App.js, por que se encuentra en el nivel más alto de la página. 
 
   //   const [respuesta, setRespuesta] = useState('');
 
@@ -116,9 +119,15 @@ function Comunidad() {
             <div key={key} className='comment-container d-flex flex-column'>
               <div className='d-flex flex-row'>
                 <div id='radio' >
+
+                {authState.username === publicacion.username && ( 
+                    <>
                   <button className={"trashCan"} onClick={() => eliminarPublicacion(publicacion.id)}>
-                    <span class="material-symbols-outlined">delete</span>
-                  </button>
+                     <span class="material-symbols-outlined">delete</span>
+                    </button>
+                    </>
+                    )}
+                    
                   <div>
                   </div>
                 </div>

@@ -10,7 +10,7 @@ function Formulario() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
-  const { setAuthState } = useContext(AuthContext) // context desde donde agarramos el valor setAuthState
+  const { setAuthState,authState } = useContext(AuthContext) // context desde donde agarramos el valor setAuthState
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -30,7 +30,7 @@ function Formulario() {
         const token = await response.text(); // se transforma la respuesta a texto--> el token de JWT se envia desde el backend en formato texto, por eso, para extraerlo correctamente
         // se extrae del cuerpo de la respuesta como cadena de texto. 
         localStorage.setItem("token", token);
-        setAuthState(true);
+        setAuthState({...authState, status:true}); // solo cambiamos el status de authState
         navigate('/')
         console.log(response.data)
       }

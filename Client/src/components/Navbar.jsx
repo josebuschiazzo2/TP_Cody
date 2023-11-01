@@ -1,22 +1,25 @@
 import '../styles/navbar.css';
 import { Link } from 'react-router-dom';
 import LogoCodyPNG from '../images/LogoCodyPNG.png';
-import { useContext} from 'react';
+import { useContext } from 'react';
 import AuthContext from '../helpers/AuthContext'; //1. authContext importado
 
 
 function Navbar(props) {
-  const {authState} = useContext(AuthContext)  //2. declaramos el valor de Authcontext a usar. --> de App.js, por que se encuentra en el nivel más alto de la página. 
-
+  const { authState, setAuthState } = useContext(AuthContext)  //2. declaramos el valor de Authcontext a usar. --> de App.js, por que se encuentra en el nivel más alto de la página. 
+  const cerrarSesion = () => {
+    localStorage.removeItem("token")
+    setAuthState({username:"", id:0, status:false}) // limpiamos la info de los atributos en el front para que no sigan apareciendo al cerrar sesión. 
+  }
   return (
-      <header> 
+    <header>
       {/* navbar */}
       <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div className="container">
           {/* logo  */}
           <img id="logoCody" src={LogoCodyPNG} alt="logo" />
           {/* Toggle btn */}
-          <button className="navbar-toggler shadow-none border-0 " style={{backgroundColor: '#537993' }} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <button className="navbar-toggler shadow-none border-0 " style={{ backgroundColor: '#537993' }} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
 
@@ -36,38 +39,40 @@ function Navbar(props) {
               <ul className="navbar-nav justify-content-center  fs-5 p-2  pe-5">
 
                 <li className=" nav-item">
-                <Link id="inicioLink" className={`nav-link active ${props.claseHome}`} to="/">Inicio</Link>
+                  <Link id="inicioLink" className={`nav-link active ${props.claseHome}`} to="/">Inicio</Link>
                   <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item">
                   <Link id="graficosLink" className={`nav-link active ${props.claseGraficas}`} to="/graficasClimaticas">Gráficas</Link>
                   <hr id="lineNavbar" />
                 </li>
+               
                 <li className="nav-item">
                   <Link id="noticiasLink" className={`nav-link active ${props.claseNoticias}`} to="/noticias">Noticias</Link>
                   <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item">
-                  <Link id="comunidadLink" className={`nav-link active ${props.claseComunidad}`}  to="/comunidad">Comunidad</Link>
+                  <Link id="comunidadLink" className={`nav-link active ${props.claseComunidad}`} to="/comunidad">Comunidad</Link>
                   <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item">
                   <Link id="nosotrosLink" className={`nav-link active ${props.claseSobreNosotros}`} to="/sobrenosotros">Contactenos</Link>
-                  <hr id="lineNavbar"  />
+                  <hr id="lineNavbar" />
                 </li>
                 <li className="nav-item ">
-                 {!authState && ( // si authState es true no se muestra en pantalla el botón Ingresar de la navbar. Al hacer Login se cambia el estado de false --> a true
-                  <>
-                 <Link id="IniciarLink"className= "nav-link active" to="/login">Ingresar</Link>
-              </>
-              )}
-                 <hr id="lineNavbar" />
-               </li>
-              
-            
+                  {!authState.status ? ( // si authState es true no se muestra en pantalla el botón Ingresar de la navbar. Al hacer Login se cambia el estado de false --> a true
+                    <>
+                      <Link id="IniciarLink" className="nav-link active" to="/login">Ingresar</Link>
+                    </>
+                  ) : (
+                    <button id="IniciarLink" className='nav-link active' onClick={cerrarSesion}>Cerrar Sesión</button>
+                  )}
+                  <hr id="lineNavbar" />
+                </li>
+
               </ul>
               {/* Login / Sign up QUEIZAS DEBA SALIR DE AQUI YA QUE SE ABRE EN UNA VENTANA NUEVA ANTES DE RENDERIZAR EL HOME */}
-             
+
             </div>
           </div>
         </div>
