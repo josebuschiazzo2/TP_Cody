@@ -37,7 +37,10 @@ function Navbar(props) {
 
               {/*En <ul> se puede modificar la posicion del menu con la clase justify-content-center o justify-content-end  */}
               <ul className="navbar-nav justify-content-center  fs-5 p-2  pe-5">
+<li>
 
+
+</li>
                 <li className=" nav-item">
                   <Link id="inicioLink" className={`nav-link active ${props.claseHome}`} to="/">Inicio</Link>
                   <hr id="lineNavbar" />
