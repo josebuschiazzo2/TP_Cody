@@ -6,6 +6,7 @@ import {
   Get,
   Post,
   Req,
+  Res,
   UseGuards,
 } from '@nestjs/common';
 
@@ -37,5 +38,10 @@ export class AuthController {
       return 'Bienvenido al Home';
     }
   }
-
+@Get('auth') // devuelve si el usuario es valido o no 
+@UseGuards(AuthGuard)
+autenticacion(@Req ()request){ // parámetros para representar la solicitud y la respuesta del servidor
+const user = request.user //devuelve el user loggeado
+return user
+}
 }

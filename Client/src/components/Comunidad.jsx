@@ -33,7 +33,6 @@ function Comunidad() {
  // <----------- FUNCIÓN PUBLICAR ------------>
   const publicar = async () => {
     if (!token) {
-      alert("¡Bienvendido! Por favor, inicia sesión para publicar.");
       navigate('/login');
       return;
     }
