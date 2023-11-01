@@ -9,7 +9,7 @@ function Navbar(props) {
   const { authState, setAuthState } = useContext(AuthContext)  //2. declaramos el valor de Authcontext a usar. --> de App.js, por que se encuentra en el nivel más alto de la página. 
   const cerrarSesion = () => {
     localStorage.removeItem("token")
-    setAuthState({username:"", id:0, status:false}) // limpiamos la info de los atributos en el front para que no sigan apareciendo al cerrar sesión. 
+    setAuthState({username:"", id:0, role:"", status:false}) // limpiamos la info de los atributos en el front para que no sigan apareciendo al cerrar sesión. 
   }
   return (
     <header>

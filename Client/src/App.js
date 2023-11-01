@@ -21,7 +21,7 @@ import { useState, useEffect } from 'react';
 
 
 const App = () => {
-const [authState, setAuthState] = useState({username:"", id:0, status:false}) // desp va a contener la info del user--> pendiente
+const [authState, setAuthState] = useState({username:"", id:0, role:"", status:false}) // desp va a contener la info del user--> pendiente
 // authState es un objeto porque tomamos la info del user que nos manda el backend, asi accedemos a la información del usuario desde el front, como el id, el username, y si está loggeado o no. 
 
 useEffect(() => { // sin este hook, el usuario al recargar la página ve nuevamente el botón ingresar de la navbar
@@ -43,7 +43,7 @@ useEffect(() => { // sin este hook, el usuario al recargar la página ve nuevame
       if (data.error) {
         setAuthState({...authState, status:false}); // solo cambiamos el estado de status para no tocar los demás atributos. 
       } else {
-        setAuthState({username: data.username ,id:data.id, status:true });  // si está loggeado el usuario tiene token ---> se valida el token en el backend y se asigna en authState su username, id y estado para manipularlos en el front. 
+        setAuthState({username: data.username ,id:data.id, role:data.role ,status:true });  // si está loggeado el usuario tiene token ---> se valida el token en el backend y se asigna en authState su username, id y estado para manipularlos en el front. 
       }
     })
     .catch(error => {
