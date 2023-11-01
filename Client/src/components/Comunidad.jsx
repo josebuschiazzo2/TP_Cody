@@ -120,7 +120,7 @@ function Comunidad() {
               <div className='d-flex flex-row'>
                 <div id='radio' >
 
-                {authState.username === publicacion.username && ( 
+                {authState.username === publicacion.username && (  //si el usuario que inicio sesión es el mismo de la publicación, se muestra el botón eliminar. 
                     <>
                   <button className={"trashCan"} onClick={() => eliminarPublicacion(publicacion.id)}>
                      <span class="material-symbols-outlined">delete</span>
