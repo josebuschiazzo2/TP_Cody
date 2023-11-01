@@ -25,7 +25,7 @@ export class PostController {
   @Get('get-posts')
  async findAll() {
     return await this.postService.findAll();
-  }
+  } 
   //********** Delete Post **********/
   @Delete('delete-post/:id')
   @UseGuards(AuthGuard)
