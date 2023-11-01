@@ -25,11 +25,11 @@ const [authState, setAuthState] = useState(false) // desp va a contener la info 
 
 useEffect(() => { // sin este hook, el usuario al recargar la página ve nuevamente el botón ingresar de la navbar
  // con useEffect se ejecuta la verificacion del token con el usuario y si esta ok el authState es true == no se muestra "ingresar" de la navbar
-  fetch("http://localhost:3003/auth/auth", { // como es una solicitud y el token ya está guardado se obtiene así, como en los endpoints protegidos.
+  fetch("http://localhost:3003/auth/auth", { 
     // auth/auth  verifica que el token corresponda con el token activo del user para evitar que cualquier persona pegue un token falso en localStorage desde la consola.
     method: "GET",
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`
+      Authorization: `Bearer ${localStorage.getItem("token")}`// como es una solicitud y el token ya está guardado se obtiene así, como en los endpoints protegidos.
     }
   })
     .then(response => {
@@ -39,7 +39,6 @@ useEffect(() => { // sin este hook, el usuario al recargar la página ve nuevame
       return response.json();
     })
     .then(data => {
-      // Si la solicitud es exitosa y no hay errores en la respuesta
       if (data.error) {
         setAuthState(false);
       } else {
@@ -51,29 +50,6 @@ useEffect(() => { // sin este hook, el usuario al recargar la página ve nuevame
       console.error("Error en la solicitud:", error);
     });
 }, []);
-
-
-
-// useEffect(()=>{
-//   fetch("http://localhost:3003/auth/authValidation", {
-//     method:"GET", 
-// headers: {
-//  token: localStorage.getItem("token")
-// }
-// })
-//   .then((response)=> response.json())
-//   .then((data) =>{ 
-//     if(data.error){
-//     setAuthState (false)
-//   } else {
-//     setAuthState(true);
-// }
-// })
-// .catch((error =>{
-//   console.log(error);
-// }))
-// },[]);
-
 
   return (
     <div> 
