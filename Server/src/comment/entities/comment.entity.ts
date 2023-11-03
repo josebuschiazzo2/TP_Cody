@@ -24,15 +24,17 @@ export class Comment {
   // FK ----> user id
   @ManyToOne(() => User, (user) => user.comment)
   @JoinColumn({ name: 'fk_user_id' })
-  user: User;
+  userID: User;
 
   // FK ----> post id
   @ManyToOne(() => Post, (post) => post.comment)
   @JoinColumn({ name: 'fk_post_id' })
-  post: Post;
+  postID: Post;
 
-  constructor(username: string, comment: string) {
+  constructor( username: string, comment: string,userID: User, postID:Post) {
     this.username = username;
     this.comment = comment
+    this.userID = userID;
+    this.postID = postID;
 }
 }

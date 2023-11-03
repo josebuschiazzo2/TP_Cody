@@ -13,7 +13,7 @@ export class PostController {
   @Post('new')
   @UseGuards(AuthGuard)
   async create(@Body() PostDto: PostDto, @Req() request) {
-    if (request.user.role === Role.USER) {
+    if (request.user.role === Role.USER || request.user.role === Role.ADMIN) {
       const username = request.user.username;
       const userID = request.user.id;
       return await this.postService.create(PostDto, userID, username);

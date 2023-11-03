@@ -5,25 +5,26 @@ import TextareaAutosize from 'react-textarea-autosize';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../helpers/AuthContext'; //1. authContext importado
-import { useContext} from 'react';
+import { useContext } from 'react';
 
 function Comunidad() {
-  const [publicacion, setPublicacion] = useState('');
+  const [publicacion, setPublicacion] = useState("");
   const [listaPublicaciones, setListaPublicaciones] = useState([]);
+  const [comentario, setComentario] = useState("");
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
-  const {authState} = useContext(AuthContext)  //2. declaramos el valor de Authcontext a usar. --> de App.js, por que se encuentra en el nivel más alto de la página. 
+  const { authState } = useContext(AuthContext); //2. declaramos el valor de Authcontext a usar. --> de App.js, por que se encuentra en el nivel más alto de la página. 
 
   //   const [respuesta, setRespuesta] = useState('');
 
   //<-------MOSTRAR PUBLICACIONES AL EJECUTAR LA PÁGINA-------->
   useEffect(() => { // ->
     const mostrarLista = async () => {
-      fetch('http://localhost:3003/post/get-posts')
+      fetch('http://localhost:3003/comment/get')
         .then(resp => resp.json())
         .then(data => setListaPublicaciones(data))
         .catch(error => {
-          console.log("no se pudo obtener las personas", error)
+          console.log("no se pudo obtener las publicaciones", error)
         })
     }
     mostrarLista();
@@ -33,7 +34,7 @@ function Comunidad() {
  */
 
 
- // <----------- FUNCIÓN PUBLICAR ------------>
+  // <----------- FUNCIÓN PUBLICAR ------------>
   const publicar = async () => {
     if (!token) {
       navigate('/login');
@@ -60,9 +61,6 @@ function Comunidad() {
       });
   };
 
-
-
-
   // <----------ELIMINAR PUBLICACIÓN------------->
   const eliminarPublicacion = (id) => {
     fetch(`http://localhost:3003/post/delete-post/${id}`, {
@@ -82,11 +80,51 @@ function Comunidad() {
       });
   }
   // <----------ENVIAR COMENTARIO------------->
-  const enviarComentario = () => {
-    console.log("hice click en enviar comentario!")
+  const enviarComentario = (id) => {
+    if (!token) {
+      navigate('/login');
+      return;
+    }
+    fetch(`http://localhost:3003/comment/add/${id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      },
+      body: JSON.stringify({ comment: comentario })
+    })
+      .then(response => {
+        console.log(response);
+        return response.text();
+      })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => {
+        console.error("Error en la solicitud:", error);
+        console.log("Mensaje de error:", error.message);
+      });
+
   }
+  //     fetch(`http://localhost:3003/comment/get/${id}`
+
   // <----------ELIMINAR COMENTARIO------------->
-  /****pendiente****/
+  const eliminarComentario = (id) => {
+    fetch(`http://localhost:3003/comment/delete-comment/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      },
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log("Publicación eliminada:", data);
+      })
+      .catch((error) => {
+        console.error("Error al eliminar la publicación:", error);
+      });
+  }
 
   return (<>
     <Navbar />
@@ -103,59 +141,68 @@ function Comunidad() {
           <p className="textoJumbotron jumbotron">Nos emociona darte la bienvenida a este rincón en línea, donde científicos, investigadores y amantes de la Antártida se reúnen para compartir su curiosidad y conocimientos sobre este fascinante continente.</p>
         </div>
         <div className=''>
-          {/* <form onSubmit={publicar}> */}
           <TextareaAutosize
             name='publicacion'
             id='newPostField'
-            value={publicacion}
-            onChange={(e) => setPublicacion(e.target.value)}  //  ONCHANGE
+            onChange={(e) => setPublicacion(e.target.value)}
             placeholder='Añade una nueva publicación...'
           />
           <button id='publish-btn' onClick={publicar}> publicar</button>
-          {/* </form> */}
         </div>
+        {/* mapeo y representación de publicaciones y comentarios*/}
         <div>
-          {listaPublicaciones.map((publicacion, key) => ( // listaDePublicaciones cambiado a listaPublicaciones, key a index
-            <div key={key} className='comment-container d-flex flex-column'>
+          {listaPublicaciones.map((publicacion, key) => (
+            <div key={key} className='publicacion-container d-flex flex-column'>
               <div className='d-flex flex-row'>
+               
                 <div id='radio' >
-
-                {authState.username === publicacion.username && (  //si el usuario que inicio sesión es el mismo de la publicación, se muestra el botón eliminar. 
+                  {authState.username === publicacion.username && (  //si el usuario que inicio sesión es el mismo de la publicación, se muestra el botón eliminar. 
                     <>
-                  <button className={"trashCan"} onClick={() => eliminarPublicacion(publicacion.id)}>
-                     <span class="material-symbols-outlined">delete</span>
-                    </button>
+                      <button className={"trashCan"} onClick={() => eliminarPublicacion(publicacion.id)}>
+                        <span className="material-symbols-outlined">delete</span>
+                      </button>
                     </>
-                    )}
-                    
-                  <div>
-                  </div>
+                  )}
+
                 </div>
               </div>
-              <div className='d-flex flex-column estiloComentario'>
-                <h5>{publicacion.username}</h5>
+              <div className='d-flex flex-column publicacionCreada'>
+                <p className='publicacion_nombre'>{publicacion.username}</p>
                 <p>{publicacion.post}</p>
-                {authState.role == "admin" && ( 
-                    <>
-                    <h3>soy admin</h3>
-                    </>
-                    )}
-
               </div>
 
-              {/* mapeo y representación de comentarios */}
-
-
+              <div>
+                {publicacion.comment.map((comentario, i) => (
+                  <div key={i}>
+                    <div className='comentarios_contenedor'>    
+                      <div className='comentarios_publicados'>
+                        <p className='comentario_nombre' >{comentario.username}: </p>
+                        <p className='comentario_txt'>{comentario.comment}</p>
+                        </div>
+                    </div>     
+                
+                    <div className='eliminarComentario'>
+                        {authState.username === comentario.username && (  //si el usuario que inicio sesión es el mismo del comentario, se muestra el botón eliminar. 
+                          <>
+                            <button className={"trashCan"} onClick={() => eliminarComentario(comentario.id)}> 
+                              <span className="material-symbols-outlined">delete</span>
+                            </button>
+                          </>
+                        )}</div>
+                  </div>
+                )
+                )}
+              </div>
+            
               <div id='newReplySection' className="py-3 border-1 d-flex flex-row" >
                 <TextareaAutosize
-                  name='respuesta'
+                  name='comentario'
                   maxLength={550}
-                  // value={}
                   id='newCommentField'
-                  onChange={enviarComentario}
+                  onChange={(e) => setComentario(e.target.value)}
                   placeholder="Escribe tu comentario..."
                 />
-                <button onClick={enviarComentario} id='sendComment-btn'>Enviar</button>
+                <button onClick={() => enviarComentario(publicacion.id)} id='sendComment-btn'>Enviar</button>
                 <div className='d-flex justify-content-end'>
                 </div>
               </div>

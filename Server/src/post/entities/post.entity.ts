@@ -26,8 +26,8 @@ export class Post {
 
   // uno a muchos con Comment
 
-  @OneToMany(() => Comment, (comment) => comment.user)
-  public comment: Comment[]; // null if no children ?
+  @OneToMany(() => Comment, (comment) => comment.postID)
+  public comment: Comment[]; // array de comentarios. 
 
   constructor(post: string, userID: User, username: string) {
     this.post = post;

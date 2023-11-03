@@ -6,37 +6,43 @@ import {
   Param,
   Patch,
   Post,
+  Req,
+  UseGuards,
 } from '@nestjs/common';
-
 import { CommentService } from './comment.service';
 import { CommentDto } from './dto/comment.dto';
+import { AuthGuard } from 'src/auth/entities/auth.guard';
+import { Role } from 'src/common/enum/role.enum';
 
 @Controller('comment')
 export class CommentController {
   constructor(private readonly commentService: CommentService) {}
 
-  @Post()
-  create(@Body() commentDto: CommentDto) {
-    return this.commentService.create(commentDto);
+  //**********   enviar comentario   **********/
+  @Post('add/:id')
+  @UseGuards(AuthGuard)
+  create(
+    @Param('id') id: number,
+    @Body() CommentDto: CommentDto,
+    @Req() request,
+  ) {
+    const username = request.user.username;
+    const userID = request.user.id;
+    return this.commentService.createComment(id, CommentDto, username, userID);
   }
 
-  @Get()
+  @Get('get') // esto podría estar en post pero lo hice acá
   findAll() {
     return this.commentService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.commentService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() commentDto: CommentDto) {
-    return this.commentService.update(+id, commentDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.commentService.remove(+id);
+  @Delete('delete-comment/:id')
+  @UseGuards(AuthGuard)
+  remove(@Param('id') id: number, @Req() request) {
+    if (request.user.role === Role.USER) {
+      return this.commentService.remove(id);
+    } else {
+      return '***access unauthorized***';
+    }
   }
 }
