@@ -1,8 +1,19 @@
-import { Controller, Get, Post, Body, Param, Delete, Req, UseGuards } from '@nestjs/common';
-import { PostService } from './post.service';
-import { PostDto } from './dto/post.dto';
-import { AuthGuard } from '../auth/entities/auth.guard';
 import { Role } from 'src/common/enum/role.enum';
+
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
+
+import { AuthGuard } from '../auth/entities/auth.guard';
+import { PostDto } from './dto/post.dto';
+import { PostService } from './post.service';
 
 @Controller('post')
 export class PostController {
@@ -13,7 +24,7 @@ export class PostController {
   @Post('new')
   @UseGuards(AuthGuard)
   async create(@Body() PostDto: PostDto, @Req() request) {
-    if (request.user.role === Role.USER) {
+    if (request.user.role === Role.USER || request.user.role === Role.ADMIN) {
       const username = request.user.username;
       const userID = request.user.id;
       return await this.postService.create(PostDto, userID, username);
