@@ -31,15 +31,12 @@ function Navbar(props) {
               <h5 className="offcanvas-title" id="offcanvasNavbarLabel">CODY</h5>
               <button type="button" className="btn-close-white btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-
+            
             {/* sidebar body */}
             <div>
-
               {/*En <ul> se puede modificar la posicion del menu con la clase justify-content-center o justify-content-end  */}
               <ul className="navbar-nav justify-content-center  fs-5 p-2  pe-5">
 <li>
-
-
 </li>
                 <li className=" nav-item">
                   <Link id="inicioLink" className={`nav-link active ${props.claseHome}`} to="/">Inicio</Link>
@@ -62,6 +59,7 @@ function Navbar(props) {
                   <Link id="nosotrosLink" className={`nav-link active ${props.claseSobreNosotros}`} to="/sobrenosotros">Contactenos</Link>
                   <hr id="lineNavbar" />
                 </li>
+                <p className='nombreUsuarioNavbar'> {authState.username}</p>
                 <li className="nav-item ">
                   {!authState.status ? ( // si authState es true no se muestra en pantalla el botón Ingresar de la navbar. Al hacer Login se cambia el estado de false --> a true
                     <>
@@ -74,8 +72,6 @@ function Navbar(props) {
                 </li>
 
               </ul>
-              {/* Login / Sign up QUEIZAS DEBA SALIR DE AQUI YA QUE SE ABRE EN UNA VENTANA NUEVA ANTES DE RENDERIZAR EL HOME */}
-
             </div>
           </div>
         </div>

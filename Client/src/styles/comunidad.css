@@ -1,7 +1,13 @@
 .mobile {
   display: none;
 }
-
+/* //nombre usuario navbar temporal: para saber quien está loggeado  */
+.nombreUsuarioNavbar{
+color: white;
+margin-left: 60px;
+font-size: 1rem;
+margin-top: 10px;
+}
 .cargar_imagen{
 background-color: white;
 color: rgb(5, 5, 5);
@@ -147,7 +153,8 @@ background-color: transparent;
 }
 
 /* SECCION DE PUBLICACIONES Y COMENTARIOS  */
-.comment-container {
+
+.publicacion-container {
   margin: 10px;
   border: 1px solid rgb(189, 188, 188);
   border-radius: 5px;
@@ -171,9 +178,56 @@ background-color: transparent;
   overflow: hidden;
   outline: none;
 }
-.listaDeRespuestas {
-  margin-left: 35px;
+
+#sendComment-btn {
+  font-size: 0.95rem;
+  margin-left: 6px;
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  background: linear-gradient(180deg, #4b91f7 0%, #367af6 100%);
+  height: min-content;
+}
+
+.publicacionCreada {
+  padding: 10px;
   word-wrap: break-word;
+}
+
+.publicacion_nombre{
+  color:#0380a2;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.comentarios_contenedor{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgb(208, 207, 207);
+  border-radius: 5px;
+  width:90%;
+   margin:0px 20px 5px 20px;
+}
+.comentarios_publicados {
+  display: flex;
+   padding: 2px;
+   width: fit-content;
+}
+.comentario_txt{
+  width: fit-content;
+}
+.comentario_nombre{
+  width: fit-content;
+color:#03a1cd;
+font-size: 1rem;
+font-weight: 500;
+margin-right: 8px;
+}
+.eliminarComentario{
+  width: 10%;
+  height: fit-content;
+  align-items: end;
 }
 /* LIKE BTN: */
 
@@ -208,31 +262,11 @@ button.active img {
   height: 32px;
 }
 
-#sendComment-btn {
-  font-size: 0.95rem;
-  margin-left: 6px;
-  font-family: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
-  border-radius: 6px;
-  border: none;
-  color: #fff;
-  background: linear-gradient(180deg, #4b91f7 0%, #367af6 100%);
-  height: min-content;
-}
 .like-btn-section {
   justify-content: end;
   align-items: center;
   padding: 3px;
   margin: 4px;
-}
-.estiloComentario {
-  padding: 10px;
-  word-wrap: break-word;
-}
-.comentarioPublicado {
-  border: 1px solid rgb(189, 188, 188);
-  border-radius: 10px;
-  margin: 5px;
-  padding: 2px;
 }
 @keyframes like-btn-Animation {
   0% {

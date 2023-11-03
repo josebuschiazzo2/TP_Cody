@@ -39,7 +39,7 @@ export class User {
   public post: Post[];
 
   // ****** uno a muchos con Comment ******
-  @OneToMany(() => Comment, comment => comment.user)
+  @OneToMany(() => Comment, comment => comment.userID)
   public comment: Comment[];
 
 
