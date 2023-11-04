@@ -22,9 +22,13 @@ export class PostService {
   ) {}
   //*****     CREATE NEW POST     ***** */
   async create(postDto: PostDto, userID: User, username: string) {
+    const meses  = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+    const dias_semana = ['Domingo', 'Lunes', 'martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+    const fecha = new Date();
+const createdAt = (dias_semana[fecha.getDay()] + ', ' + fecha.getDate() + ' de ' + meses[fecha.getMonth()] + ' de ' + fecha.getUTCFullYear());
     if (postDto.post !== '') {
       const publicacion: Post = await this.postRepository.save(
-        new Post(postDto.post, userID, username),
+        new Post(postDto.post, userID, username, createdAt),
       );
       if (!publicacion) {
         return 'Error al cargar la publicación';

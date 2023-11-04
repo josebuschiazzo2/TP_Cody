@@ -1,12 +1,22 @@
 .mobile {
   display: none;
 }
+/* // trASHCAN */
+.material-symbols-outlined{
+  color: rgb(96, 95, 95);
+font-size: 20px;
+}
+
+.publicacion_fecha{
+  font-size: 0.9rem;
+  color: grey;
+}
 /* //nombre usuario navbar temporal: para saber quien está loggeado  */
 .nombreUsuarioNavbar{
 color: white;
 margin-left: 60px;
 font-size: 1rem;
-margin-top: 10px;
+margin-top: 8px;
 }
 .cargar_imagen{
 background-color: white;
@@ -16,12 +26,7 @@ padding: 4px;
 margin: 3px;
 border-radius: 10px;
 }
-#nombre_usuario{
-  width: 50%;
- margin: 8px;
- border-radius: 6px;
 
-}
 .form_clase{
   width: 100%;
 }
@@ -43,14 +48,6 @@ background-color: transparent;
 }
 
                                   /* BOTON ELIMINAR PUBLICACION */
- /* trash can style: */
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-}
 
 
                                   /* PARTE IZQUIERDA DE LA PÁGINA, TEXTO */
@@ -155,7 +152,7 @@ background-color: transparent;
 /* SECCION DE PUBLICACIONES Y COMENTARIOS  */
 
 .publicacion-container {
-  margin: 10px;
+  margin: 8px;
   border: 1px solid rgb(189, 188, 188);
   border-radius: 5px;
   padding: 20px;
@@ -191,14 +188,14 @@ background-color: transparent;
 }
 
 .publicacionCreada {
-  padding: 10px;
+  padding: 6px;
   word-wrap: break-word;
 }
 
 .publicacion_nombre{
   color:#0380a2;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .comentarios_contenedor{
@@ -212,10 +209,10 @@ background-color: transparent;
 .comentarios_publicados {
   display: flex;
    padding: 2px;
-   width: fit-content;
+   width: 100%;
 }
 .comentario_txt{
-  width: fit-content;
+  width: 100%;
 }
 .comentario_nombre{
   width: fit-content;
@@ -225,12 +222,11 @@ font-weight: 500;
 margin-right: 8px;
 }
 .eliminarComentario{
-  width: 10%;
   height: fit-content;
   align-items: end;
 }
-/* LIKE BTN: */
 
+/* LIKE BTN: */
 .like-btn img {
   filter: invert(26%) sepia(0%) saturate(2872%) hue-rotate(358deg)
     brightness(84%) contrast(79%);
