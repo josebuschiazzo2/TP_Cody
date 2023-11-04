@@ -13,31 +13,35 @@ function Formulario() {
   const { setAuthState,authState } = useContext(AuthContext) // context desde donde agarramos el valor setAuthState
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault() // prevé el envio del formulario antes de que se procese la solicitud
-    try {
-      const response = await fetch("http://localhost:3003/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json", // el encabezado de la solicitud indica que la info que se manda es formato JSON
-        },
-        body: JSON.stringify({ email: email, password: password }), // identifica los objetos del body de la solicitud para enviar al backend. Convierte los datos a JSON y los envia.
-      });
-      if (!response.ok) {
-        const errorData = await response.json(); //lee el msje de error en la respuesta de la solicitud
-        alert(errorData.error);
-      } else {
-        const token = await response.text(); // se transforma la respuesta a texto--> el token de JWT se envia desde el backend en formato texto, por eso, para extraerlo correctamente
-        // se extrae del cuerpo de la respuesta como cadena de texto. 
-        localStorage.setItem("token", token);
-        setAuthState({...authState, status:true}); // solo cambiamos el status de authState
-        navigate('/')
-        console.log(response.data)
-      }
-    } catch (error) {
-      console.error("Error en la solicitud:", error);
+const handleSubmit = async (e) => {
+  e.preventDefault(); 
+  try {
+    const response = await fetch("http://localhost:3003/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email, password: password }),// identifica los objetos del body de la solicitud para enviar al backend. Convierte los datos a JSON y los envia.
+    });
+    if (!response.ok) {
+       await response.json();
+       console.log("usuario o contraseña no coinciden ")
+       // ejecutar algo en caso de errores! 
+
+    } else {
+      const responseData = await response.json(); // responseData es una variable que almacena la respuesta del backend.
+      const { token, username, id, role } = responseData; // responseData como conserva la respuesta del server, que es un objeto json, se desestructura para usar los datos de forma separada
+      localStorage.setItem("token", token); //al hacer login se almacena el token en el localStorage para la persistencia de la sesión.
+      setAuthState({ status: true, username, id, role }); // se asignan los datos del usuario a su estado de autenticación para que se ejecuten los cambios al hacer login. 
+      // console.log(username) // para verificar si llega el dato desde el backend
+      // console.log(responseData); // Mostrar toda la respuesta, depuración, ver estructura. 
+      navigate('/');
     }
-  };
+  } catch (error) {
+    console.error("Error en la solicitud:", error);
+  }
+};
+
 
   return (
     <section className='preBody'>

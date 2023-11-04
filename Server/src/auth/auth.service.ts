@@ -39,10 +39,9 @@ export class AuthService {
       ),
     )}
   // generar login // generar un toke
-  async login({ email, password }: LoginDto):Promise<string> {
+  async login({ email, password }: LoginDto) {
     const user = await this.userService.findOneByEmail(email);
     if (!user) throw new UnauthorizedException('usuario (o contraseña) incorrecto');
-
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid)
       throw new UnauthorizedException('password (o usuario) incorrecto');
@@ -55,9 +54,11 @@ export class AuthService {
       role: user.role,
       id:user.id // necesito el id para vincular las tablas post y user ----> asi se vincula el id del usuario con el post
     };
-
+const username = payload.username;
+const id = payload.id;
+const role = payload.role;
     const token = await this.jwtService.signAsync(payload);
-    return token; 
+    return { token, username: username, id:id, role:role }
   }
   // en el front tenemos que guardar el token en local storage
   //vamos a usar el token como parte de la solicitud
