@@ -50,6 +50,7 @@ function Comunidad() {
     })
       .then(response => {
         console.log(response);
+        setPublicacion('')// textarea vuelve a estar vacío
         return response.text();
       })
       .then(data => {
@@ -175,20 +176,22 @@ function Comunidad() {
                 {publicacion.comment.map((comentario, i) => (
                   <div key={i}>
                     <div className='comentarios_contenedor'>    
-                      <div className='comentarios_publicados'>
+                      <div className='comentarios_publicados'> 
                         <p className='comentario_nombre' >{comentario.username}: </p>
                         <p className='comentario_txt'>{comentario.comment}</p>
-                        </div>
-                    </div>     
-                
-                    <div className='eliminarComentario'>
+
+                           <div className='eliminarComentario'>
                         {authState.username === comentario.username && (  //si el usuario que inicio sesión es el mismo del comentario, se muestra el botón eliminar. 
                           <>
                             <button className={"trashCan"} onClick={() => eliminarComentario(comentario.id)}> 
                               <span className="material-symbols-outlined">delete</span>
                             </button>
                           </>
-                        )}</div>
+                        )}</div>                        </div>
+
+                    </div>     
+                
+                 
                   </div>
                 )
                 )}
