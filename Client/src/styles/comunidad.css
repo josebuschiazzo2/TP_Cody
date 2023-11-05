@@ -6,10 +6,13 @@
   color: rgb(96, 95, 95);
 font-size: 20px;
 }
-
+/* createdAt */
 .publicacion_fecha{
-  font-size: 0.9rem;
-  color: grey;
+display:flex;
+/* cambiar margen por flexbox. end */
+margin-left: 10px; 
+font-size: 0.8rem;  
+align-self: center;
 }
 /* //nombre usuario navbar temporal: para saber quien está loggeado  */
 .nombreUsuarioNavbar{
@@ -193,9 +196,9 @@ background-color: transparent;
 }
 
 .publicacion_nombre{
-  color:#0380a2;
+  color:#3b3c3c;
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .comentarios_contenedor{
@@ -216,8 +219,8 @@ background-color: transparent;
 }
 .comentario_nombre{
   width: fit-content;
-color:#03a1cd;
-font-size: 1rem;
+color:rgb(62, 65, 67);
+font-size: 0.9rem;
 font-weight: 500;
 margin-right: 8px;
 }
