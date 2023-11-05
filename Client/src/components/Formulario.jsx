@@ -10,7 +10,7 @@ function Formulario() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
-  const { setAuthState,authState } = useContext(AuthContext) // context desde donde agarramos el valor setAuthState
+  const { setAuthState } = useContext(AuthContext) // context desde donde agarramos el valor setAuthState
   const navigate = useNavigate();
 
 const handleSubmit = async (e) => {

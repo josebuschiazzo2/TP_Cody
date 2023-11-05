@@ -20,7 +20,7 @@ function Comunidad() {
   //<-------MOSTRAR PUBLICACIONES AL EJECUTAR LA PÁGINA-------->
   useEffect(() => { // ->
     const mostrarLista = async () => {
-      fetch('http://localhost:3003/comment/get')
+      fetch('http://localhost:3003/comment/get') // devuelve publicaciones y su array de comentarios
         .then(resp => resp.json())
         .then(data => setListaPublicaciones(data))
         .catch(error => {
@@ -50,10 +50,11 @@ function Comunidad() {
     })
       .then(response => {
         console.log(response);
-        setPublicacion('')// textarea vuelve a estar vacío
         return response.text();
       })
-      .then(data => {
+      .then(data => {        
+        setPublicacion('')
+
         console.log(data);
       })
       .catch(error => {
@@ -144,6 +145,7 @@ function Comunidad() {
         <div className=''>
           <TextareaAutosize
             name='publicacion'
+            value={publicacion}
             id='newPostField'
             onChange={(e) => setPublicacion(e.target.value)}
             placeholder='Añade una nueva publicación...'
@@ -155,7 +157,7 @@ function Comunidad() {
           {listaPublicaciones.map((publicacion, key) => (
             <div key={key} className='publicacion-container d-flex flex-column'>
               <div className='d-flex flex-row'>
-               
+
                 <div id='radio' >
                   {authState.username === publicacion.username && (  //si el usuario que inicio sesión es el mismo de la publicación, se muestra el botón eliminar. 
                     <>
@@ -168,35 +170,38 @@ function Comunidad() {
                 </div>
               </div>
               <div className='d-flex flex-column publicacionCreada'>
-                <p className='publicacion_nombre'>{publicacion.username}</p>
-                <p>{publicacion.post}</p>
+<div className='d-flex flex-row'> 
+                <p className='publicacion_nombre card-title'>{publicacion.username}</p>
+                <p className='publicacion_fecha card-subtitle ml-5 text-body-secondary'>{publicacion.createdAt}</p>
+</div>
+                <p className=''>{publicacion.post}</p>
+
               </div>
 
               <div>
                 {publicacion.comment.map((comentario, i) => (
                   <div key={i}>
-                    <div className='comentarios_contenedor'>    
-                      <div className='comentarios_publicados'> 
-                        <p className='comentario_nombre' >{comentario.username}: </p>
-                        <p className='comentario_txt'>{comentario.comment}</p>
+                    <div className='comentarios_contenedor'>
+                      <div className='comentarios_publicados'>
+                        <p className='comentario_nombre card-title' >{comentario.username}: </p>
+                        <p className='comentario_txt '>{comentario.comment}</p>
 
-                           <div className='eliminarComentario'>
-                        {authState.username === comentario.username && (  //si el usuario que inicio sesión es el mismo del comentario, se muestra el botón eliminar. 
-                          <>
-                            <button className={"trashCan"} onClick={() => eliminarComentario(comentario.id)}> 
-                              <span className="material-symbols-outlined">delete</span>
-                            </button>
-                          </>
-                        )}</div>                        </div>
+                        <div className='eliminarComentario'>
+                          {authState.username === comentario.username && (  //si el usuario que inicio sesión es el mismo del comentario, se muestra el botón eliminar. 
+                            <>
+                              <button className={"trashCan"} onClick={() => eliminarComentario(comentario.id)}>
+                                <span className="material-symbols-outlined">delete</span>
+                              </button>
+                            </>
+                          )}</div>
+                      </div>
 
-                    </div>     
-                
-                 
+                    </div>
                   </div>
                 )
                 )}
               </div>
-            
+
               <div id='newReplySection' className="py-3 border-1 d-flex flex-row" >
                 <TextareaAutosize
                   name='comentario'
