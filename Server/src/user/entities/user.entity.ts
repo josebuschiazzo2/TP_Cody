@@ -3,6 +3,7 @@ import { Role } from 'src/common/enum/role.enum';
 import { Post } from 'src/post/entities/post.entity';
 import { Comment } from 'src/comment/entities/comment.entity';
 import { Column, Entity,OneToMany,PrimaryGeneratedColumn} from 'typeorm';
+import { Like } from 'src/like/entities/like.entity';
 
 @Entity()
 export class User {
@@ -41,6 +42,11 @@ export class User {
   // ****** uno a muchos con Comment ******
   @OneToMany(() => Comment, comment => comment.userID)
   public comment: Comment[];
+
+    // ****** uno a muchos con Like ******
+  @OneToMany(() => Like, (like) => like.userID)
+  public like: Like[]; // array de likes. podemos acceder al array desde el front. 
+
 
 
   constructor(

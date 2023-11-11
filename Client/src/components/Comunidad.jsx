@@ -14,7 +14,7 @@ function Comunidad() {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const { authState } = useContext(AuthContext); //2. declaramos el valor de Authcontext a usar. --> de App.js, por que se encuentra en el nivel más alto de la página. 
-
+  const [like, setLike] = useState(false);
   //   const [respuesta, setRespuesta] = useState('');
 
   //<-------MOSTRAR PUBLICACIONES AL EJECUTAR LA PÁGINA-------->
@@ -52,7 +52,7 @@ function Comunidad() {
         console.log(response);
         return response.text();
       })
-      .then(data => {        
+      .then(data => {
         setPublicacion('')
 
         console.log(data);
@@ -128,6 +128,34 @@ function Comunidad() {
       });
   }
 
+  // like a post
+  const likePost = (id) => {
+    fetch(`http://localhost:3003/like/${id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + token
+        }
+      })
+      .then(response => {
+        console.log(response.text())
+      })
+      .then(data => {
+        console.log(data);
+        alert("ok")
+      })
+      .catch(error => {
+        console.error("Error en la solicitud:", error);
+        console.log("Mensaje de error:", error.message);
+      });
+
+  }
+
+
+
+
+
   return (<>
     <Navbar />
     <div className='d-flex flex-row'>
@@ -158,23 +186,36 @@ function Comunidad() {
             <div key={key} className='publicacion-container d-flex flex-column'>
               <div className='d-flex flex-row'>
 
-                <div id='radio' >
-                  {authState.username === publicacion.username && (  //si el usuario que inicio sesión es el mismo de la publicación, se muestra el botón eliminar. 
-                    <>
-                      <button className={"trashCan"} onClick={() => eliminarPublicacion(publicacion.id)}>
-                        <span className="material-symbols-outlined">delete</span>
-                      </button>
-                    </>
-                  )}
 
-                </div>
               </div>
               <div className='d-flex flex-column publicacionCreada'>
-<div className='d-flex flex-row'> 
-                <p className='publicacion_nombre card-title'>{publicacion.username}</p>
-                <p className='publicacion_fecha card-subtitle ml-5 text-body-secondary'>{publicacion.createdAt}</p>
-</div>
+                <div className='d-flex flex-row'>
+                  <p className='publicacion_nombre card-title'>{publicacion.username} - </p>
+                  <p className='publicacion_fecha card-subtitle ml-5 text-body-secondary'>{publicacion.createdAt}</p>
+
+                  <div id='radio'>
+                    <div >
+                      {authState.username === publicacion.username && (  //si el usuario que inicio sesión es el mismo de la publicación, se muestra el botón eliminar. 
+                        <>
+                          <button className={"trashCan"} onClick={() => eliminarPublicacion(publicacion.id)}>
+                            <span className="material-symbols-outlined">delete</span>
+                          </button>
+                        </>
+                      )}
+
+                    </div>
+                  </div>
+                </div>
                 <p className=''>{publicacion.post}</p>
+               <div className='d-flex flex-direction-row'>   
+                   <button className='like-btn' onClick={() => likePost(publicacion.id)}>
+                  <span className="material-symbols-outlined">thumb_up</span>
+                </button>
+                    
+                 {/* // total de likes por publicación  */}
+                      <p>{publicacion.like.length}</p> 
+                </div>
+
 
               </div>
 

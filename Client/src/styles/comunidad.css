@@ -3,9 +3,10 @@
 }
 /* // trASHCAN */
 .material-symbols-outlined{
-  color: rgb(96, 95, 95);
+  color: rgba(1, 1, 1, 0.792);
 font-size: 20px;
 }
+
 /* createdAt */
 .publicacion_fecha{
 display:flex;
@@ -13,6 +14,7 @@ display:flex;
 margin-left: 10px; 
 font-size: 0.8rem;  
 align-self: center;
+width: 30%;
 }
 /* //nombre usuario navbar temporal: para saber quien está loggeado  */
 .nombreUsuarioNavbar{
@@ -36,10 +38,9 @@ border-radius: 10px;
 
                                /* PROPIEDADES DEL BOTON DESPLEGAR */
 #radio {
-  width: 100%;
+  width: 60%;
   display: flex;
-  flex-direction: column;
-  align-items: end;
+justify-content: end;
 }
 
 .trashCan {
@@ -49,6 +50,8 @@ border:none;
 cursor: pointer;
 background-color: transparent;
 }
+
+
 
                                   /* BOTON ELIMINAR PUBLICACION */
 
@@ -81,8 +84,6 @@ background-color: transparent;
 }
 
                                    /* PARTE IZQUIERDA DE LA PÁGINA, ESTILO */
-
-
 #left-part {
   width: 400px;
   background: radial-gradient(
@@ -196,9 +197,11 @@ background-color: transparent;
 }
 
 .publicacion_nombre{
+  width: 10%;
   color:#3b3c3c;
   font-weight: 500;
   font-size: 1rem;
+  align-self: center;
 }
 
 .comentarios_contenedor{
