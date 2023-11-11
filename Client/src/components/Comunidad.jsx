@@ -207,13 +207,14 @@ function Comunidad() {
                   </div>
                 </div>
                 <p className=''>{publicacion.post}</p>
-               <div className='d-flex flex-direction-row'>   
-                   <button className='like-btn' onClick={() => likePost(publicacion.id)}>
-                  <span className="material-symbols-outlined">thumb_up</span>
-                </button>
-                    
-                 {/* // total de likes por publicación  */}
-                      <p>{publicacion.like.length}</p> 
+                <div className='d-flex flex-direction-row'>
+                  <button className='like-btn' onClick={() => likePost(publicacion.id)}>
+                    <span className="material-symbols-outlined">thumb_up</span>
+                  </button>
+
+                  {/* // total de likes por publicación  */}
+                  {publicacion.like.length > 0 &&
+                    <p> {publicacion.like.length}</p>}
                 </div>
 
 
