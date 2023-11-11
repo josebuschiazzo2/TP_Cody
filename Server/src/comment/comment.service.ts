@@ -14,7 +14,7 @@ public postRepository:Repository<Post>
 ){}
 
 
-  async createComment(id, commentDto: CommentDto, username: string, userID) {
+  async createComment(id:any, commentDto: CommentDto, username: string, userID) {
   const aux: FindOneOptions = { where: { id: id } };
   const postID = id;
   const publicacionAcomentar:Post = await this.postRepository.findOne(aux)
@@ -35,7 +35,8 @@ public postRepository:Repository<Post>
   findAll() {
     return this.postRepository.find({
       relations:{
-        comment:true
+        comment:true,
+        like:true
       }
     })
   }

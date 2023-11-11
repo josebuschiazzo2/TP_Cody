@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { CommentModule } from './comment/comment.module';
 import { PostModule } from './post/post.module';
 import { UserModule } from './user/user.module';
+import { LikeModule } from './like/like.module';
 
 @Module({
   imports: [
@@ -33,7 +34,8 @@ import { UserModule } from './user/user.module';
     UserModule,
     AuthModule,
     PostModule,
-    CommentModule
+    CommentModule,
+    LikeModule
   ],
   controllers: [AppController],
   providers: [AppService],
