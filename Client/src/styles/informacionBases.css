@@ -21,12 +21,31 @@
 .texto_bases{
     padding: 15px;
 }
+
+.texto_not_found{
+    margin:0px 150px 50px 150px; 
+    padding: 50px;
+}
+
 .img_base {
     width: 750px; 
     height: 300px;
     border-radius:  1px;
     box-shadow: 1px 1px 8px 3px rgba(0, 0, 0, 0.35);
 }
+
+.img_not_found {
+    width: 750px; 
+    height: 500px;
+    border-radius:  1px;
+    box-shadow: 1px 1px 8px 3px rgba(0, 0, 0, 0.35);
+}
+
+.not_found {
+  
+    height: 500px;
+}
+
 .cardBaseIzq {
     width: 90%;
     display: flex;
@@ -66,6 +85,17 @@
         max-width: 460px; 
         height: auto;         
     }
+
+    .img_not_found {
+        max-width: 550px; 
+        height: auto; 
+    }
+
+    .not_found {
+  
+        height: 350px;
+    }
+
     .cardBaseIzq {
         display: flex;
         flex-direction:column;
@@ -87,7 +117,10 @@
 
 @media (max-width: 990px) {
    
-    
+    .not_found {
+  
+        height: 300px;
+    }
     .cardBaseIzq {
         display: flex;
         flex-direction:column;

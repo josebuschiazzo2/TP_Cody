@@ -3,6 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 import {
+  useEffect,
+  useState,
+} from 'react';
+
+import {
   BrowserRouter as Router,
   Route,
   Routes,
@@ -10,15 +15,14 @@ import {
 
 import Comunidad from './components/Comunidad';
 import Contacto from './components/Contacto';
-import Formulario from './components/Formulario';
 import FormularioRegistro from './components/FormularioRegistro';
 import Graficos from './components/Graficos';
 import Home from './components/Home';
+import Formulario from './components/login';
 import Noticias from './components/Noticias';
+import PageNotFound from './components/PageNotFound';
 import SobreNosotros from './components/SobreNosotros';
 import AuthContext from './helpers/AuthContext';
-import { useState, useEffect } from 'react';
-
 
 const App = () => {
 const [authState, setAuthState] = useState({username:"", id:0, role:"", status:false}) // desp va a contener la info del user--> pendiente
@@ -66,7 +70,7 @@ useEffect(() => { // sin este hook, el usuario al recargar la página ve nuevame
         <Route path= "/login" element ={<Formulario/>}/>
         <Route path= "/Registrarme" element ={<FormularioRegistro/>}/>
 
-        {/* <Route path= "*" element = {<PageNotFound />}/> //-----> crear página  */ } 
+        <Route path= "*" element = {<PageNotFound />}/>
 
        </Routes>
       </Router> 
