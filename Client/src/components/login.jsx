@@ -1,10 +1,15 @@
 import '../styles/Formulario.css';
-import { useState, useContext } from 'react';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import AuthContext from '../helpers/AuthContext';
+
+import {
+  useContext,
+  useState,
+} from 'react';
+
 import { useNavigate } from 'react-router-dom';
 
+import AuthContext from '../helpers/AuthContext';
+import Footer from './Footer';
+import Navbar from './Navbar';
 
 function Formulario() {
   const [email, setEmail] = useState("");
