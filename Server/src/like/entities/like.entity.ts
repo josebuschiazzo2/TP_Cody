@@ -7,7 +7,7 @@ export class Like {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(() => Post, (post) => post.like) 
+    @ManyToOne(() => Post, (post) => post.like, { onDelete: 'CASCADE' }) 
     @JoinColumn({ name: 'postID' })
     postID: Post;
 @ManyToOne(() => User, (user) => user.like)
