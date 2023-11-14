@@ -22,7 +22,6 @@ function Navbar(props) {
           <button className="navbar-toggler shadow-none border-0 " style={{ backgroundColor: '#537993' }} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-
           {/* sidebar */}
           <div className="sidebar offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 
@@ -35,7 +34,8 @@ function Navbar(props) {
             {/* sidebar body */}
             <div>
               {/*En <ul> se puede modificar la posicion del menu con la clase justify-content-center o justify-content-end  */}
-              <ul className="navbar-nav justify-content-center  fs-5 p-2  pe-5">
+              <ul className="navbar-nav pe-5">
+              {/* fs-5 */}
 <li>
 </li>
                 <li className=" nav-item">
@@ -59,19 +59,23 @@ function Navbar(props) {
                   <Link id="nosotrosLink" className={`nav-link active ${props.claseSobreNosotros}`} to="/sobrenosotros">Contactenos</Link>
                   <hr id="lineNavbar" />
                 </li>
-                <p className='nombreUsuarioNavbar'> {authState.username}</p>
-                <li className="nav-item ">
+                {/* saludo + boton iniciar / cerrar sesión */}
+    <li className="nav-item auth_options">
                   {!authState.status ? ( // si authState es true no se muestra en pantalla el botón Ingresar de la navbar. Al hacer Login se cambia el estado de false --> a true
-                    <>
+                    <>           
                       <Link id="IniciarLink" className="nav-link active" to="/login">Ingresar</Link>
                     </>
-                  ) : (
-                    <button id="IniciarLink" className='nav-link active' onClick={cerrarSesion}>Cerrar Sesión</button>
-                  )}
+                  ) : (              
+                    <>   
+                  <p className='nombreUsuarioNav'> ¡Hola, {authState.username}!</p>
+                    <button id="IniciarLink" className='nav-link cerrar_sesion ' onClick={cerrarSesion}>Cerrar Sesión</button>
+               </>    
+                 )}
                   <hr id="lineNavbar" />
                 </li>
 
-              </ul>
+           {/* </div> */}
+           </ul>
             </div>
           </div>
         </div>

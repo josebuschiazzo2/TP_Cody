@@ -152,12 +152,8 @@ function Comunidad() {
 
   }
 
-
-
-
-
   return (<>
-    <Navbar />
+    <Navbar  claseComunidad="underline" />
     <div className='d-flex flex-row'>
       <div id='left-part' className=" p-3">
         <h4 className='tituloJumbotron'>¡Bienvenidos a nuestra Comunidad de Exploradores Antárticos!
