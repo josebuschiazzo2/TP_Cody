@@ -70,6 +70,11 @@
     margin: 10px;
     border-radius: 100px;
   }
+  .auth_options {
+  
+    flex-direction: column;
+  
+  }
 
 }
 
@@ -103,5 +108,10 @@
     color: white;
     margin-left: 0px;
     text-align: center;
+  }
+  .auth_options {
+  
+    flex-direction: column;
+  
   }
 }
