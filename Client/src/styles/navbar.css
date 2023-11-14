@@ -61,7 +61,7 @@
 .nombreUsuarioNav {
   color: white;
   font-size: 1rem;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 @media (max-width: 1200px) {
   #logoCody {
@@ -70,12 +70,7 @@
     margin: 10px;
     border-radius: 100px;
   }
-  .auth_options {
-    flex-direction: column;
-  }
-  .nombreUsuarioNav {
-    margin-top: 0px;
-  }
+
 }
 
 @media (max-width: 991px) {
