@@ -28,4 +28,13 @@ constructor(private readonly likeService: LikeService) {}
       return '***access unauthorized***';
     }
   }
+    // ruta para probar errores: 
+  @Post('crear/:id')
+  @UseGuards(AuthGuard)
+  async crear(@Param('id')id:any, @Req() request ){
+    if (request.user.role === Role.USER) {
+      const userID = request.user.id
+      return await this.likeService.crear(id, userID);
+    }
+  }
 }
