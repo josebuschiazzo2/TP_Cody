@@ -55,34 +55,42 @@ export class LikeService {
     }
   }
   
-  // async create(postId: number, userID: any): Promise<any> {
-  //   const like = await this.likeRepository.findOne({
-  //     where: { postID: { id: postId }, userID: { id: userID } },
-  //   });
-  //   if (!like) {
-  //     const newLike = await this.likeRepository.create({
-  //       postID: { id: postId },
-  //       userID: { id: userID },
-  //     });
-  //     await this.likeRepository.save(newLike);
-  //     return console.log('creado');
-  //   } else {
-  //     console.log('ya existe');
-  //     this.remove(postId, userID);
-  //   }
-  // }
+  //************: error boolean************:
+  
+//   async crear(postId: number, userID: any): Promise<any> {
+// const post = await this.postRepository.findOne({where:{id:postId}});
+// if (post){
+//   console.log(post.id, post.post)
+// }
+// const like = await this.likeRepository.findOne({
+//   where:{ postID:postId, userID:userID}
+// })
+// if (like){
+//   console.log(like)
+// }else{
+//   console.log("no existe publicación")
+// }
+//   }
+ 
 
-  // async remove(id: any, userID: any) {
-  //   const like = await this.likeRepository.findOne({
-  //     where: { postID: { id: id } },
-  //   });
-  //   if (like && userID == id) {
-  //     await this.likeRepository.remove(like);
-  //   } else {
-  //     console.log('No se encontró el like.');
-  //   }
-  // }
 
+//************:error undefined************:
+async crear(postId, userID){
+  const post = await this.postRepository.findOne({where:{id:postId}})
+if(post){
+  console.log(post.id)
+  const postid = post.id;
+  const like = await this.likeRepository.findOne({
+    where : {postID:{id:postid}, userID :{ id:userID}}
+ });
+ if(like){
+  console.log(like)
+ }
+ else{
+  console.log("no se encontró publicación")
+ }
+}
+}
   //query
   // const like = await this.likeRepository
   //   .createQueryBuilder('like')

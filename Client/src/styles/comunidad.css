@@ -1,57 +1,34 @@
 .mobile {
   display: none;
 }
-/* // trASHCAN */
-.material-symbols-outlined{
-  color: rgba(1, 1, 1, 0.792);
-font-size: 20px;
-}
 
-/* createdAt */
-.publicacion_fecha{
-display:flex;
-/* cambiar margen por flexbox. end */
-margin-left: 10px; 
-font-size: 0.8rem;  
-align-self: center;
-width: 30%;
-}
-/* //nombre usuario navbar temporal: para saber quien está loggeado  */
 
-.cargar_imagen{
-background-color: white;
-color: rgb(5, 5, 5);
-width: 100%;
-padding: 4px;
-margin: 3px;
-border-radius: 10px;
-}
 
-.form_clase{
+.form_clase {
   width: 100%;
 }
 
-                               /* PROPIEDADES DEL BOTON DESPLEGAR */
+/* PROPIEDADES DEL BOTON ELIMINAR */
 #radio {
   width: 60%;
   display: flex;
-justify-content: end;
+  justify-content: end;
 }
 
 .trashCan {
-border:none; 
- width: min-content;
- height: min-content;
-cursor: pointer;
-background-color: transparent;
+  border: none;
+  width: min-content;
+  height: min-content;
+  cursor: pointer;
+  background-color: transparent;
+}
+/* // trASHCAN */
+.material-symbols-outlined {
+  color: rgba(1, 1, 1, 0.792);
+  font-size: 20px;
 }
 
-
-
-                                  /* BOTON ELIMINAR PUBLICACION */
-
-
-                                  /* PARTE IZQUIERDA DE LA PÁGINA, TEXTO */
+/* PARTE IZQUIERDA DE LA PÁGINA, TEXTO */
 
 .tituloJumbotron {
   color: #000000;
@@ -78,7 +55,7 @@ background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-                                   /* PARTE IZQUIERDA DE LA PÁGINA, ESTILO */
+/* PARTE IZQUIERDA DE LA PÁGINA, ESTILO */
 #left-part {
   width: 400px;
   background: radial-gradient(
@@ -118,13 +95,6 @@ background-color: transparent;
   min-height: 100vh;
   min-width: 60%;
   max-width: 60%;
-}
-                                             /* FOTO DE PERFIL TEMPORAL  */
-#profilePic {
-  border-radius: 50%;
-  margin-right: 10px;
-  width: 33px;
-  height: 30px;
 }
 
 /* BOTON PUBLICAR */
@@ -190,39 +160,47 @@ background-color: transparent;
   padding: 6px;
   word-wrap: break-word;
 }
-
-.publicacion_nombre{
-  width: 10%;
-  color:#3b3c3c;
+/* Encabezado publicación */
+.publicacion_nombre {
+  color: #3b3c3c;
   font-weight: 500;
   font-size: 1rem;
   align-self: center;
+  width: fit-content;
+}
+/* createdAt */
+.publicacion_fecha {
+  display: flex;
+  width: fit-content;
+  margin-left: 10px;
+  font-size: 0.8rem;
+  align-self: center;
 }
 
-.comentarios_contenedor{
+.comentarios_contenedor {
   display: flex;
   flex-direction: row;
   border: 1px solid rgb(208, 207, 207);
   border-radius: 5px;
-  width:90%;
-   margin:0px 20px 5px 20px;
+  width: 90%;
+  margin: 0px 20px 5px 20px;
 }
 .comentarios_publicados {
   display: flex;
-   padding: 2px;
-   width: 100%;
-}
-.comentario_txt{
+  padding: 2px;
   width: 100%;
 }
-.comentario_nombre{
-  width: fit-content;
-color:rgb(62, 65, 67);
-font-size: 0.9rem;
-font-weight: 500;
-margin-right: 8px;
+.comentario_txt {
+  width: 100%;
 }
-.eliminarComentario{
+.comentario_nombre {
+  width: fit-content;
+  color: rgb(62, 65, 67);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-right: 8px;
+}
+.eliminarComentario {
   height: fit-content;
   align-items: end;
 }
@@ -241,15 +219,21 @@ margin-right: 8px;
   width: 50px;
   height: 32px;
 }
-button.active {
+.like-btn.active {
   border-radius: 5px;
   animation: like-btn-Animation 0.6s both;
 }
-button.active img {
+.like-btn.active span {
   filter: invert(39%) sepia(93%) saturate(3760%) hue-rotate(219deg)
     brightness(100%) contrast(93%);
 }
-.likesCounter {
+
+/* .active-btn{
+}
+.inactive-btn{
+} */
+
+/* .likesCounter {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -257,14 +241,14 @@ button.active img {
   border-style: none;
   width: 50px;
   height: 32px;
-}
-
+} */
+/* 
 .like-btn-section {
   justify-content: end;
   align-items: center;
   padding: 3px;
   margin: 4px;
-}
+} */
 @keyframes like-btn-Animation {
   0% {
     -webkit-transform: scale(1);

@@ -14,7 +14,8 @@ function Comunidad() {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const { authState } = useContext(AuthContext); //2. declaramos el valor de Authcontext a usar. --> de App.js, por que se encuentra en el nivel más alto de la página. 
-  const [like, setLike] = useState(false);
+  const [btnState, setBtnState] = useState({});
+
   //   const [respuesta, setRespuesta] = useState('');
 
   //<-------MOSTRAR PUBLICACIONES AL EJECUTAR LA PÁGINA-------->
@@ -143,14 +144,18 @@ function Comunidad() {
       })
       .then(data => {
         console.log(data);
-        alert("ok")
+        setBtnState(prevState => ({
+          ...prevState,
+          [id]: !prevState[id] // Cambia el estado de like para la publicación específica
+        }));// liked. 
+console.log(btnState)
       })
       .catch(error => {
         console.error("Error en la solicitud:", error);
         console.log("Mensaje de error:", error.message);
       });
-
   }
+  const likeToggle = (id) => btnState[id] ? ' active-btn' : ' inactive-btn';
 
   return (<>
     <Navbar  claseComunidad="underline" />
@@ -202,15 +207,17 @@ function Comunidad() {
                     </div>
                   </div>
                 </div>
-                <p className=''>{publicacion.post}</p>
+                <p>{publicacion.post}</p>
                 <div className='d-flex flex-direction-row'>
-                  <button className='like-btn' onClick={() => likePost(publicacion.id)}>
+                  <button className={`like-btn btnToggle${likeToggle(publicacion.id)}`}  onClick={() => likePost(publicacion.id)}>
                     <span className="material-symbols-outlined">thumb_up</span>
                   </button>
 
                   {/* // total de likes por publicación  */}
-                  {publicacion.like.length > 0 &&
-                    <p> {publicacion.like.length}</p>}
+                  {
+                  publicacion.like.length > 0 &&
+                    <p> {publicacion.like.length}</p>
+                    }
                 </div>
 
 
