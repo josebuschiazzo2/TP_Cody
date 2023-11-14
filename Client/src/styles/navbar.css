@@ -3,10 +3,11 @@
   margin-right: 10px;
   border-radius: 100px;
 }
-.hidden{
+
+.hidden {
   display: none;
 }
-.underline{
+.underline {
   border-bottom: 1px solid #0095c0;
 }
 .navbar {
@@ -15,7 +16,7 @@
 }
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show {
-  color: rgb(254, 254, 254)!important;
+  color: rgb(254, 254, 254) !important;
   font-size: 17px;
 }
 #inicioLink:hover,
@@ -28,37 +29,53 @@
   color: #0095c0 !important;
   text-shadow: 0px 0px 7px rgba(255, 255, 255, 0.603);
 }
-#IniciarLink{
-  margin-left: 280px;
+#IniciarLink {
+  /* margin-left: 280px; */
   border: 1px solid #0095c0;
-border-radius: 100px;
-padding-left: 20px;
-padding-right: 20px;
-text-align: center;
-}
-#IniciarLink:hover{
-  background-color:#03809c;
-  border-radius:5px ;
   border-radius: 100px;
-box-sizing: border-box;
-  }
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+}
+#IniciarLink:hover {
+  background-color: #03809c;
+  border-radius: 5px;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: white;
+}
+.auth_options {
+  display: flex;
+  align-self: center;
+  flex-direction: row;
+  justify-content: end;
+  width: 100%;
+}
+.cerrar_sesion {
+  color: white;
+  margin-left: 15px;
+}
 #lineNavbar {
   display: none;
 }
-
-@media (max-width: 1200px) {
-  #inicioLink
- {
-    margin-left: 125px;
-  }
-
-  #logoCody {
-  width: 40px;
-  margin-right: 10px !important;
-  margin: 10px;
-  border-radius: 100px;
+.nombreUsuarioNav {
+  color: white;
+  font-size: 1rem;
+  margin-top: 8px;
 }
-  
+@media (max-width: 1200px) {
+  #logoCody {
+    width: 40px;
+    margin-right: 10px !important;
+    margin: 10px;
+    border-radius: 100px;
+  }
+  .auth_options {
+    flex-direction: column;
+  }
+  .nombreUsuarioNav {
+    margin-top: 0px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -73,12 +90,22 @@ box-sizing: border-box;
     margin: 0px 20px 25px 20px;
   }
   .navbar-nav {
-text-align: center;
-justify-content: end;
+    text-align: center;
+    justify-content: end;
   }
-  .underline{
-border: none; 
- }
- #IniciarLink{
-  margin: 0px 0px 0px 0px;}
+  .underline {
+    border: none;
+  }
+
+  #IniciarLink {
+    width: fit-content;
+    display: flex;
+    align-self: center;
+  }
+  .cerrar_sesion {
+    color: white;
+    margin-left: 0px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
 }
