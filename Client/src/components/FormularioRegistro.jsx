@@ -18,6 +18,8 @@ const FormularioRegistro = () => {
     //const [usernameError, setUsernameError] = useState('');
 
     //funciones que verifiquen las condiciones para cada campo.
+    // ** EL BACKEND VALIDA CORRECTAMENTE * FALTA LAS VALIDACIONES EN EL FRONTEND
+    // ** Aunque el back no hacepta el regsitro con error, el front muestra Registro Exitoso.. 
 const validateUsername = (value) => /^[a-zA-Z]/.test(value);
 const validateName = (value) => /^[a-zA-Z]+$/.test(value);
 const validateApellido = (value) => /^[a-zA-Z]+$/.test(value);
@@ -73,7 +75,7 @@ console.log(validateUsername(username));
                 setPassword('');
               } 
               else{
-                alert("el usuario ya existe")
+                alert("Error al registar el usuario o el usuario ya existe")
               }
             } catch (error) {
               console.error("Error al registrar:", error);
