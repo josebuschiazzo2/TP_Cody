@@ -1,4 +1,5 @@
 import * as bcrypt from 'bcrypt';
+import { validate } from 'class-validator';
 import { User } from 'src/user/entities/user.entity';
 import { UserService } from 'src/user/user.service';
 
@@ -20,14 +21,15 @@ export class AuthService {
   ) {}
 
   async register(registerDto: RegisterDto) {
-    const user = await this.userService.findOneByEmail(registerDto.email);
-
-    if (user) {
-      throw new BadRequestException('EL USUARIO YA EXISTE');
-    }
-    const pass_encritada = await bcrypt.hash(registerDto.password, 10);
-    return await this.userService.create(
-      new User(
+    try {
+      const user = await this.userService.findOneByEmail(registerDto.email);
+      if (user) {
+        throw new BadRequestException('EL USUARIO YA EXISTE');
+      }
+  
+      const pass_encritada = await bcrypt.hash(registerDto.password, 10);
+  
+      const nuevoUsuario = new User(
         registerDto.username,
         registerDto.nombre,
         registerDto.apellido,
@@ -36,9 +38,25 @@ export class AuthService {
         registerDto.email,
         pass_encritada,
         registerDto.role,
-      ),
-    )}
-  // generar login // generar un toke
+      );
+  
+      const validationError = await this.validateUser(nuevoUsuario); // Espera la validación aquí
+      if (validationError) {
+        return validationError;
+      }
+      const createdUser = await this.userService.create(nuevoUsuario);
+  
+      return 'Registro exitoso';
+  
+    } catch (error) {
+      // Maneja cualquier error de validación u otras excepciones aquí
+      console.error(error);
+      throw new BadRequestException('Error de validación o registro');
+    }
+  }
+  
+      
+    // generar login // generar un toke
   async login({ email, password }: LoginDto) {
     const user = await this.userService.findOneByEmail(email);
     if (!user) throw new UnauthorizedException('usuario (o contraseña) incorrecto');
@@ -62,4 +80,14 @@ const role = payload.role;
   }
   // en el front tenemos que guardar el token en local storage
   //vamos a usar el token como parte de la solicitud
+
+  async validateUser(user: User): Promise<string | null> {
+    const errors = await validate(user);
+    if (errors.length > 0) {
+      console.error('Validation failed:', errors);
+      return 'Error de validación';
+    }
+    return null;
+  }
+  
 }
