@@ -1,10 +1,8 @@
 import { User } from 'src/user/entities/user.entity';
-import {
-  FindOneOptions,
-  Repository,
-} from 'typeorm';
+import { FindOneOptions, Repository } from 'typeorm';
 
 import {
+  BadRequestException,
   HttpException,
   HttpStatus,
   Injectable,
@@ -13,6 +11,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import { PostDto } from './dto/post.dto';
 import { Post } from './entities/post.entity';
+import { validate } from 'class-validator';
 
 @Injectable()
 export class PostService {
@@ -22,23 +21,31 @@ export class PostService {
   ) {}
   //*****     CREATE NEW POST     ***** */
   async create(postDto: PostDto, userID: User, username: string) {
-    const meses  = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
-    const dias_semana = ['Domingo', 'Lunes', 'martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+    const meses = ['enero', 'febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
     const fecha = new Date();
-const createdAt = (dias_semana[fecha.getDay()] + ', ' + fecha.getDate() + ' de ' + meses[fecha.getMonth()] + ' de ' + fecha.getUTCFullYear());
+    const createdAt = fecha.getDate() + ' de ' + meses[fecha.getMonth()] +' de ' + fecha.getUTCFullYear();
     if (postDto.post !== '') {
-      const publicacion: Post = await this.postRepository.save(
+      const publicacion = await this.postRepository.create(
         new Post(postDto.post, userID, username, createdAt),
       );
-      if (!publicacion) {
+      await this.validatePost(publicacion);
+      const publicacionGuardada: Post = await this.postRepository.save(publicacion);
+      if (!publicacionGuardada) {
         return 'Error al cargar la publicación';
       }
-      return console.log(`La publicación se creó correctamente, usuario: ${username}`);
+      return console.log(
+        `La publicación se creó correctamente, usuario: ${username}`,
+      );
     } else {
       return console.log('Publicación vacía');
     }
   }
-
+  async validatePost(post: Post): Promise<void> {
+    const errors = await validate(post);
+    if (errors.length > 0) {
+      throw new BadRequestException({ message: 'Validation failed', errors });
+    }
+  }
   //*****     READ POST     ***** */
   async findAll() {
     return await this.postRepository.find();
