@@ -9,20 +9,29 @@ import {
 } from 'typeorm';
 import { Comment } from 'src/comment/entities/comment.entity';
 import { Like } from 'src/like/entities/like.entity';
+import { IsString, Length, MaxLength, MinLength} from 'class-validator';
+
 
 @Entity({ name: 'post' })
 export class Post {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({length: 300}) // máximo. 
+  @IsString()
+  @MinLength(4, {
+    message: 'Post is too short', // no modifica el max en mySql, tampoco Lenght, el máximo solo lo modifica typeORM lenght:300 linea 20
+  }) 
+  @MaxLength(300, {
+    message: 'Post is too long',
+  })
   post: string;
 
   @Column()
   username: string;
 
-@Column()
-createdAt:string;
+  @Column()
+  createdAt:string;
 
   @ManyToOne(() => User, (user) => user.post, { onDelete: 'CASCADE' }) // si se elimina el usuario, se eliminan las publicaciones.
   @JoinColumn({ name: 'userID' })
@@ -36,7 +45,7 @@ createdAt:string;
 // uno a muchos con Like, un post vinculado a muchos likes -array-
 
   @OneToMany(() => Like, (like) => like.postID)
-  public like: Like[]; // array de likes. podemos acceder al array desde el front. 
+  public like: Like[]; // array de likes. Podemos acceder al array desde el front. 
    
 
 

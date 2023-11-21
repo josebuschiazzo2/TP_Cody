@@ -20,7 +20,6 @@ export class PostController {
   constructor(private readonly postService: PostService) {}
 
   //**********   New Post   **********/
-
   @Post('new')
   @UseGuards(AuthGuard)
   async create(@Body() PostDto: PostDto, @Req() request) {
@@ -47,11 +46,4 @@ export class PostController {
     return '***access unauthorized***';
   }
   }
-
-// sin AuthGuard
-  // @Delete('delete-post/:id')
-  
-  // remove(@Param('id') id: number) {
-  //   return this.postService.remove(id);
-  // }
 }
