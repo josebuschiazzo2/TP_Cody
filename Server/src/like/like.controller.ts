@@ -11,7 +11,7 @@ constructor(private readonly likeService: LikeService) {}
   @Post(':id')
   @UseGuards(AuthGuard)
   async create(@Param('id')id:any, @Req() request ){
-    if (request.user.role === Role.USER) {
+    if (request.user.role === Role.USER|| request.user.role === Role.ADMIN) {
       const userID = request.user.id
       return await this.likeService.create(id, userID);
     }
@@ -20,7 +20,7 @@ constructor(private readonly likeService: LikeService) {}
   @Delete('delete/:id')
   @UseGuards(AuthGuard)
   remove(@Param('id') id:number, @Req() request) {
-    if (request.user.role === Role.USER ) {
+    if (request.user.role === Role.USER || request.user.role === Role.ADMIN) {
       const userID = request.user.id 
       const postID = id;
       return this.likeService.remove( id, userID);
@@ -32,7 +32,7 @@ constructor(private readonly likeService: LikeService) {}
   @Post('crear/:id')
   @UseGuards(AuthGuard)
   async crear(@Param('id')id:any, @Req() request ){
-    if (request.user.role === Role.USER) {
+    if (request.user.role === Role.USER || request.user.role === Role.ADMIN) {
       const userID = request.user.id
       return await this.likeService.crear(id, userID);
     }
