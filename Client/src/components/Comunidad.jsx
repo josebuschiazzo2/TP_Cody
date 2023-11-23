@@ -79,6 +79,9 @@ function Comunidad() {
         setListaPublicaciones(listaPublicaciones.filter((post) => post.id !== id));
         console.log("Publicación eliminada:", data);
         setPublicacionEliminada(true)
+        if(data.statusCode === 404){
+          alert("no se ha podido eliminar")
+        }
       })
       .catch((error) => {
         console.error("Error al eliminar la publicación:", error);
@@ -159,9 +162,9 @@ console.log(btnState)
   }
   const likeToggle = (id) => btnState[id] ? ' active-btn' : ' inactive-btn';
 
-  return (<>
+  return (<div className='backk'>
     <Navbar  claseComunidad="underline" />
-    <div className='d-flex flex-row'>
+    <div className='d-flex flex-row '>
       <div id='left-part' className=" p-3">
         <h4 className='tituloJumbotron'>¡Bienvenidos a nuestra Comunidad de Exploradores Antárticos!
         </h4>
@@ -188,8 +191,6 @@ console.log(btnState)
           {listaPublicaciones.map((publicacion, key) => (
             <div key={key} className='publicacion-container d-flex flex-column'>
               <div className='d-flex flex-row'>
-
-
               </div>
               <div className='d-flex flex-column publicacionCreada'>
                 <div className='d-flex flex-row'>
@@ -199,14 +200,22 @@ console.log(btnState)
 </div>
                   <div id='radio'>
                     <div >
-                      {authState.username === publicacion.username && (  //si el usuario que inicio sesión es el mismo de la publicación, se muestra el botón eliminar. 
+                      {authState.username === publicacion.username && authState.role === "user" &&(  //si el usuario que inicio sesión es el mismo de la publicación, se muestra el botón eliminar. 
                         <>
                           <button className={"trashCan"} onClick={() => eliminarPublicacion(publicacion.id)}>
                             <span className="material-symbols-outlined">delete</span>
                           </button>
                         </>
                       )}
-
+                    </div>
+                    <div id='radio'>
+                      {authState.role === "admin" && (  //si el el admin, se muestra el botón eliminar. 
+                        <>
+                          <button className={"trashCan"} onClick={() => eliminarPublicacion(publicacion.id)}>
+                            <span className="material-symbols-outlined">delete</span>
+                          </button>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -215,16 +224,7 @@ console.log(btnState)
                   <button className={`like-btn btnToggle${likeToggle(publicacion.id)}`}  onClick={() => likePost(publicacion.id)}>
                     <span className="material-symbols-outlined">thumb_up</span>
                   </button>
-                  <div >
-                      {authState.role === "admin" && (  //si el el admin, se muestra el botón eliminar. 
-                        <>
-                          <button className={"trashCan"} onClick={() => eliminarPublicacion(publicacion.id)}>
-                            <span className="material-symbols-outlined">delete</span>
-                          </button>
-                        </>
-                      )}
-
-                    </div>
+                
                   {/* // total de likes por publicación  */}
                   {
                   publicacion.like.length > 0 &&
@@ -277,7 +277,7 @@ console.log(btnState)
       </div>
     </div>
     <Footer />
-  </>
+  </div>
   );
 }
 export default Comunidad
