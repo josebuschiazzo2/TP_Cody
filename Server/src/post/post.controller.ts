@@ -7,6 +7,7 @@ import {
   Get,
   Param,
   Post,
+  Put,
   Req,
   UseGuards,
 } from '@nestjs/common';
@@ -31,19 +32,35 @@ export class PostController {
       return '***access unauthorized***';
     }
   }
+
+  //*****     EDITAR POST     ***** */
+  @Put('actualizar/:id')
+  @UseGuards(AuthGuard)
+  async actualizarPost(
+    @Body() PostDto,
+    @Param('id') id: number,
+    @Req() request,
+  ) {
+    if (request.user.role === Role.USER || request.user.role === Role.ADMIN) {
+      return this.postService.update(PostDto, id);
+    } else {
+      return '***access unauthorized***';
+    }
+  }
+
   //**********   get posts   **********/
   @Get('get-posts')
- async findAll() {
+  async findAll() {
     return await this.postService.findAll();
   } 
   //********** Delete Post **********/
   @Delete('delete-post/:id')
   @UseGuards(AuthGuard)
   remove(@Param('id') id: number, @Req() request) { 
-     if (request.user.role === Role.USER || request.user.role === Role.ADMIN) {
-    return this.postService.remove(id);
-  } else {
-    return '***access unauthorized***';
+    if (request.user.role === Role.USER || request.user.role === Role.ADMIN) {
+      return this.postService.remove(id);
+    } else {
+      return '***access unauthorized***';
   }
   }
 }

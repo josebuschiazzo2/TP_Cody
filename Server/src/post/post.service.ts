@@ -1,5 +1,9 @@
+import { validate } from 'class-validator';
 import { User } from 'src/user/entities/user.entity';
-import { FindOneOptions, Repository } from 'typeorm';
+import {
+  FindOneOptions,
+  Repository,
+} from 'typeorm';
 
 import {
   BadRequestException,
@@ -11,7 +15,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import { PostDto } from './dto/post.dto';
 import { Post } from './entities/post.entity';
-import { validate } from 'class-validator';
 
 @Injectable()
 export class PostService {
@@ -21,9 +24,27 @@ export class PostService {
   ) {}
   //*****     CREATE NEW POST     ***** */
   async create(postDto: PostDto, userID: User, username: string) {
-    const meses = ['enero', 'febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+    const meses = [
+      'enero',
+      'febrero',
+      'marzo',
+      'abril',
+      'mayo',
+      'junio',
+      'julio',
+      'agosto',
+      'septiembre',
+      'octubre',
+      'noviembre',
+      'diciembre',
+    ];
     const fecha = new Date();
-    const createdAt = fecha.getDate() + ' de ' + meses[fecha.getMonth()] +' de ' + fecha.getUTCFullYear();
+    const createdAt =
+      fecha.getDate() +
+      ' de ' +
+      meses[fecha.getMonth()] +
+      ' de ' +
+      fecha.getUTCFullYear();
     if (postDto.post !== '') {
       const publicacion = await this.postRepository.create(
         new Post(postDto.post, userID, username, createdAt),
@@ -49,6 +70,30 @@ export class PostService {
   //*****     READ POST     ***** */
   async findAll() {
     return await this.postRepository.find();
+  }
+
+  //*****     EDITAR POST     ***** */
+  async update(postDto: PostDto, id: number): Promise<any> {
+    try {
+      const criterio: FindOneOptions = { where: { id: id } };
+      let post: Post = await this.postRepository.findOne(criterio);
+
+      if (!post) throw new Error('No se pudo encontrar la PUBLICACION');
+      else {
+        const postVieja = post.getPosts();
+        post.setPosts(postDto.post);
+        post = await this.postRepository.save(post);
+        return `OK -- ${postVieja} --> ${postDto.post}`;
+      }
+    } catch (error) {
+      throw new HttpException(
+        {
+          status: HttpStatus.NOT_FOUND,
+          error: 'Error en PUBLICACION - ' + error,
+        },
+        HttpStatus.NOT_FOUND,
+      );
+    }
   }
 
   //*****     DELETE POST     ***** */
