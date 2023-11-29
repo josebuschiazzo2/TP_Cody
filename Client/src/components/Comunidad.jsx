@@ -1,6 +1,6 @@
 import '../styles/comunidad.css';
 
-import React, {
+import {
   useContext,
   useEffect,
   useState,
@@ -60,6 +60,58 @@ function Comunidad() {
       });
   };
 
+  // ACTIVAR LA EDICION DE LA PUBLICAICON CON UN PROMPT 28/11
+  const activarEdicion = (id, contenido) => {
+    const nuevoContenido = prompt('Edita tu publicación:', contenido);
+    if (nuevoContenido !== null) {
+      editarPublicacion(id, nuevoContenido);
+    }
+  };
+
+  const editarPublicacion = (id, nuevoContenido) => {
+    fetch(`http://localhost:3003/post/actualizar/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      },
+      body: JSON.stringify({ post: nuevoContenido })
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log("Publicación editada:", data);
+        setEditMode({ id: null, content: "" });
+      })
+      .catch((error) => {
+        console.error("Error al editar la publicación:", error);
+      });
+  };
+   // FIN DE ACTIVAR LA EDICION DE LA PUBLICAICON CON UN PROMPT 28/11
+
+    //const activarEdicion = (id, contenido) => {
+    //setEditMode({ id, content: contenido });
+ //};
+
+ /* const editarPublicacion = (id) => {
+    fetch(`http://localhost:3003/post/actualizar/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      },
+      body: JSON.stringify({ post: editMode.content })
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log("Publicación editada:", data);
+        setEditMode({ id: null, content: "" });
+      })
+      .catch((error) => {
+        console.error("Error al editar la publicación:", error);
+      });
+  } */
+
+
   const eliminarPublicacion = (id) => {
     fetch(`http://localhost:3003/post/delete-post/${id}`, {
       method: "DELETE",
@@ -105,28 +157,6 @@ function Comunidad() {
       });
   }
 
-  const activarEdicion = (id, contenido) => {
-    setEditMode({ id, content: contenido });
-  };
-
-  const editarPublicacion = (id) => {
-    fetch(`http://localhost:3003/post/actualizar/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + token
-      },
-      body: JSON.stringify({ post: editMode.content })
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log("Publicación editada:", data);
-        setEditMode({ id: null, content: "" });
-      })
-      .catch((error) => {
-        console.error("Error al editar la publicación:", error);
-      });
-  }
 
   const eliminarComentario = (id) => {
     fetch(`http://localhost:3003/comment/delete-comment/${id}`, {
@@ -188,7 +218,7 @@ function Comunidad() {
             <p className="textoJumbotron jumbotron">Nos emociona darte la bienvenida a este rincón en línea, donde científicos, investigadores y amantes de la Antártida se reúnen para compartir su curiosidad y conocimientos sobre este fascinante continente.</p>
           </div>
           <div className='d-flex flex-row'>
-            <TextareaAutosize
+           * <TextareaAutosize
               name='publicacion'
               value={publicacion}
               id='newPostField'
@@ -204,11 +234,12 @@ function Comunidad() {
                 </div>
                 <div className='d-flex flex-column publicacionCreada'>
                   <div className='d-flex flex-row'>
+               
                     <div className='nombreYfecha'>
                       <p className='publicacion_nombre card-title'>{publicacion.username} </p>
                       <p className='publicacion_fecha card-subtitle ml-5 text-body-secondary'>{publicacion.createdAt}</p>
                     </div>
-                    <p>
+                   {/* <p>
                       {editMode.id === publicacion.id ? (
                         <TextareaAutosize
                           value={editMode.content}
@@ -217,25 +248,29 @@ function Comunidad() {
                       ) : (
                         publicacion.post
                       )}
-                    </p>
+                      </p> */}
                     <div id='radio'>
+                    <div>
+                      {authState.username === publicacion.username && authState.role === "user" && (
+                        <>
+                          {editMode.id === publicacion.id ? (
+                           <span className="material-symbols-outlined" onClick={() => editarPublicacion(publicacion.id)}
+                           style={{ cursor: 'pointer' }}>
+                             edit_square
+                           </span>
+                          ) : (
+                           <span className="material-symbols-outlined" onClick={() => activarEdicion(publicacion.id, publicacion.post)}
+                           style={{ cursor: 'pointer' }}>
+                             edit_square
+                           </span>
+                          )}
+                        </>
+                          )}
+                    </div>
                       <div>
                         {authState.username === publicacion.username && authState.role === "user" && (
                           <>
-                            {editMode.id === publicacion.id ? (
-                              <button className={"trashCan"} onClick={() => editarPublicacion(publicacion.id)}>
-                                <span className="material-symbols-outlined"> edit</span>
-                              </button>
-                            ) : (
-                              <button onClick={() => activarEdicion(publicacion.id, publicacion.post)}>Editar</button>
-                            )}
-                          </>
-                        )}
-                      </div>
-                      <div>
-                        {authState.username === publicacion.username && authState.role === "user" && (
-                          <>
-                            <button className={"trashCan"} onClick={() => eliminarPublicacion(publicacion.id)}>
+                            <button className={"trashCan "} onClick={() => eliminarPublicacion(publicacion.id)}>
                               <span className="material-symbols-outlined">delete</span>
                             </button>
                           </>
@@ -306,5 +341,6 @@ function Comunidad() {
     </div>
   );
 }
+
 
 export default Comunidad;
