@@ -86,30 +86,30 @@ function Comunidad() {
         console.error("Error al editar la publicación:", error);
       });
   };
-   // FIN DE ACTIVAR LA EDICION DE LA PUBLICAICON CON UN PROMPT 28/11
+  // FIN DE ACTIVAR LA EDICION DE LA PUBLICAICON CON UN PROMPT 28/11
 
-    //const activarEdicion = (id, contenido) => {
-    //setEditMode({ id, content: contenido });
- //};
+  //const activarEdicion = (id, contenido) => {
+  //setEditMode({ id, content: contenido });
+  //};
 
- /* const editarPublicacion = (id) => {
-    fetch(`http://localhost:3003/post/actualizar/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + token
-      },
-      body: JSON.stringify({ post: editMode.content })
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log("Publicación editada:", data);
-        setEditMode({ id: null, content: "" });
-      })
-      .catch((error) => {
-        console.error("Error al editar la publicación:", error);
-      });
-  } */
+  /* const editarPublicacion = (id) => {
+     fetch(`http://localhost:3003/post/actualizar/${id}`, {
+       method: "PUT",
+       headers: {
+         "Content-Type": "application/json",
+         "Authorization": "Bearer " + token
+       },
+       body: JSON.stringify({ post: editMode.content })
+     })
+       .then((resp) => resp.json())
+       .then((data) => {
+         console.log("Publicación editada:", data);
+         setEditMode({ id: null, content: "" });
+       })
+       .catch((error) => {
+         console.error("Error al editar la publicación:", error);
+       });
+   } */
 
 
   const eliminarPublicacion = (id) => {
@@ -218,7 +218,7 @@ function Comunidad() {
             <p className="textoJumbotron jumbotron">Nos emociona darte la bienvenida a este rincón en línea, donde científicos, investigadores y amantes de la Antártida se reúnen para compartir su curiosidad y conocimientos sobre este fascinante continente.</p>
           </div>
           <div className='d-flex flex-column'>
-           * <TextareaAutosize
+            <TextareaAutosize
               minRows='5'
               name='publicacion'
               value={publicacion}
@@ -227,7 +227,7 @@ function Comunidad() {
               placeholder='Añade una nueva publicación...'
             />
             <div id='btn-publicar'>
-              <button type='text' id='publish-btn' onClick={publicar}> Publicar</button>
+              <button type='text' className="btn-publicar" onClick={publicar}> Publicar</button>
             </div>
           </div>
           <div>
@@ -236,13 +236,12 @@ function Comunidad() {
                 <div className='d-flex flex-row'>
                 </div>
                 <div className='d-flex flex-column publicacionCreada'>
-                  <div className='d-flex flex-row'>
-               
+                  <div className='d-flex flex-row '>
                     <div className='nombreYfecha'>
                       <p className='publicacion_nombre card-title'>{publicacion.username} </p>
                       <p className='publicacion_fecha card-subtitle ml-5 text-body-secondary'>{publicacion.createdAt}</p>
                     </div>
-                   {/* <p>
+                    {/* <p>
                       {editMode.id === publicacion.id ? (
                         <TextareaAutosize
                           value={editMode.content}
@@ -252,55 +251,62 @@ function Comunidad() {
                         publicacion.post
                       )}
                       </p> */}
-                    <div id='radio'>
-                    <div>
-                      {authState.username === publicacion.username && authState.role === "user" && (
-                        <>
-                          {editMode.id === publicacion.id ? (
-                           <span className="material-symbols-outlined" onClick={() => editarPublicacion(publicacion.id)}
-                           style={{ cursor: 'pointer' }}>
-                             edit_square
-                           </span>
-                          ) : (
-                           <span className="material-symbols-outlined" onClick={() => activarEdicion(publicacion.id, publicacion.post)}
-                           style={{ cursor: 'pointer' }}>
-                             edit_square
-                           </span>
-                          )}
-                        </>
-                          )}
-                    </div>
+                    <div className='  botones_user'>
                       <div>
                         {authState.username === publicacion.username && authState.role === "user" && (
                           <>
-                            <button className={"trashCan "} onClick={() => eliminarPublicacion(publicacion.id)}>
-                              <span className="material-symbols-outlined">delete</span>
-                            </button>
+                            {editMode.id === publicacion.id ? (
+                              <span className="material-symbols-outlined" onClick={() => editarPublicacion(publicacion.id)}
+                                style={{ cursor: 'pointer' }}>
+                                edit_square
+                              </span>
+                            ) : (
+                              <span className="material-symbols-outlined" onClick={() => activarEdicion(publicacion.id, publicacion.post)}
+                                style={{ cursor: 'pointer' }}>
+                                edit_square
+                              </span>
+                            )}
                           </>
                         )}
                       </div>
-                      <div id='radio'>
+                      <div>
+
+                        {authState.username === publicacion.username && authState.role === "user" && (
+                          <button className={"trashCan divv"} onClick={() => eliminarPublicacion(publicacion.id)}>
+                            <span className="material-symbols-outlined">delete</span>
+                          </button>
+                        )}
+                      </div>
+
+                      <div>
                         {authState.role === "admin" && (
-                          <>
+                          <div id="radio">
                             <button className={"trashCan"} onClick={() => eliminarPublicacion(publicacion.id)}>
                               <span className="material-symbols-outlined">delete</span>
                             </button>
-                          </>
+                          </div>
                         )}
                       </div>
                     </div>
                   </div>
                   <p>{publicacion.post}</p>
+
+<div className='contenedor_like'>
                   <div className='d-flex flex-direction-row'>
+
                     <button className={`like-btn btnToggle${likeToggle(publicacion.id)}`} onClick={() => likePost(publicacion.id)}>
                       <span className="material-symbols-outlined">thumb_up</span>
                     </button>
+
+
                     {publicacion.like.length > 0 &&
                       <p> {publicacion.like.length}</p>
                     }
+
+
                   </div>
                 </div>
-
+</div>
                 <div>
                   {publicacion.comment.map((comentario, i) => (
                     <div key={i}>
@@ -331,9 +337,8 @@ function Comunidad() {
                     onChange={(e) => setComentario(e.target.value)}
                     placeholder="Escribe tu comentario..."
                   />
-                  <button onClick={() => enviarComentario(publicacion.id)} id='sendComment-btn'>Enviar</button>
-                  <div className='d-flex justify-content-end'>
-                  </div>
+                  <button onClick={() => enviarComentario(publicacion.id)} className='btn-enviar'>Enviar</button>
+   
                 </div>
               </div>
             ))}

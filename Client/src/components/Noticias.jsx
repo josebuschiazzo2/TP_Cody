@@ -57,7 +57,7 @@ function Noticias() {
           <p>Nuestra misión es brindarte una ventana al mundo helado de la Antártida, donde la ciencia, la exploración y la conservación convergen en un entorno de desafíos extremos y descubrimientos asombrosos.</p>
         </div>
 
-        <Suspense fallback={<h1>LOADING...</h1>}>
+        <Suspense fallback={<div className='loadingNoticias'></div>}>
 <LazyNoticiasData/>     </Suspense> 
 </div>
       <Footer />

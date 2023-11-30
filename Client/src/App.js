@@ -5,8 +5,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { lazy, useEffect, useState, Suspense } from "react";
 import FormularioRegistro from "./components/FormularioRegistro";
 import Home from "./components/Home";
-import Formulario from './components/login';
+import Formulario from "./components/login";
 import AuthContext from "./helpers/AuthContext";
+import Loading from "./components/Loading";
 
 const LazyComunidad = lazy(() => import("./components/Comunidad"));
 const LazyContacto = lazy(() => import("./components/Contacto"));
@@ -68,7 +69,7 @@ const App = () => {
             <Route
               path="/graficasClimaticas"
               element={
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Loading />}>
                   <LazyGraficos />
                 </Suspense>
               }
@@ -77,7 +78,7 @@ const App = () => {
             <Route
               path="/noticias"
               element={
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Loading />}>
                   <LazyNoticias />
                 </Suspense>
               }
@@ -86,7 +87,7 @@ const App = () => {
             <Route
               path="/comunidad"
               element={
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Loading />}>
                   <LazyComunidad />
                 </Suspense>
               }
@@ -95,7 +96,7 @@ const App = () => {
             <Route
               path="/sobrenosotros"
               element={
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Loading />}>
                   <LazySobreNosotros />
                 </Suspense>
               }
@@ -103,7 +104,7 @@ const App = () => {
             <Route
               path="/contacto"
               element={
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Loading />}>
                   <LazyContacto />
                 </Suspense>
               }
@@ -111,18 +112,14 @@ const App = () => {
             <Route
               path="/login"
               element={
-                <Suspense fallback={<div>Loading...</div>}>
-
+                <Suspense fallback={<Loading />}>
                   <Formulario />
-                  </Suspense>
-
+                </Suspense>
               }
             />
             <Route path="/Registrarme" element={<FormularioRegistro />} />
 
-            <Route path="*" element={
-            <LazyPageNotFound />
-            } />
+            <Route path="*" element={<LazyPageNotFound />} />
           </Routes>
         </Router>
       </AuthContext.Provider>

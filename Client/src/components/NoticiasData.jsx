@@ -46,7 +46,11 @@ function NoticiasData() {
   };
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <div className='cargando d-felx flex-column'>
+      <div className='loader'>
+      </div>
+      <h5 className='titulo_loader'>Cargando...</h5>
+    </div>;
   }
 
   return (
