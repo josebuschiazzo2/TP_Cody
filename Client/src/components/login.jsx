@@ -65,7 +65,7 @@ const handleSubmit = async (e) => {
           </section>
 
           <form className='formulario' onSubmit={handleSubmit}>
-            <h2>Bienvenido</h2>
+            <h2>Iniciar Sesión</h2>
             <input className='texto_form px-4'
               placeholder='Correo Electrónico'
               type="email"
@@ -90,7 +90,7 @@ const handleSubmit = async (e) => {
             </div>
 
             <button id="login-btn"
-              className="text-decoration-none">Iniciar Sesión</button>
+              className="text-decoration-none">Ingresar</button>
             <a href="/Registrarme"/*</form>onClick={() => handleButtonClick()}*/>¿Nuevo en Cody App? Crear una cuenta</a>
           </form>
           {error && <h4>Todos los campos son obligatorios</h4>}

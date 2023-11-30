@@ -205,8 +205,8 @@ function Comunidad() {
   return (
     <div className='backk'>
       <Navbar claseComunidad="underline" />
-      <div className='d-flex flex-row '>
-        <div id='left-part' className=" p-3">
+      <div className='d-flex flex-column container justify-content-center'>
+        <div id='left-part'>
           <h4 className='tituloJumbotron'>¡Bienvenidos a nuestra Comunidad de Exploradores Antárticos!
           </h4>
           <p className="textoJumbotron jumbotron">Nos emociona darte la bienvenida a este rincón en línea, donde científicos, investigadores y amantes de la Antártida se reúnen para compartir su curiosidad y conocimientos sobre este fascinante continente.</p>
@@ -217,15 +217,18 @@ function Comunidad() {
             </h4>
             <p className="textoJumbotron jumbotron">Nos emociona darte la bienvenida a este rincón en línea, donde científicos, investigadores y amantes de la Antártida se reúnen para compartir su curiosidad y conocimientos sobre este fascinante continente.</p>
           </div>
-          <div className='d-flex flex-row'>
+          <div className='d-flex flex-column'>
            * <TextareaAutosize
+              minRows='5'
               name='publicacion'
               value={publicacion}
               id='newPostField'
               onChange={(e) => setPublicacion(e.target.value)}
               placeholder='Añade una nueva publicación...'
             />
-            <button id='publish-btn' onClick={publicar}> publicar</button>
+            <div id='btn-publicar'>
+              <button type='text' id='publish-btn' onClick={publicar}> Publicar</button>
+            </div>
           </div>
           <div>
             {listaPublicaciones.map((publicacion, key) => (
