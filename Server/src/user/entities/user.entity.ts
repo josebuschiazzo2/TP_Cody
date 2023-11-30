@@ -2,7 +2,7 @@ import {
   IsDate,
   IsEmail,
   IsString,
-  Length,
+  MinLength,
 } from 'class-validator';
 import { Comment } from 'src/comment/entities/comment.entity';
 import { Role } from 'src/common/enum/role.enum';
@@ -21,22 +21,30 @@ export class User {
   id: number;
 
   @Column({ unique: true, nullable: false })
-  @Length(5, 12)
+  @MinLength(3, {
+    message: 'Username is too short', 
+  })
   @IsString()
   username: string;
 
   @Column({ nullable: false })
-  @Length(3, 20)
+  @MinLength(3, {
+    message: 'Nombre is too short', 
+  })
   @IsString()
   nombre: string;
 
   @Column({ nullable: false })
-  @Length(3, 20)
+  @MinLength(3, {
+    message: 'Apellido is too short', 
+  })
   @IsString()
   apellido: string;
 
   @Column({ nullable: false })
-  @Length(3, 20)
+  @MinLength(3, {
+    message: 'Nacionalidad is too short', 
+  })
   @IsString()
   nacionalidad: string;
 
@@ -45,12 +53,16 @@ export class User {
   fechaNacimiento: Date;
 
   @Column({ unique: true, nullable: false })
-  @Length(7, 45)
+  @MinLength(7, {
+    message: 'Email is too short', 
+  })
   @IsEmail()
   email: string;
 
   @Column({ nullable: false })
-  @Length(4, 15)
+  @MinLength(4, {
+    message: 'Password is too short', 
+  })
   password: string;
 
   @Column({ type: 'enum', default: Role.USER, enum: Role })
