@@ -16,7 +16,7 @@ import { UserModule } from './user/user.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'C3ss4r23',
+      password: 'Misql8',
       database: 'cody',
       entities: [__dirname + '/**/**/**.entity{.ts,.js}'],
       synchronize: true,

@@ -8,6 +8,13 @@
     rgba(12, 18, 22, 1) 100%
   );}
 
+.botones_user{
+  width: 90%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
 
 .form_clase {
   width: 100%;
@@ -15,7 +22,7 @@
 
 /* PROPIEDADES DEL BOTON ELIMINAR */
 #radio {
-  width: 60%;
+  width: 100%;
   display: flex;
   justify-content: end;
 }
@@ -27,16 +34,18 @@
   cursor: pointer;
   background-color: transparent;
 }
-/* // trASHCAN */
+/* // btn eliminar, btn editar, btn like*/
 .material-symbols-outlined {
   color: rgba(1, 1, 1, 0.792);
-  font-size: 20px;
+  font-size: 25px;
 }
-
+.material-symbols-outlined:hover {
+color:#00B0E0;
+}
 /* PARTE IZQUIERDA DE LA PÁGINA, TEXTO */
 
 .tituloJumbotron {
-  color: #fbeeee;
+  color: #ffffff;
   font-family: arial;
   text-align: center;
   margin-top: 0px;
@@ -45,7 +54,7 @@
 .textoJumbotron {
   font-family: arial, sans-serif;
   text-align: justify;
-  color: #fbeeee;
+  color: #ffffff;
   text-align: center;
   margin-top: 0px;
   padding: 10px;
@@ -96,17 +105,21 @@ justify-content: center;
  margin-top: 5px; 
 }
 
-#publish-btn {
+.btn-publicar{
   text-align: center;
   width: 15%;
   margin: 2px;
   font-size: 0.95rem;
   border: none;
   border-radius: 5px;
-  height: min-content;
-  background: linear-gradient(80deg, #4b91f7 0%, #367af6 100%);
-  font-family: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+  height: 30px;
+  background: #03809c;
+  font-family: Arial, -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
   color: white;
+}
+
+.btn-publicar:hover{
+  background-color:#00B0E0;
 }
 /*  NUEVA PUBLICACION */
 #newPostField {
@@ -140,6 +153,7 @@ justify-content: center;
 
 #newCommentField {
   height: 30px;
+  padding: 5px;
   resize: none;
   border-radius: 5px;
   font-family: Arial, Helvetica, sans-serif;
@@ -147,18 +161,25 @@ justify-content: center;
   width: 100%;
   overflow: hidden;
   outline: none;
+  font-size: 0.9rem;
 }
 
-#sendComment-btn {
+.btn-enviar {
   font-size: 0.95rem;
   margin-left: 6px;
   font-family: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
   border-radius: 6px;
   border: none;
   color: #fff;
-  background: linear-gradient(180deg, #4b91f7 0%, #367af6 100%);
-  height: min-content;
-}
+  background: #03809c;
+  height: 33px;
+  align-items: center
+  }
+
+    .btn-enviar:hover{
+      background-color:#00B0E0;
+
+    }
 
 .publicacionCreada {
   padding: 6px;
@@ -168,6 +189,10 @@ justify-content: center;
 .nombreYfecha{
   display: flex;
   flex-direction: row;
+  justify-content: start;
+  width: fit-content;
+    align-self: center;
+
 }
 .publicacion_nombre {
   color: #3b3c3c;
@@ -179,7 +204,7 @@ justify-content: center;
 /* createdAt */
 .publicacion_fecha {
   display: flex;
-  width: fit-content;
+  min-width: max-content;
   margin-left: 10px;
   font-size: 0.8rem;
   align-self: center;
@@ -214,13 +239,18 @@ justify-content: center;
 }
 
 /* LIKE BTN: */
+.contenedor_like{
+  width: 100%;
+  display: flex;
+  justify-content: end; /* Corregido aquí: utilizar flex-end en lugar de end */
+}
+
 .like-btn img {
   filter: invert(26%) sepia(0%) saturate(2872%) hue-rotate(358deg)
     brightness(84%) contrast(79%);
 }
 
 .like-btn {
-  justify-content: center;
   align-items: center;
   background-color: transparent;
   border-style: none;
@@ -297,7 +327,7 @@ justify-content: center;
   }
 
   #radio {
-    width: 70%;
+    width: 100%;
   }
   @media (max-width: 740px) {
     #radio {
