@@ -19,7 +19,7 @@
     padding: 2%;
     padding-left: 8%;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 10%;
     border-radius: 4px;
     font-family: 'Calibri';
     color: rgb(255, 255, 255);
@@ -45,6 +45,7 @@ margin-bottom: 3%;
 
 .control {
     width: 40%;
+    height: 50px ;
     background: #f8f8f8ec;
     padding: 10px;
     border-radius: 4px;
@@ -57,16 +58,22 @@ margin-bottom: 3%;
 }
 
 #register_btn {
-    width: 200px;
+    
+    width: 40%;
+    height: 49px ;
     background:#03809c;
     border: none;
-    padding: 12px;
+    padding: 8px;
     color: white;
     margin: auto;
     font-size: 16PX;
     cursor: pointer; 
     border-radius:6px;
 
+}
+
+.btn-registrar{
+    align-content: center;
 }
 
 #register_btn:hover {
@@ -91,8 +98,14 @@ margin-bottom: 3%;
         width: 50%;
         margin-top: 15%;
         padding: 5%;
-        padding-left: 2%;
+        align-items: center;
        
+    }
+
+    .form button {
+        min-width: fit-content;
+       display: flex;
+       justify-content: center;
     }
     .titulo,
     .texto {
@@ -124,6 +137,12 @@ margin-bottom: 3%;
         padding-left: 5%;
        
     }
+
+    .form button {
+        min-width: fit-content;
+       display: flex;
+       justify-content: center;
+    }
     
     .titulo,
     .texto {
@@ -150,6 +169,13 @@ margin-bottom: 3%;
         padding: 3%;
         padding-left: 3%;
     }
+
+    .form button {
+        min-width: fit-content;
+       display: flex;
+       justify-content: center;
+    
+    }
     
     .titulo,
     .texto {
@@ -168,6 +194,12 @@ margin-bottom: 3%;
         height:40%;
         padding: 2%;
         padding-left: 2%;
+    }
+
+    .form button {
+        min-width: fit-content;
+       display: flex;
+       justify-content: center;
     }
     
     .titulo,

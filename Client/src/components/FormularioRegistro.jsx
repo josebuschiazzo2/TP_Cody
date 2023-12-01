@@ -178,7 +178,8 @@ console.log(validateUsername(username));
                   }}
                 style={{ borderColor: validateFechaNac(fecha_nac) ? ' initial' : ' red' }}>
                 </input>
-                <button id='register_btn' type='submit'>Quiero Registrarme</button>
+                  <button id='register_btn' type='submit'>Quiero Registrarme</button>
+              
             </form>
             </section>
             </section>
