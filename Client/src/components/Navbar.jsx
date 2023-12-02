@@ -1,9 +1,11 @@
 import '../styles/navbar.css';
-import { Link } from 'react-router-dom';
-import LogoCodyPNG from '../images/LogoCodyPNG.png';
-import { useContext } from 'react';
-import AuthContext from '../helpers/AuthContext'; //1. authContext importado
 
+import { useContext } from 'react';
+
+import { Link } from 'react-router-dom';
+
+import AuthContext from '../helpers/AuthContext'; //1. authContext importado
+import LogoCodyPNG from '../images/LogoCodyPNG.png';
 
 function Navbar(props) {
   const { authState, setAuthState } = useContext(AuthContext)  //2. declaramos el valor de Authcontext a usar. --> de App.js, por que se encuentra en el nivel más alto de la página. 
@@ -17,7 +19,9 @@ function Navbar(props) {
       <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div className="container">
           {/* logo  */}
-          <img id="logoCody" src={LogoCodyPNG} alt="logo" />
+          <Link  class={` ${props.claseHome}`}  to="/"><img id="logoCody"  src={LogoCodyPNG} alt="logo"/></Link>
+          
+        
           {/* Toggle btn */}
           <button className="navbar-toggler shadow-none border-0 " style={{ backgroundColor: '#537993' }} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
