@@ -17,7 +17,7 @@ function Formulario() {
   const [error, setError] = useState();
   const { setAuthState } = useContext(AuthContext) // context desde donde agarramos el valor setAuthState
   const navigate = useNavigate();
-
+const [mostrarError, setMostrarError] = useState(false)
 const handleSubmit = async (e) => {
   e.preventDefault(); 
   try {
@@ -31,6 +31,7 @@ const handleSubmit = async (e) => {
     if (!response.ok) {
        await response.json();
        console.log("usuario o contraseña no coinciden ")
+       setMostrarError(true)
        // ejecutar algo en caso de errores! 
 
     } else {
@@ -63,8 +64,15 @@ const handleSubmit = async (e) => {
             </div>
 
           </section>
-
+          {mostrarError &&(
+            <div className='mensajeErrorLogin'> 
+            "¡Ups! Parece que ha habido un error. Por favor, verifica tu correo electrónico y contraseña e inténtalo de nuevo.  </div>
+          )}
           <form className='formulario' onSubmit={handleSubmit}>
+      
+          <div>
+
+          </div>
             <h2>Iniciar Sesión</h2>
             <input className='texto_form px-4'
               placeholder='Correo Electrónico'
