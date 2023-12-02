@@ -1,12 +1,14 @@
 import '../styles/footer.css';
 
+import { Link } from 'react-router-dom';
+
 import facebookIcon from '../images/facebookIcon.png';
 import githubIcon from '../images/githubIcon.png';
 import linkedinIcon from '../images/linkedinIcon.png';
 import twitterIcon from '../images/twitterIcon.png';
 import youtubeIcon from '../images/youtubeIcon.png';
 
-function Footer() {
+function Footer(props) {
   return (
     <footer className="footer">
       <div className="socialMedia ">
@@ -52,11 +54,18 @@ function Footer() {
       </div>
       <hr id="lineFooter" />
       <div className="linksFooter">
-        <a id="ContactoLink" href="/">Contacto</a>
-        <a id="soporteLink" href="/">Servicios</a>
-        <a id="terminosYcondicionesLink" href="/">Información Útil</a>
-        <a id="privacidadLink" href="/">Política de Privacidad</a>
-        <a id="pfLink" href="/">Preguntas Frecuentes</a>
+            <li className='lista'>
+              <Link id="graficosLink" className={`nav-link active ${props.claseGraficas}`} to="/graficasClimaticas">Gráficas</Link>
+            </li>
+            <li className='lista'>
+              <Link id="noticiasLink" className={`nav-link active ${props.claseNoticias}`} to="/noticias">Noticias</Link>
+            </li>
+            <li className='lista'>
+              <Link id="comunidadLink" className={`nav-link active ${props.claseComunidad}`} to="/comunidad">Comunidad</Link>
+            </li>
+            <li className='lista'>
+              <Link id="nosotrosLink" className={`nav-link active ${props.claseSobreNosotros}`} to="/sobrenosotros">Contactenos</Link>
+            </li>
       </div>
       <div  className="footerText">
         <p>© Cody Creative 2023 Copyright. Todos los Derechos Reservados </p>

@@ -109,7 +109,7 @@ section {
 }
 
 /* COMIENZAN LAS MEDIA QUERY  */
-@media (max-width: 1600px) {
+@media (max-width: 1900px) {
   .formulario {
     height: 40%;
   }
