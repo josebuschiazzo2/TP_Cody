@@ -13,41 +13,41 @@ function Footer(props) {
     <footer className="footer">
       <div className="socialMedia ">
         <div className="iconSocialMedia ">
-          <a href="www.Facebook.com">
+          <a href="https://www.Facebook.com">
             <img src={facebookIcon} alt="Logo Facebook" />
           </a>
-          <a href="www.facebook.com">
+          <a href="https://www.facebook.com">
             <p className="text-black">Facebook</p>
           </a>
         </div>
         <div className="iconSocialMedia">
-          <a href="www.youtube.com">
+          <a href="https://www.youtube.com">
             <img src={youtubeIcon} alt="Logo Youtube" />
           </a>
-          < a href="www.youtube.com">
+          < a href="https://www.youtube.com">
             <p className="text-black">YouTube</p>
           </a>
         </div>
         <div className="iconSocialMedia">
-          <a href="www.Github.com">
+          <a href="https://github.com/josebuschiazzo2/TP_Cody">
             <img src={githubIcon} alt="Logo Github" />
-          </a> <a href="www.github.com">
+          </a> <a href="https://github.com/josebuschiazzo2/TP_Cody">
             <p className="text-black">Github</p>
           </a>
         </div>
         <div className="iconSocialMedia">
-          <a href="www.Linkedin.com">
+          <a href="https://www.Linkedin.com">
             <img src={linkedinIcon} alt="Logo LinkedIn" />
           </a>
-          <a href="www.linkedin.com">
+          <a href="https://www.linkedin.com">
             <p className="text-black">Linkedin</p>
           </a>
         </div>
         <div className="iconSocialMedia">
-          <a href="www.Twitter.com">
+          <a href="https://www.Twitter.com">
             <img src={twitterIcon} alt="Logo Twitter" />
           </a>
-          <a href="www.twitter.com">
+          <a href="https://www.twitter.com">
             <p className="text-black">Twitter</p>
           </a>
         </div>

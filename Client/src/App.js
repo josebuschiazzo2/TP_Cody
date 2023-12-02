@@ -60,7 +60,7 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div className="html">
       <AuthContext.Provider value={{ authState, setAuthState }}>
         <Router>
           <Routes>
