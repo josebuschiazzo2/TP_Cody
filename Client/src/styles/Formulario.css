@@ -1,121 +1,120 @@
- 
+.mensajeErrorLogin {
+  position: absolute;
+  inherits: 0;
+  font-weight: 500;
+  color: #461616;
+  background-color: #ffbabae4;
+  margin-bottom: 80%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid red;
+}
 .formulario {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    height: 45%;
-    width: 400px;
-    overflow: hidden;
-    backdrop-filter: blur(20px);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    background: rgba(180, 180, 180, 0.3);
-    z-index:9;
-    border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  height: 45%;
+  width: 400px;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background: rgba(180, 180, 180, 0.3);
+  z-index: 9;
+  border-radius: 7px;
 }
 
-
 a {
-    color:rgb(2, 39, 39)
+  color: rgb(2, 39, 39);
 }
 
 .body {
-    background-image: url("antartidafondoPNG2.png");
-    background-size:cover;
-    background-repeat: no-repeat;
-   background-position: center;
-   background-attachment: fixed;
-    height: 1000px;
-    display: flex;
-    justify-content: left;
-
+  background-image: url("antartidafondoPNG2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  height: 1000px;
+  display: flex;
+  justify-content: left;
 }
 
-
 .inicio {
-    height: 850px;
-    display: flex;
-    justify-content: left;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    color: rgb(3, 24, 43);
-  
+  height: 850px;
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: rgb(3, 24, 43);
 }
 
 .texto_form {
-    color: rgb(2, 45, 83);
+  color: rgb(2, 45, 83);
 }
 .bottom {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-   
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-#login-btn{
-    background:#03809c;
-    color: white;
-    border: none;
-    padding: 8px;
-    border-radius:6px;
+#login-btn {
+  background: #03809c;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
 }
 
 #login-btn:hover {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background: #025c6e;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #025c6e;
 }
-
 
 .left {
-    padding-right: 10px;
+  padding-right: 10px;
 }
 .right {
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 /* COMIENZA EL ESTILO DEL MENSAJE DE INICIO  */
 
 section {
-    width: 100%;
-    margin-top: 1%;
-    justify-content: flex-start;
-    align-content: stretch;
-    align-items: center;
-    flex-direction: row;
- 
- }
- 
- .mensaje-inicio {
- 
-     justify-content: flex-start;
-     align-items:flex-end;
-     align-content: space-around;
-     text-align: right;
-     height: 120px;
-     width: 600px;
-     flex-direction: column;
-     display: flex;
-     margin-top: 1%;
-     margin-bottom: 5%;
-     margin-left: 13%;
-     color: rgb(2, 27, 51);
-     text-shadow: 0.05em 0.07em 0 rgba(247, 192, 226, 0.938);
- }
- 
+  width: 100%;
+  margin-top: 1%;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: center;
+  flex-direction: row;
+}
 
+.mensaje-inicio {
+  justify-content: flex-start;
+  align-items: flex-end;
+  align-content: space-around;
+  text-align: right;
+  height: 120px;
+  width: 600px;
+  flex-direction: column;
+  display: flex;
+  margin-top: 1%;
+  margin-bottom: 5%;
+  margin-left: 13%;
+  color: rgb(2, 27, 51);
+  text-shadow: 0.05em 0.07em 0 rgba(247, 192, 226, 0.938);
+}
 
 /* COMIENZAN LAS MEDIA QUERY  */
 @media (max-width: 1600px) {
-    .formulario{
+  .formulario {
     height: 40%;
+  }
 
-            }
-
- .mensaje-inicio {
+  .mensaje-inicio {
     justify-content: flex-start;
     width: 35%;
     margin-top: 0px;
@@ -124,93 +123,79 @@ section {
     color: rgb(2, 27, 51);
     text-shadow: 0.05em 0.07em 0 rgba(3, 43, 117, 0.938);
     text-align: left;
-
-}
-
+  }
 }
 
 @media (max-width: 900px) {
-    
-    section {
-        margin-top: 2%;
-     }
+  section {
+    margin-top: 2%;
+  }
 
-     .mensaje-inicio {
-        text-align: right;
-        height: 120px;
-        width: 600px;
-        flex-direction: column;
-        display: flex;
-        margin-top: 3%;
-        margin-bottom: 10%;
-        margin-left: 13%;
-    }
+  .mensaje-inicio {
+    text-align: right;
+    height: 120px;
+    width: 600px;
+    flex-direction: column;
+    display: flex;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    margin-left: 13%;
+  }
 
-    .formulario {
-      
-        gap: 1rem;
-        height: 35%;
-        width: 380px;
-    
-    }    
-  
+  .formulario {
+    gap: 1rem;
+    height: 35%;
+    width: 380px;
+  }
 }
 
 @media (max-width: 690px) {
-    section {
-        margin-top: 2%;
-     } 
-     .mensaje-inicio {
-        text-align: left;
-        height: 120px;
-        width: 500px;
-        flex-direction: column;
-        display: flex;
-        margin-top: 3%;
-        margin-bottom: 10%;
-        margin-left: 5%;
-    }
+  section {
+    margin-top: 2%;
+  }
+  .mensaje-inicio {
+    text-align: left;
+    height: 120px;
+    width: 500px;
+    flex-direction: column;
+    display: flex;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    margin-left: 5%;
+  }
 
-    .formulario {
-        margin-top: 3%;
-        gap: 1rem;
-        height: 35%;
-        width: 380px;
-    
-    }      
-    .mensaje-inicio .h4
-    {
-        text-align: left;
-    }          
+  .formulario {
+    margin-top: 3%;
+    gap: 1rem;
+    height: 35%;
+    width: 380px;
+  }
+  .mensaje-inicio .h4 {
+    text-align: left;
+  }
 }
 
 @media (max-width: 530px) {
-    section {
-        margin-top: 4%;
-     }
-     .mensaje-inicio {
-        font-size: 0.1px;
-        text-align: left;
-        height: 80%;
-        width: 80%;
-        flex-direction: column;
-        display: flex;
-        margin-top: 3%;
-        margin-bottom: 8%;
-        margin-left: 2%;
-    }
-    .formulario {
-        margin-top: 6%;
-        gap: 1rem;
-        width: 360px;
-    
-    } 
-    .mensaje-inicio .h4
-    {
-        text-align: left;
-    }            
-  
+  section {
+    margin-top: 4%;
+  }
+  .mensaje-inicio {
+    font-size: 0.1px;
+    text-align: left;
+    height: 80%;
+    width: 80%;
+    flex-direction: column;
+    display: flex;
+    margin-top: 3%;
+    margin-bottom: 8%;
+    margin-left: 2%;
+  }
+  .formulario {
+    margin-top: 6%;
+    gap: 1rem;
+    width: 360px;
+  }
+  .mensaje-inicio .h4 {
+    text-align: left;
+  }
 }
-
-
-
