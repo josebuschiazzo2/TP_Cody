@@ -1,3 +1,19 @@
+.error-message {
+    color: #ca2233;
+    position: absolute;
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-top: -10px; /* Esto ajusta la posición hacia arriba */
+    flex-wrap: wrap;
+    padding: 1px;
+}
+
+
+
+  .formContenedor{
+    display: flex;
+flex-direction: row;
+}
 
 .registro_inicio {
     background-image: url("antartidafondoPNG2.png");
@@ -44,13 +60,14 @@ margin-bottom: 3%;
 
 
 .control {
-    width: 40%;
+    width: 200px;
     height: 50px ;
     background: #f8f8f8ec;
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 4%;
-    margin-right: 2%;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-top: 15px;
     border: 1px solid #acc3f5;
     font-family: 'calibri';
     font-size: 14px;
@@ -58,23 +75,22 @@ margin-bottom: 3%;
 }
 
 #register_btn {
-    
-    width: 40%;
+    width: 200px;
     height: 49px ;
     background:#03809c;
     border: none;
     padding: 8px;
     color: white;
-    margin: auto;
     font-size: 16PX;
     cursor: pointer; 
     border-radius:6px;
+    margin-top: 15px;
 
 }
 
 .btn-registrar{
-    align-content: center;
-}
+    display: flex;
+    justify-content: center;  }
 
 #register_btn:hover {
     background: rgb(39, 161, 185);
@@ -89,9 +105,10 @@ margin-bottom: 3%;
 /* En pantallas con un ancho máximo de 900px */
 
 @media (max-width: 1200px) {
-    .registro_inicio {
- 
+    .formContenedor{
+        display: flex;
         flex-direction: column;
+    
     }
     
     .form {
@@ -101,7 +118,9 @@ margin-bottom: 3%;
         align-items: center;
        
     }
-
+    .btn-registrar{
+        display: flex;
+justify-content: center;      }
     .form button {
         min-width: fit-content;
        display: flex;
@@ -124,11 +143,13 @@ margin-bottom: 3%;
 }
 
 @media (max-width: 900px) {
-    .registro_inicio {
+    .formContenedor {
  
         flex-direction: column;
     }
-    
+    .btn-registrar{
+        display: flex;
+justify-content: center;      }
     .form {
         width: 60%;
         height: auto;
@@ -169,7 +190,10 @@ margin-bottom: 3%;
         padding: 3%;
         padding-left: 3%;
     }
-
+    .btn-registrar{
+        display: flex;
+justify-content: center;   
+ }
     .form button {
         min-width: fit-content;
        display: flex;
