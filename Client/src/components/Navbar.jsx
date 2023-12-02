@@ -19,7 +19,7 @@ function Navbar(props) {
       <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div className="container">
           {/* logo  */}
-          <Link  class={` ${props.claseHome}`}  to="/"><img id="logoCody"  src={LogoCodyPNG} alt="logo"/></Link>
+          <Link    to="/"><img id="logoCody"  src={LogoCodyPNG} alt="logo"/></Link>
           
         
           {/* Toggle btn */}

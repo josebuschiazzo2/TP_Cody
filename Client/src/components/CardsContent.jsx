@@ -41,7 +41,8 @@ const CardsContent = () => {
         <Suspense fallback={<div>Loading...</div>}>
           {component}
         </Suspense>
-      )  }
+      )
+    }
     )
   };
   return (
@@ -53,7 +54,11 @@ const CardsContent = () => {
       <div id="cards" className='container'>
         <div className='bases'>
           <h3> Bases Antárticas Argentinas</h3>
-          <h6>La Argentina administra 13 bases en la Antártida, de las cuales 6 son permanentes (operativas todo el año) y el resto, temporarias (operativas sólo en verano). De ellas, 2 son administradas directamente por la Cancillería: Carlini (permanente, ex base Jubany) y Brown (temporaria). Las demás bases son administradas por el Comando Conjunto Antártico (Ministerio de Defensa). Ellas son base Orcadas,  base Marambio, base Esperanza, base San Martín y base Belgrano II (permanentes); y las bases temporarias Melchior, Decepción, Cámara, Primavera, Petrel y Matienzo.</h6>
+          <h6 className='infoHome'>En la vastedad de la Antártida, Argentina gestiona 13 bases, donde la magia del hielo se entrelaza con la investigación científica,
+           la preservación del medio ambiente y la cooperación internacional. Seis de ellas son permanentes, llevando a cabo sus actividades durante todo el año,
+            mientras que las temporales se activan solo en verano. Dos de estas bases, Carlini y Brown, están bajo la tutela de la Cancillería,
+             mientras que el resto de nuestras bases son atendidas por el Comando Conjunto Antártico del Ministerio de Defensa.
+           Nuestras bases son piezas únicas, inscribiendo la esencia argentina en la tierra que abraza el hielo sin fin.</h6>
         </div>
 
         <a href="#BaseAntartica" onClick={() => handleButtonClick(<LazyBaseCarlini />)}>
