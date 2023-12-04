@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import facebookIcon from '../images/facebookIcon.png';
 import githubIcon from '../images/githubIcon.png';
 import linkedinIcon from '../images/linkedinIcon.png';
-import twitterIcon from '../images/twitterIcon.png';
+import XIcon from '../images/XIcon.png';
 import youtubeIcon from '../images/youtubeIcon.png';
 
 function Footer(props) {
@@ -32,7 +32,7 @@ function Footer(props) {
           <a href="https://github.com/josebuschiazzo2/TP_Cody">
             <img src={githubIcon} alt="Logo Github" />
           </a> <a href="https://github.com/josebuschiazzo2/TP_Cody">
-            <p className="text-black">Github</p>
+            <p className="text-black">GitHub</p>
           </a>
         </div>
         <div className="iconSocialMedia">
@@ -45,10 +45,10 @@ function Footer(props) {
         </div>
         <div className="iconSocialMedia">
           <a href="https://www.Twitter.com">
-            <img src={twitterIcon} alt="Logo Twitter" />
+            <img src={XIcon} alt="Logo Twitter" />
           </a>
           <a href="https://www.twitter.com">
-            <p className="text-black">Twitter</p>
+            <p className="text-black">X</p>
           </a>
         </div>
       </div>
