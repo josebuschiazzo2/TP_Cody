@@ -6,6 +6,7 @@ import {
   Param,
   Patch,
   Post,
+  Put,
   Req,
   UseGuards,
 } from '@nestjs/common';
@@ -41,6 +42,21 @@ export class CommentController {
   remove(@Param('id') id: number, @Req() request) {
     if (request.user.role === Role.USER ) {
       return this.commentService.remove(id);
+    } else {
+      return '***access unauthorized***';
+    }
+  }
+  
+  //*****     EDITAR COMENTARIO     ***** */
+  @Put('editar/:id')
+  @UseGuards(AuthGuard)
+  async actualizarPost(
+    @Body() PostDto,
+    @Param('id') id: number,
+    @Req() request,
+  ) {
+    if (request.user.role === Role.USER || request.user.role === Role.ADMIN) {
+      return this.commentService.update(PostDto, id);
     } else {
       return '***access unauthorized***';
     }
