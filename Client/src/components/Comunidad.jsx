@@ -50,20 +50,22 @@ function Comunidad() {
     },
     body: JSON.stringify({ post: publicacion })
   })
-    .then(response => {
-      console.log(response);
-      return response.text();
-    })
-    .then(data => {
-      setPublicacion('')
+      .then(response => {
+        console.log(response);
+        return response.text();
+      })
+      .then(data => {
+        setPublicacion('')
+  
+        console.log(data);
+      })
+      .catch(error => {
+        console.error("Error en la solicitud:", error);
+        console.log("Mensaje de error:", error.message);
+      });
+  };
 
-      console.log(data);
-    })
-    .catch(error => {
-      console.error("Error en la solicitud:", error);
-      console.log("Mensaje de error:", error.message);
-    });
-};
+  
 
   // ACTIVAR LA EDICION DE LA PUBLICAICON CON UN PROMPT 28/11
   const activarEdicion = (id, contenido) => {
@@ -101,8 +103,6 @@ function Comunidad() {
       editarComentario(id, nuevoComentario);
     }
   };
-
- 
   const editarComentario = (id, comentarioEditado) => {
     fetch(`http://localhost:3003/comment/editar/${id}`, {
       method: "PUT",
