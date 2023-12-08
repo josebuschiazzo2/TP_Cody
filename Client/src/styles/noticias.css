@@ -157,12 +157,13 @@ opacity: 1;  }
   display: flex;
   align-items: center;
   margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .selected-news-title {
   font-size: 1.5rem;
   margin-bottom: 10px;
-  margin-top: 10px;
+  margin-top: 100px;
   background-color: #DBF1FD;
   padding: 1%;
   text-align: center;

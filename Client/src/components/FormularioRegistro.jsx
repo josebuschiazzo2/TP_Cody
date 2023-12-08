@@ -1,9 +1,17 @@
 import '../styles/FormularioRegistro.css';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+
 import React from 'react';
+
+import {
+  ErrorMessage,
+  Field,
+  Form,
+  Formik,
+} from 'formik';
 
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+
 const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 
 const FormularioRegistro = () => {
@@ -88,50 +96,51 @@ const FormularioRegistro = () => {
           <Formik initialValues={initialValues} validate={validate} onSubmit={onSubmit} autoComplete="off">
             <Form>
               <div className="formContenedor">
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column divInput">
                   <Field type="text" name="username" className="control" placeholder="Usuario"/>
                   <ErrorMessage name="username" component="div" className="error-message" />
                 </div>
 
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column divInput">
                   <Field type="text" name="nombre" className="control" placeholder="Nombre" />
                   <ErrorMessage name="nombre" component="div" className="error-message" />
                 </div>
               </div>
 
               <div className="formContenedor">
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column divInput">
                   <Field type="text" name="apellido" className="control" placeholder="Apellido"/>
                   <ErrorMessage name="apellido" component="div" className="error-message" />
                 </div>
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column divInput">
                   <Field type="text" name="nacionalidad" className="control" placeholder="Nacionalidad" />
                   <ErrorMessage name="nacionalidad" component="div" className="error-message" />
                 </div>
               </div>
 
               <div className="formContenedor">
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column divInput">
                   <Field type="text" name="email" className="control" placeholder="Correo Electrónico"/>
                   <ErrorMessage name="email" component="div" className="error-message" />
                 </div>
 
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column divInput">
                   <Field type="date" name="fecha_nac" className="control" />
                 </div>
               </div>
 
               <div className="formContenedor">
-                <div className="d-flex flex-column">
-                  <Field type="text" name="password" className="control" placeholder="Contraseña" />
+                <div className="d-flex flex-column divInput2">
+                  <Field type="text" name="password" className="controlpassword" placeholder="Contraseña" />
                   <ErrorMessage name="password" component="div" className="error-message" />
                 </div>
-                <div className='btn-registrar'> 
+               
+              </div>
+              <div className='btn-registrar'> 
                 <button id="register_btn" type="submit">
                   Quiero Registrarme
                 </button>
                 </div>
-              </div>
             </Form>
           </Formik>
         </section>

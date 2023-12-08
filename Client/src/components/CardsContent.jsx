@@ -1,6 +1,12 @@
-import React, { lazy, Suspense, useState, startTransition  } from 'react';
 import '../styles/card.css';
-import Card from './Card';
+
+import React, {
+  lazy,
+  startTransition,
+  Suspense,
+  useState,
+} from 'react';
+
 import Belgrano2 from '../images/Belgrano2Small.jpg';
 import Brown from '../images/BrownSmall.jpg';
 import Camara from '../images/CamaraSmall.jpg';
@@ -14,7 +20,7 @@ import Orcadas from '../images/OrcadasSmall.jpg';
 import Petrel from '../images/PetrelSmall.jpg';
 import Primavera from '../images/PrimaveraSmall.jpg';
 import SanMartin from '../images/SanMartinSmall.jpg';
-
+import Card from './Card';
 
 const LazyBaseBelgrano2 = lazy(() => import('./BaseBelgrano2'));
 const LazyBaseBrown = lazy(() => import('./BaseBrown'));
@@ -54,11 +60,11 @@ const CardsContent = () => {
       <div id="cards" className='container'>
         <div className='bases'>
           <h3> Bases Antárticas Argentinas</h3>
-          <h6 className='infoHome'>En la vastedad de la Antártida, Argentina gestiona 13 bases, donde la magia del hielo se entrelaza con la investigación científica,
+          <h4 className='infoHome'>En la vastedad de la Antártida, Argentina gestiona 13 bases, donde la magia del hielo se entrelaza con la investigación científica,
            la preservación del medio ambiente y la cooperación internacional. Seis de ellas son permanentes, llevando a cabo sus actividades durante todo el año,
             mientras que las temporales se activan solo en verano. Dos de estas bases, Carlini y Brown, están bajo la tutela de la Cancillería,
              mientras que el resto de nuestras bases son atendidas por el Comando Conjunto Antártico del Ministerio de Defensa.
-           Nuestras bases son piezas únicas, inscribiendo la esencia argentina en la tierra que abraza el hielo sin fin.</h6>
+           Nuestras bases son piezas únicas, inscribiendo la esencia argentina en la tierra que abraza el hielo sin fin.</h4>
         </div>
 
         <a href="#BaseAntartica" onClick={() => handleButtonClick(<LazyBaseCarlini />)}>
