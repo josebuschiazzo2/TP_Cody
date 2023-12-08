@@ -42,7 +42,8 @@ const handleSubmit = async (e) => {
       setAuthState({ status: true, username, id, role }); // se asignan los datos del usuario a su estado de autenticación para que se ejecuten los cambios al hacer login. 
       // console.log(username) // para verificar si llega el dato desde el backend
       // console.log(responseData); // Mostrar toda la respuesta, depuración, ver estructura. 
-      navigate(-1)    }
+      navigate(-1)   
+     }
   } catch (error) {
     console.error("Error en la solicitud:", error);
   }
