@@ -32,14 +32,18 @@ public postRepository:Repository<Post>
  * en la parte del cliente. 
  * 
  */
-  findAll() {
-    return this.postRepository.find({
-      relations:{
-        comment:true,
-        like:true
-      }
-    })
-  }
+findAll() {
+  return this.postRepository.find({
+    relations: {
+      comment: true,
+      like: true
+    },
+    order: {
+      createdAt: "DESC" // Cambié 'name' por 'createdAt' asumiendo que es el campo de fecha de creación
+    }
+  });
+}
+  
 
 
  async remove(id: number) {
