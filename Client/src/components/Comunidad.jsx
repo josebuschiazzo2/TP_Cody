@@ -49,16 +49,22 @@ function Comunidad() {
       },
       body: JSON.stringify({ post: publicacion })
     })
-      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        return response.text();
+      })
       .then(data => {
-        setPublicacion('');
+        setPublicacion('')
+  
         console.log(data);
       })
       .catch(error => {
         console.error("Error en la solicitud:", error);
         console.log("Mensaje de error:", error.message);
-      });
+      });
   };
+
+  
 
   // ACTIVAR LA EDICION DE LA PUBLICAICON CON UN PROMPT 28/11
   const activarEdicion = (id, contenido) => {
@@ -87,29 +93,6 @@ function Comunidad() {
       });
   };
   // FIN DE ACTIVAR LA EDICION DE LA PUBLICAICON CON UN PROMPT 28/11
-
-  //const activarEdicion = (id, contenido) => {
-  //setEditMode({ id, content: contenido });
-  //};
-
-  /* const editarPublicacion = (id) => {
-     fetch(`http://localhost:3003/post/actualizar/${id}`, {
-       method: "PUT",
-       headers: {
-         "Content-Type": "application/json",
-         "Authorization": "Bearer " + token
-       },
-       body: JSON.stringify({ post: editMode.content })
-     })
-       .then((resp) => resp.json())
-       .then((data) => {
-         console.log("Publicación editada:", data);
-         setEditMode({ id: null, content: "" });
-       })
-       .catch((error) => {
-         console.error("Error al editar la publicación:", error);
-       });
-   } */
 
 
   const eliminarPublicacion = (id) => {
