@@ -39,7 +39,7 @@ findAll() {
       like: true
     },
     order: {
-      createdAt: "DESC" // Cambié 'name' por 'createdAt' asumiendo que es el campo de fecha de creación
+      createdAt: "DESC" 
     }
   });
 }
