@@ -37,4 +37,10 @@ export class Comment {
     this.userID = userID;
     this.postID = postID;
 }
+public getComments() {
+  return this.comment;
+}
+public setComment(newComment) {
+  this.comment = newComment;
+}
 }

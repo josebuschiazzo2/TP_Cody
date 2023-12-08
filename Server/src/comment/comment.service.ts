@@ -62,4 +62,27 @@ public postRepository:Repository<Post>
     }
   }
   
+
+  async update(commentDto: CommentDto, id: number): Promise<any> {
+    try {
+      const criterio: FindOneOptions = { where: { id: id } };
+      let comentario: Comment = await this.commentRepository.findOne(criterio);
+
+      if (!comentario) throw new Error('No se pudo encontrar el comentario');
+      else {
+        const postVieja = comentario.getComments();
+        comentario.setComment(commentDto.comment);
+       await this.commentRepository.save(comentario);
+        return `OK -- ${postVieja} --> ${commentDto.comment}`;
+      }
+    } catch (error) {
+      throw new HttpException(
+        {
+          status: HttpStatus.NOT_FOUND,
+          error: 'Error en PUBLICACION - ' + error,
+        },
+        HttpStatus.NOT_FOUND,
+      );
+    }
+  }
 }

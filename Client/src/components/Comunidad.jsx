@@ -23,6 +23,7 @@ function Comunidad() {
   const [btnState, setBtnState] = useState({});
   const [publicacionEliminada, setPublicacionEliminada] = useState(false);
   const [editMode, setEditMode] = useState({ id: null, content: "" });
+  const [editModeComentario, setEditModeComentario] = useState({ id: null, content: "" });
 
   useEffect(() => {
     const mostrarLista = async () => {
@@ -35,30 +36,34 @@ function Comunidad() {
     }
     mostrarLista();
   }, [listaPublicaciones]);
-
-  const publicar = async () => {
-    if (!token) {
-      navigate('/login');
-      return;
-    }
-    await fetch('http://localhost:3003/post/new', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + token
-      },
-      body: JSON.stringify({ post: publicacion })
+ // <----------- FUNCIÓN PUBLICAR ------------>
+ const publicar = async () => {
+  if (!token) {
+    navigate('/login');
+    return;
+  }
+  await fetch('http://localhost:3003/post/new', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + token
+    },
+    body: JSON.stringify({ post: publicacion })
+  })
+    .then(response => {
+      console.log(response);
+      return response.text();
     })
-      .then(response => response.json())
-      .then(data => {
-        setPublicacion('');
-        console.log(data);
-      })
-      .catch(error => {
-        console.error("Error en la solicitud:", error);
-        console.log("Mensaje de error:", error.message);
-      });
-  };
+    .then(data => {
+      setPublicacion('')
+
+      console.log(data);
+    })
+    .catch(error => {
+      console.error("Error en la solicitud:", error);
+      console.log("Mensaje de error:", error.message);
+    });
+};
 
   // ACTIVAR LA EDICION DE LA PUBLICAICON CON UN PROMPT 28/11
   const activarEdicion = (id, contenido) => {
@@ -67,6 +72,7 @@ function Comunidad() {
       editarPublicacion(id, nuevoContenido);
     }
   };
+
 
   const editarPublicacion = (id, nuevoContenido) => {
     fetch(`http://localhost:3003/post/actualizar/${id}`, {
@@ -88,30 +94,34 @@ function Comunidad() {
   };
   // FIN DE ACTIVAR LA EDICION DE LA PUBLICAICON CON UN PROMPT 28/11
 
-  //const activarEdicion = (id, contenido) => {
-  //setEditMode({ id, content: contenido });
-  //};
+// ********** Editar Comentario **********//
+  const activarEdicionComentario = (id, contenido) => {
+    const nuevoComentario = prompt('Edita tu comentario!:', contenido);
+    if (nuevoComentario !== null) {
+      editarComentario(id, nuevoComentario);
+    }
+  };
 
-  /* const editarPublicacion = (id) => {
-     fetch(`http://localhost:3003/post/actualizar/${id}`, {
-       method: "PUT",
-       headers: {
-         "Content-Type": "application/json",
-         "Authorization": "Bearer " + token
-       },
-       body: JSON.stringify({ post: editMode.content })
-     })
-       .then((resp) => resp.json())
-       .then((data) => {
-         console.log("Publicación editada:", data);
-         setEditMode({ id: null, content: "" });
-       })
-       .catch((error) => {
-         console.error("Error al editar la publicación:", error);
-       });
-   } */
-
-
+ 
+  const editarComentario = (id, comentarioEditado) => {
+    fetch(`http://localhost:3003/comment/editar/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      },
+      body: JSON.stringify({ comment: comentarioEditado })
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log("Comentario editado:", data);
+        setEditModeComentario({ id: null, content: "" });
+      })
+      .catch((error) => {
+        console.error("Error al editar el comentario:", error);
+      });
+  };
+// *********** eliminar publicación ***********//
   const eliminarPublicacion = (id) => {
     fetch(`http://localhost:3003/post/delete-post/${id}`, {
       method: "DELETE",
@@ -241,16 +251,8 @@ function Comunidad() {
                       <p className='publicacion_nombre card-title'>{publicacion.username} </p>
                       <p className='publicacion_fecha card-subtitle ml-5 text-body-secondary'>{publicacion.createdAt}</p>
                     </div>
-                    {/* <p>
-                      {editMode.id === publicacion.id ? (
-                        <TextareaAutosize
-                          value={editMode.content}
-                          onChange={(e) => setEditMode({ ...editMode, content: e.target.value })}
-                        />
-                      ) : (
-                        publicacion.post
-                      )}
-                      </p> */}
+                 
+                 
                     <div className='  botones_user'>
                       <div>
                         {authState.username === publicacion.username && authState.role === "user" && (
@@ -314,6 +316,28 @@ function Comunidad() {
                         <div className='comentarios_publicados'>
                           <p className='comentario_nombre card-title' >{comentario.username}: </p>
                           <p className='comentario_txt '>{comentario.comment}</p>
+
+
+
+
+                          <div>
+                        {authState.username === comentario.username && authState.role === "user" && (
+                          <>
+                            {editModeComentario.id === comentario.id ? (
+                              <span className="material-symbols-outlined" onClick={() => editarComentario(comentario.id)}
+                                style={{ cursor: 'pointer' }}>
+                                edit_square
+                              </span>
+                            ) : (
+                              <span className="material-symbols-outlined" onClick={() => activarEdicionComentario(comentario.id, comentario.comment)}
+                                style={{ cursor: 'pointer' }}>
+                                edit_square
+                              </span>
+                            )}
+                          </>
+                        )}
+                      </div>
+
                           <div className='eliminarComentario'>
                             {authState.username === comentario.username && (
                               <>
