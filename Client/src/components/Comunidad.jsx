@@ -24,6 +24,11 @@ function Comunidad() {
   const [publicacionEliminada, setPublicacionEliminada] = useState(false);
   const [editMode, setEditMode] = useState({ id: null, content: "" });
   const [editModeComentario, setEditModeComentario] = useState({ id: null, content: "" });
+  const [nuevoContenido, setNuevoContenido] = useState("")
+  const [mostrarModal, setMostrarModal] = useState(false)
+  const [contenidoModal, setContenidoModal] = useState("");
+
+
 
   useEffect(() => {
     const mostrarLista = async () => {
@@ -36,45 +41,48 @@ function Comunidad() {
     }
     mostrarLista();
   }, [listaPublicaciones]);
- // <----------- FUNCIÓN PUBLICAR ------------>
- const publicar = async () => {
-  if (!token) {
-    navigate('/login');
-    return;
-  }
-  await fetch('http://localhost:3003/post/new', {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer " + token
-    },
-    body: JSON.stringify({ post: publicacion })
-  })
+  // <----------- FUNCIÓN PUBLICAR ------------>
+  const publicar = async () => {
+    if (!token) {
+      navigate('/login');
+      return;
+    }
+    await fetch('http://localhost:3003/post/new', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      },
+      body: JSON.stringify({ post: publicacion })
+    })
       .then(response => {
         console.log(response);
         return response.text();
       })
       .then(data => {
         setPublicacion('')
-  
+
         console.log(data);
       })
       .catch(error => {
         console.error("Error en la solicitud:", error);
         console.log("Mensaje de error:", error.message);
-      });
+      });
   };
 
-  
 
-  // ACTIVAR LA EDICION DE LA PUBLICAICON CON UN PROMPT 28/11
+
+  // ********** Editar Publicación **********//
   const activarEdicion = (id, contenido) => {
-    const nuevoContenido = prompt('Edita tu publicación:', contenido);
-    if (nuevoContenido !== null) {
-      editarPublicacion(id, nuevoContenido);
-    }
+    setMostrarModal(true);
+    setEditMode({ id: id, content: contenido });
+    setContenidoModal(contenido); // Inicializar contenidoModal con el contenido actual
+    setNuevoContenido(contenido);
   };
-
+  const handleTextareaChange = (event) => {
+    const contenidoText = event.target.value;
+    setNuevoContenido(contenidoText);
+  };
 
   const editarPublicacion = (id, nuevoContenido) => {
     fetch(`http://localhost:3003/post/actualizar/${id}`, {
@@ -94,9 +102,20 @@ function Comunidad() {
         console.error("Error al editar la publicación:", error);
       });
   };
-  // FIN DE ACTIVAR LA EDICION DE LA PUBLICAICON CON UN PROMPT 28/11
+  const aceptarEdicion = () => {
+    if (nuevoContenido.trim() !== "") {
+      editarPublicacion(editMode.id, nuevoContenido);
+    }
+    setMostrarModal(false);
+  };
+  const cancelarEdicion = () => {
+    setMostrarModal(false);
+    setNuevoContenido(""); // Restablecer a un valor vacío o algún valor predeterminado
+  };
+  
 
-// ********** Editar Comentario **********//
+
+  // ********** Editar Comentario **********//
   const activarEdicionComentario = (id, contenido) => {
     const nuevoComentario = prompt('Edita tu comentario!:', contenido);
     if (nuevoComentario !== null) {
@@ -121,7 +140,7 @@ function Comunidad() {
         console.error("Error al editar el comentario:", error);
       });
   };
-// *********** eliminar publicación ***********//
+  // *********** eliminar publicación ***********//
   const eliminarPublicacion = (id) => {
     fetch(`http://localhost:3003/post/delete-post/${id}`, {
       method: "DELETE",
@@ -251,14 +270,28 @@ function Comunidad() {
                       <p className='publicacion_nombre card-title'>{publicacion.username} </p>
                       <p className='publicacion_fecha card-subtitle ml-5 text-body-secondary'>{publicacion.createdAt}</p>
                     </div>
-                 
-                 
+
+                    {mostrarModal && (
+                      <div className='container contenedorModal'>
+                        <textarea className='modalEstilo '
+                          value={nuevoContenido}
+                          onChange={handleTextareaChange}
+                          placeholder='Edita tu publicación... '
+                        >
+                        </textarea>  
+                         <div className='contenedorCerrar'>
+                        <button className='aceptar_modal' onClick={aceptarEdicion}>Aceptar</button>
+                        <button className='cerrar_modal' onClick={cancelarEdicion}>Cancelar</button>
+                        </div>
+                      </div>
+
+                    )}
                     <div className='  botones_user'>
                       <div>
                         {authState.username === publicacion.username && authState.role === "user" && (
                           <>
                             {editMode.id === publicacion.id ? (
-                              <span className="material-symbols-outlined" onClick={() => editarPublicacion(publicacion.id)}
+                              <span className="material-symbols-outlined" onClick={() => activarEdicion(publicacion.id,publicacion.post)}
                                 style={{ cursor: 'pointer' }}>
                                 edit_square
                               </span>
@@ -293,22 +326,22 @@ function Comunidad() {
                   </div>
                   <p>{publicacion.post}</p>
 
-<div className='contenedor_like'>
-                  <div className='d-flex flex-direction-row'>
+                  <div className='contenedor_like'>
+                    <div className='d-flex flex-direction-row'>
 
-                    <button className={`like-btn btnToggle${likeToggle(publicacion.id)}`} onClick={() => likePost(publicacion.id)}>
-                      <span className="material-symbols-outlined">thumb_up</span>
-                    </button>
-
-
-                    {publicacion.like.length > 0 &&
-                      <p> {publicacion.like.length}</p>
-                    }
+                      <button className={`like-btn btnToggle${likeToggle(publicacion.id)}`} onClick={() => likePost(publicacion.id)}>
+                        <span className="material-symbols-outlined">thumb_up</span>
+                      </button>
 
 
+                      {publicacion.like.length > 0 &&
+                        <p> {publicacion.like.length}</p>
+                      }
+
+
+                    </div>
                   </div>
                 </div>
-</div>
                 <div>
                   {publicacion.comment.map((comentario, i) => (
                     <div key={i}>
@@ -321,22 +354,22 @@ function Comunidad() {
 
 
                           <div>
-                        {authState.username === comentario.username && authState.role === "user" && (
-                          <>
-                            {editModeComentario.id === comentario.id ? (
-                              <span className="material-symbols-outlined" onClick={() => editarComentario(comentario.id)}
-                                style={{ cursor: 'pointer' }}>
-                                edit_square
-                              </span>
-                            ) : (
-                              <span className="material-symbols-outlined" onClick={() => activarEdicionComentario(comentario.id, comentario.comment)}
-                                style={{ cursor: 'pointer' }}>
-                                edit_square
-                              </span>
+                            {authState.username === comentario.username && authState.role === "user" && (
+                              <>
+                                {editModeComentario.id === comentario.id ? (
+                                  <span className="material-symbols-outlined" onClick={() => editarComentario(comentario.id)}
+                                    style={{ cursor: 'pointer' }}>
+                                    edit_square
+                                  </span>
+                                ) : (
+                                  <span className="material-symbols-outlined" onClick={() => activarEdicionComentario(comentario.id, comentario.comment)}
+                                    style={{ cursor: 'pointer' }}>
+                                    edit_square
+                                  </span>
+                                )}
+                              </>
                             )}
-                          </>
-                        )}
-                      </div>
+                          </div>
 
                           <div className='eliminarComentario'>
                             {authState.username === comentario.username && (
@@ -362,7 +395,7 @@ function Comunidad() {
                     placeholder="Escribe tu comentario..."
                   />
                   <button onClick={() => enviarComentario(publicacion.id)} className='btn-enviar'>Enviar</button>
-   
+
                 </div>
               </div>
             ))}
