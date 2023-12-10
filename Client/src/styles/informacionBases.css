@@ -1,6 +1,10 @@
 .basesHome{
     text-align: center;
 }
+
+.tituloNotFound{
+    margin: 0px;
+}
 .baseCard{
     width: 95%;
     height: auto;

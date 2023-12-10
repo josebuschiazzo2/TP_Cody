@@ -6,7 +6,7 @@ import InfoNotFound from './InfoNotFound';
 function PageNotFound() {
 
   return (
-    <div className='baseCard'>
+    <div className='container '>
       <InfoNotFound
           imagenInfoBase = {pageNotFound2}
           tituloInfoBase = {"PAGINA NO ENCONTRADA"}
