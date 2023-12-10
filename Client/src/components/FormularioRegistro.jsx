@@ -1,5 +1,5 @@
 import '../styles/FormularioRegistro.css';
-
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
 
 import {
@@ -70,8 +70,9 @@ const FormularioRegistro = () => {
         body: JSON.stringify(formattedValues),
       });
   
-      if (response.ok) {
-        alert('Registro exitoso');
+      if (response.ok) {  
+        alert('Registro exitoso')
+        navigate('/login');
       } else {
         alert('El usuario ya existe o hubo un error en el registro');
       }
@@ -80,6 +81,7 @@ const FormularioRegistro = () => {
     }
   };
   
+  const navigate = useNavigate(); //2
 
   return (
     <section>
