@@ -22,12 +22,15 @@ function Comunidad() {
   const { authState } = useContext(AuthContext);
   const [btnState, setBtnState] = useState({});
   const [publicacionEliminada, setPublicacionEliminada] = useState(false);
+  // editar publicacion
   const [editMode, setEditMode] = useState({ id: null, content: "" });
-  const [editModeComentario, setEditModeComentario] = useState({ id: null, content: "" });
   const [nuevoContenido, setNuevoContenido] = useState("")
   const [mostrarModal, setMostrarModal] = useState(false)
-  const [contenidoModal, setContenidoModal] = useState("");
 
+// editar comentario
+  const [mostrarModalComentario, setMostrarModalComentario] = useState(false)
+  const [editModeComentario, setEditModeComentario] = useState({ id: null, content: "" });
+  const [nuevoContenidoComentario, setNuevoContenidoComentario] = useState("")
 
 
   useEffect(() => {
@@ -76,10 +79,10 @@ function Comunidad() {
   const activarEdicion = (id, contenido) => {
     setMostrarModal(true);
     setEditMode({ id: id, content: contenido });
-    setContenidoModal(contenido); // Inicializar contenidoModal con el contenido actual
     setNuevoContenido(contenido);
   };
-  const handleTextareaChange = (event) => {
+
+  const handlePostChange = (event) => {
     const contenidoText = event.target.value;
     setNuevoContenido(contenidoText);
   };
@@ -102,6 +105,7 @@ function Comunidad() {
         console.error("Error al editar la publicación:", error);
       });
   };
+
   const aceptarEdicion = () => {
     if (nuevoContenido.trim() !== "") {
       editarPublicacion(editMode.id, nuevoContenido);
@@ -117,11 +121,15 @@ function Comunidad() {
 
   // ********** Editar Comentario **********//
   const activarEdicionComentario = (id, contenido) => {
-    const nuevoComentario = prompt('Edita tu comentario!:', contenido);
-    if (nuevoComentario !== null) {
-      editarComentario(id, nuevoComentario);
-    }
+   setMostrarModalComentario(true);
+   setEditModeComentario({id:id, content:contenido});
+   setNuevoContenidoComentario(contenido)
   };
+  const handleCommentChange = (event) => {
+    const contenidoComentario = event.target.value;
+    setNuevoContenidoComentario(contenidoComentario);
+  };
+
   const editarComentario = (id, comentarioEditado) => {
     fetch(`http://localhost:3003/comment/editar/${id}`, {
       method: "PUT",
@@ -140,6 +148,22 @@ function Comunidad() {
         console.error("Error al editar el comentario:", error);
       });
   };
+
+  
+  const aceptarEdicionComentario = () => {
+    if (nuevoContenidoComentario.trim() !== "") {
+      editarComentario(editModeComentario.id, nuevoContenidoComentario);
+    }
+    setMostrarModalComentario(false);
+  };
+
+  const cancelarEdicionComentario = () => {
+    setMostrarModalComentario(false);
+    setNuevoContenidoComentario(""); // Restablecer a un valor vacío o algún valor predeterminado
+  };
+  
+
+
   // *********** eliminar publicación ***********//
   const eliminarPublicacion = (id) => {
     fetch(`http://localhost:3003/post/delete-post/${id}`, {
@@ -275,7 +299,7 @@ function Comunidad() {
                       <div className='container contenedorModal'>
                         <textarea className='modalEstilo '
                           value={nuevoContenido}
-                          onChange={handleTextareaChange}
+                          onChange={handlePostChange}
                           placeholder='Edita tu publicación... '
                         >
                         </textarea>  
@@ -357,19 +381,33 @@ function Comunidad() {
                             {authState.username === comentario.username && authState.role === "user" && (
                               <>
                                 {editModeComentario.id === comentario.id ? (
-                                  <span className="material-symbols-outlined" onClick={() => editarComentario(comentario.id)}
-                                    style={{ cursor: 'pointer' }}>
+                                  <span className="material-symbols-outlined" onClick={() => activarEdicionComentario(comentario.id, comentario.comment)}>
                                     edit_square
                                   </span>
                                 ) : (
-                                  <span className="material-symbols-outlined" onClick={() => activarEdicionComentario(comentario.id, comentario.comment)}
-                                    style={{ cursor: 'pointer' }}>
+                                  <span className="material-symbols-outlined" onClick={() => activarEdicionComentario(comentario.id, comentario.comment)}>
                                     edit_square
                                   </span>
                                 )}
                               </>
                             )}
                           </div>
+
+                          {mostrarModalComentario && (
+                      <div className='container contenedorModal'>
+                        <textarea className='modalEstilo '
+                          value={nuevoContenidoComentario}
+                          onChange={handleCommentChange}
+                          placeholder='Edita tu Comentario... '
+                        >
+                        </textarea>  
+                         <div className='contenedorCerrar'>
+                        <button className='aceptar_modal' onClick={aceptarEdicionComentario}>Aceptar</button>
+                        <button className='cerrar_modal' onClick={cancelarEdicionComentario}>Cancelar</button>
+                        </div>
+                      </div>
+
+                    )}
 
                           <div className='eliminarComentario'>
                             {authState.username === comentario.username && (
