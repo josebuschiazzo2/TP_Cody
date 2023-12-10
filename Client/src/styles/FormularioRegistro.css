@@ -1,3 +1,18 @@
+.registroExitoso{
+    background-color: #c5f89dd5;
+    position: relative;
+    margin: auto;
+    border-radius: 5px;
+    border: solid 1px green;
+    height: fit-content;
+    width: 80%;
+}
+.registroExitoso p{
+color: #000;
+padding: 3px;
+font-size: 1rem;
+font-family: Arial, Helvetica, sans-serif;
+}
 .error-message {
     color: #ca2233;
     position: absolute;

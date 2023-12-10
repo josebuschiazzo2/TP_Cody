@@ -1,6 +1,5 @@
 import '../styles/FormularioRegistro.css';
-import { useNavigate } from 'react-router-dom';
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
   ErrorMessage,
@@ -11,6 +10,7 @@ import {
 
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import { useSearchParams } from 'react-router-dom';
 
 const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 
@@ -71,8 +71,9 @@ const FormularioRegistro = () => {
       });
   
       if (response.ok) {  
-        alert('Registro exitoso')
-        navigate('/login');
+        // alert('Registro exitoso')
+        setLoginExitoso(true)
+
       } else {
         alert('El usuario ya existe o hubo un error en el registro');
       }
@@ -81,13 +82,18 @@ const FormularioRegistro = () => {
     }
   };
   
-  const navigate = useNavigate(); //2
-
+const [loginExitoso, setLoginExitoso] = useState(false)
   return (
     <section>
       <section className="registro_inicio">
         <Navbar />
         <section className="form">
+          {loginExitoso &&(
+            <div className='registroExitoso'>
+              <p className=''> ¡Registro Exitoso! Ahora eres parte de nuestra comunidad, donde podrás explorar y compartir información 
+fascinante sobre la Antártida. Inicia sesión ahora para explorar la comunidad de Cody.</p>
+            </div>
+          )}
           <div className="titulo">
             <h3>Formulario de Registro</h3>
           </div>
