@@ -40,7 +40,7 @@ export class CommentController {
   @Delete('delete-comment/:id')
   @UseGuards(AuthGuard)
   remove(@Param('id') id: number, @Req() request) {
-    if (request.user.role === Role.USER ) {
+    if (request.user.role === Role.USER || request.user.role === Role.ADMIN) {
       return this.commentService.remove(id);
     } else {
       return '***access unauthorized***';

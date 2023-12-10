@@ -418,6 +418,18 @@ function Comunidad() {
                               </>
                             )}
                           </div>
+                          <div className='eliminarComentario'>
+                            {authState.role === "admin" && (
+                              <>
+                                <button className={"trashCan"} onClick={() => eliminarComentario(comentario.id)}>
+                                  <span className="material-symbols-outlined">delete</span>
+                                </button>
+                              </>
+                            )}
+                          </div>
+
+
+
                         </div>
                       </div>
                     </div>
