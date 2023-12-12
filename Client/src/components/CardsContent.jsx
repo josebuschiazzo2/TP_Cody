@@ -13,6 +13,7 @@ import Camara from '../images/CamaraSmall.jpg';
 import Carlini from '../images/CarliniSmall.jpg';
 import Decepcion from '../images/DecepcionSmall.jpg';
 import Esperanza from '../images/EsperanzaSmall.jpg';
+import Mapa from '../images/mapa.png';
 import Marambio from '../images/MarambioSmall.jpg';
 import Matienzo from '../images/MatienzoSmall.jpg';
 import Melchior from '../images/MelchiorSmall.jpg';
@@ -65,6 +66,11 @@ const CardsContent = () => {
             mientras que las temporales se activan solo en verano. Dos de estas bases, Carlini y Brown, están bajo la tutela de la Cancillería,
              mientras que el resto de nuestras bases son atendidas por el Comando Conjunto Antártico del Ministerio de Defensa.
            Nuestras bases son piezas únicas, inscribiendo la esencia argentina en la tierra que abraza el hielo sin fin.</h4>
+           <div> 
+            <div>
+            <img src={Mapa} alt="Mapa de Bases Antárticas Argentinas" />
+            </div>     
+        </div> 
         </div>
 
         <a href="#BaseAntartica" onClick={() => handleButtonClick(<LazyBaseCarlini />)}>

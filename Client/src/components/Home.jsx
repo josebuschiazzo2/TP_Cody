@@ -8,7 +8,7 @@ function Home() {
     <div id='Home'>
         <Navbar claseHome="hidden"/> 
         <Carousel/>
-        
+        <img id="mapa" src="/TP_cody2/TP_Cody/Client/src/styles/mapa.jpg" alt="" />
         <CardsContent/>
         <Footer/>
     </div>
