@@ -13,7 +13,7 @@ import Camara from '../images/CamaraSmall.jpg';
 import Carlini from '../images/CarliniSmall.jpg';
 import Decepcion from '../images/DecepcionSmall.jpg';
 import Esperanza from '../images/EsperanzaSmall.jpg';
-import Mapa from '../images/mapa.png';
+import Mapa from '../images/Mapa.png';
 import Marambio from '../images/MarambioSmall.jpg';
 import Matienzo from '../images/MatienzoSmall.jpg';
 import Melchior from '../images/MelchiorSmall.jpg';
@@ -60,12 +60,11 @@ const CardsContent = () => {
 
       <div id="cards" className='container'>
         <div className='bases'>
-          <h3> Bases Antárticas Argentinas</h3>
-          <h4 className='infoHome'>En la vastedad de la Antártida, Argentina gestiona 13 bases, donde la magia del hielo se entrelaza con la investigación científica,
+          <h3 className='infoHome'>En la vastedad de la Antártida, Argentina gestiona 13 bases, donde la magia del hielo se entrelaza con la investigación científica,
            la preservación del medio ambiente y la cooperación internacional. Seis de ellas son permanentes, llevando a cabo sus actividades durante todo el año,
             mientras que las temporales se activan solo en verano. Dos de estas bases, Carlini y Brown, están bajo la tutela de la Cancillería,
              mientras que el resto de nuestras bases son atendidas por el Comando Conjunto Antártico del Ministerio de Defensa.
-           Nuestras bases son piezas únicas, inscribiendo la esencia argentina en la tierra que abraza el hielo sin fin.</h4>
+           Nuestras bases son piezas únicas, inscribiendo la esencia argentina en la tierra que abraza el hielo sin fin.</h3>
            <div> 
             <div>
             <img src={Mapa} alt="Mapa de Bases Antárticas Argentinas" />
